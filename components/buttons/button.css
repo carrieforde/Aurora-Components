@@ -30,39 +30,63 @@
 
 .button:hover,
 .button:active {
-	background-color: #777;
+	background-color: #adadad;
 }
 
-/* Size styles */
-.button.button-sm {
+/*
+* Button Sizes
+*/
+.button-sm {
 	font-size: 0.8em;
 }
 
-.button.button-md {
+.button-md {
 	font-size: 1.2em;
 }
 
-.button.button-lg {
+.button-lg {
 	font-size: 1.4em;
 }
 
-/* Type styles */
-.button.button-primary {
+/*
+ * Button Styles
+ */
+.button-primary {
 	background-color: #3d96b6;
 }
 
-.button.button-info {
+.button-primary:hover {
+	background-color: #64abc5;
+}
+
+.button-info {
 	background-color: #070607;
 }
 
-.button.button-success {
+.button-info:hover {
+	background-color: #393839;
+}
+
+.button-success {
 	background-color: #48a86f;
 }
 
-.button.button-warning {
+.button-success:hover {
+	background-color: #6db98c;
+}
+
+.button-warning {
 	background-color: #c59737;
 }
 
-.button.button-danger {
+.button-warning:hover {
+	background-color: #d1ac5f;
+}
+
+.button-danger {
 	background-color: #f44336;
+}
+
+.button-danger:hover {
+	background-color: #f6695e;
 }
