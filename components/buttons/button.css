@@ -2,6 +2,18 @@
  * Button
  */
 
+/*
+ * Button Palette - from http://colormind.io/bootstrap/
+ *
+ * Default: #999 / #777
+ * Primary: #3d96b6
+ * Info: #070607
+ * Success: #48a86f
+ * Warning: #c59737
+ * Danger: #f44336
+ */
+
+
 .button,
 .button:visited {
 	background-color: #999;
@@ -18,4 +30,36 @@
 .button:hover,
 .button:active {
 	background-color: #777;
+}
+
+.button.button-sm {
+	font-size: 0.8em;
+}
+
+.button.button-md {
+	font-size: 1.2em;
+}
+
+.button.button-lg {
+	font-size: 1.4em;
+}
+
+.button.button-primary {
+	background-color: #3d96b6;
+}
+
+.button.button-info {
+	background-color: #070607;
+}
+
+.button.button-success {
+	background-color: #48a86f;
+}
+
+.button.button-warning {
+	background-color: #c59737;
+}
+
+.button.button-danger {
+	background-color: #f44336;
 }
