@@ -1,0 +1,21 @@
+/*
+ * Button
+ */
+
+.button,
+.button:visited {
+	background-color: #999;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1em;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover,
+.button:active {
+	background-color: #777;
+}
