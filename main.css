@@ -1,0 +1,32 @@
+/**
+ * Main styles shared across components
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.site-header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu__item {
+	display: inline-block;
+}
+
+.page {
+	padding: 20px;
+}
