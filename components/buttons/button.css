@@ -13,11 +13,12 @@
  * Danger: #f44336
  */
 
-
+/* Default styles */
 .button,
 .button:visited {
 	background-color: #999;
 	border: none;
+	border-radius: 4px;
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -32,6 +33,7 @@
 	background-color: #777;
 }
 
+/* Size styles */
 .button.button-sm {
 	font-size: 0.8em;
 }
@@ -44,6 +46,7 @@
 	font-size: 1.4em;
 }
 
+/* Type styles */
 .button.button-primary {
 	background-color: #3d96b6;
 }
