@@ -13,10 +13,22 @@
 	padding: 0;
 }
 
+.accordion__nav h2 {
+	cursor: default;
+}
+
 .accordion__content {
-	display: none;
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	visibility: hidden;
 }
 
 .is-active .accordion__content {
-	display: block;
+	max-height: 100vh;
+	opacity: 1;
+	transition: all 0.3s ease-in-out;
+	transition-delay: 0.2s;
+	visibility: visible;
 }
