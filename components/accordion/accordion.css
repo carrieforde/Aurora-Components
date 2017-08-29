@@ -2,19 +2,29 @@
  * Accordion Styles
  */
 
-.accordion {
-	border: 1px solid #ccc;
+/* .accordion {
+	
 	padding: 25px;
-}
+} */
 
 .accordion__nav {
+	border: 1px solid #ccc;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
+.accordion__nav li {
+	padding: 20px 25px;
+}
+
+.accordion__nav li + li {
+	border-top: 1px solid #ccc;
+}
+
 .accordion__nav h2 {
 	cursor: default;
+	margin: 0;
 }
 
 .accordion__content {
