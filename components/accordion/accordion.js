@@ -5,7 +5,7 @@
 
 	// Get global variables.
 	var accordion = document.getElementById( 'accordion' ),
-		headings  = accordion.querySelectorAll( 'h2' );
+		items     = accordion.querySelectorAll( 'li' );
 
 	/**
 	 * Show content of currently selected accordion tab.
@@ -14,16 +14,15 @@
 	var showContent = function() {
 
 		// Get local variables.
-		var currentActive = document.querySelector( '.is-active' ),
-			parentLi      = this.parentNode;
+		var currentActive = document.querySelector( '.is-active' );
 
 		// Remove & add is-active class accordingly.
 		currentActive.classList.remove( 'is-active' );
-		parentLi.classList.add( 'is-active' );
+		this.classList.add( 'is-active' );
 	};
 
 	// Add event listeners.
-	for ( var i = 0; i < headings.length; i++ ) {
-		headings[i].addEventListener( 'click', showContent );
+	for ( var i = 0; i < items.length; i++ ) {
+		items[i].addEventListener( 'click', showContent );
 	}
 })( window );
