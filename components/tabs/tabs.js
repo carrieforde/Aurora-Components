@@ -7,7 +7,6 @@
 	var component = document.getElementById( 'tabs' ),
 		tabs      = component.querySelectorAll( 'li' );
 
-	
 	/**
 	 * Show tab content based on selected tab.
 	 * 
