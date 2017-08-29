@@ -27,6 +27,10 @@ body {
 	display: inline-block;
 }
 
+.menu__item + .menu__item {
+	margin-left: 20px;
+}
+
 .page {
 	padding: 20px;
 }
