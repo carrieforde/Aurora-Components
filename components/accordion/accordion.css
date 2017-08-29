@@ -1,0 +1,22 @@
+/**
+ * Accordion Styles
+ */
+
+.accordion {
+	border: 1px solid #ccc;
+	padding: 25px;
+}
+
+.accordion__nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.accordion__content {
+	display: none;
+}
+
+.is-active .accordion__content {
+	display: block;
+}
