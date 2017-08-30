@@ -12,7 +12,7 @@
 	 */
 	var changeSlide = function() {
 		 
-		var slides = document.querySelectorAll( '.carousel__image' ),
+		var slides = document.querySelectorAll( '.carousel__slide' ),
 			activeSlide,
 			newSlide;
 
