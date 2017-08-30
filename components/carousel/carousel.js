@@ -4,7 +4,7 @@
 ( function( window ) {
 
 	// Get global variables.
-	var thumbs = document.querySelectorAll( 'li' );
+	var thumbs = document.querySelectorAll( '.carousel__nav li' );
 
 	/**
 	 * Change slides when thumbnail is clicked.
