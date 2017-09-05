@@ -21,7 +21,13 @@
 		var tabID         = this.querySelector( 'a' ).getAttribute( 'href' ),
 			activeTab     = document.querySelector( 'li.is-active' ),
 			activeContent = document.querySelector( '.tabs__content.is-active' ),
-			newContent    = document.getElementById( tabID );
+			newContent;
+
+		// Strip # from href.
+		tabID = tabID.substring( 1, tabID.length );
+
+		// Pass tabID to get new tab.
+		newContent = document.getElementById( tabID );
 
 		// Remove class from previously selected tab & tab content.
 		activeTab.classList.remove( 'is-active' );
