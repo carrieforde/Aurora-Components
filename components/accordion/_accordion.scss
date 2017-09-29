@@ -1,21 +1,19 @@
 //--------------------------------------------------------------
 // ACCORDION
 //--------------------------------------------------------------
-$accordion__border: 1px solid #ccc;
-
 .accordion {
 	
 	// .accordion__nav
 	&__nav {
 		@include list-reset;
 		
-		border: $accordion__border;
+		border: $border__default;
 
 		li {
 			padding: rem(20);
 
 			+ li {
-				border-top: $accordion__border;
+				border-top: $border__default;
 			}
 		}
 

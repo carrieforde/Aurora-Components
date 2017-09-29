@@ -2,11 +2,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  border: 1px solid #ccc; }
+  border: 1px solid #999; }
   .accordion__nav li {
     padding: 1.25rem; }
     .accordion__nav li + li {
-      border-top: 1px solid #ccc; }
+      border-top: 1px solid #999; }
   .accordion__nav h2 {
     cursor: default;
     margin: 0; }
@@ -138,6 +138,67 @@ input[type="file"],
   .carousel img {
     height: auto;
     max-width: 100%; }
+
+.tabs {
+  margin-top: 2.5rem; }
+  .tabs__nav {
+    border: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; }
+    @media only screen and (min-width: 600px) {
+      .tabs__nav {
+        border: 0;
+        flex-direction: row; } }
+    .tabs__nav li {
+      border-top: 0; }
+      .tabs__nav li.is-active a {
+        color: #e5346c;
+        font-weight: 600; }
+      @media only screen and (max-width: 599px) {
+        .tabs__nav li {
+          border-bottom: 0; }
+          .tabs__nav li + li, .tabs__nav li:first-of-type {
+            border-top: 1px solid #999; }
+          .tabs__nav li.is-active {
+            margin-bottom: -0.0625rem;
+            order: 1; }
+          .tabs__nav li:first-of-type + li {
+            border-top: 0; } }
+      @media only screen and (min-width: 600px) {
+        .tabs__nav li.is-active {
+          background-color: #fff;
+          border: 1px solid #999;
+          border-bottom: 0;
+          margin-bottom: -0.0625rem;
+          position: relative; } }
+    .tabs__nav a {
+      color: #999;
+      display: block;
+      padding: 0.625rem 0.9375rem;
+      text-decoration: none; }
+    .tabs__nav.tabs--vertical {
+      display: flex;
+      margin-top: 3.75rem; }
+      .tabs__nav.tabs--vertical__nav {
+        flex: 0 1 25%;
+        flex-direction: column;
+        text-align: right; }
+        .tabs__nav.tabs--vertical__nav li.is-active {
+          border: 1px solid #999;
+          border-right: 0;
+          margin-bottom: 0;
+          margin-right: -0.0625rem; }
+  .tabs__content {
+    background-color: #fff;
+    border: 1px solid #999;
+    display: none;
+    padding: 1.25rem; }
+    .tabs__content.is-active {
+      display: block; }
 
 * {
   box-sizing: border-box; }
