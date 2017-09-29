@@ -9,3 +9,47 @@
 
 // Components
 @import '../../components/accordion/accordion';
+
+
+// General page styles (for now)
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5em;
+}
+
+.site-header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu__item {
+	display: inline-block;
+}
+
+.menu__item + .menu__item {
+	margin-left: 20px;
+}
+
+.page {
+	padding: 20px;
+}
