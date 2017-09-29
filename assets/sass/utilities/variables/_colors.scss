@@ -1,64 +1,18 @@
 //--------------------------------------------------------------
 // COLORS
 //--------------------------------------------------------------
-
-$colors: (
-	charcoal: #424143,
-	mine-shaft: #323132,
-	razzmatazz: #e5346c,
-	classic-rose: #eac5de,
-	ocean-boat-blue: #0075c4,
-	honey-flower: #461775,
-	dark-pastel-green: #04be51,
-	lightening-yellow: #ffc417,
-	neon-carrot: #ff9a3d,
-	french-gray: #bdbec0,
-	white-smoke: #eee,
-	white: #fff
-);
+$colors: map-merge($brand-colors, map-merge($neutral-colors, $utility-colors));
 
 
 //-----------------------------------------
-// Color Variables
+// Variables
 //-----------------------------------------
-$color__default: color(default, $neutral-colors);
-$color__primary: color(primary, $brand-colors);
-$color__secondary: color(secondary, $brand-colors);
-$color__black: color(black, $neutral-colors);
-$color__white: color(white, $neutral-colors);
-$color__info: color(info, $utility-colors);
-$color__warning: color(warning, $utility-colors);
-$color__danger: color(danger, $utility-colors);
-$color__success: color(success, $utility-colors);
-
-
-//-----------------------------------------
-// Global Elements
-//-----------------------------------------
-$color__background-color: color(white);
-
-
-//-----------------------------------------
-// Buttons
-//-----------------------------------------
-$color__button-background: color(razzmatazz);
-$color__background-hover: rgba(color(razzmatazz), 0.2);
-
-
-//-----------------------------------------
-// Forms
-//-----------------------------------------
-$color__forms-text: color(charcoal);
-$color__forms-border: color(french-gray);
-$color__forms-border-focus: color(charcoal);
-
-
-//-----------------------------------------
-// Typography
-//-----------------------------------------
-$color__body-text: color(charcoal);
-$color__headings: color(mine-shaft);
-$color__hr: color(french-gray);
-$color__link: color(razzmatazz);
-$color__link-hover: rgba(color(razzmatazz), 0.2);
-$color__ins: color(lightening-yellow);
+$color__default: color(mid-gray);
+$color__primary: color(primary);
+$color__secondary: color(secondary);
+$color__black: color(black);
+$color__white: color(white);
+$color__info: color(info);
+$color__warning: color(warning);
+$color__danger: color(danger);
+$color__success: color(success);

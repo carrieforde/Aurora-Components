@@ -78,11 +78,11 @@ input[type="file"],
   .button.button--primary:hover, .button.button--primary:active, .button.button--primary:focus {
     background-color: rgba(229, 52, 108, 0.8); }
 .button.button--info {
-  background-color: #424143; }
+  background-color: #0075c4; }
   .button.button--info:visited {
-    background-color: #424143; }
+    background-color: #0075c4; }
   .button.button--info:hover, .button.button--info:active, .button.button--info:focus {
-    background-color: rgba(66, 65, 67, 0.8); }
+    background-color: rgba(0, 117, 196, 0.8); }
 .button.button--success {
   background-color: #04be51; }
   .button.button--success:visited {
@@ -203,16 +203,15 @@ input[type="file"],
 * {
   box-sizing: border-box; }
 
-body {
-  font-family: 'Roboto', sans-serif; }
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Fira Sans, sans-serif; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 0.5em; }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .hfrom {
+  margin: 0 0 0 0.5em; }
 
 .site-header {
   align-items: center;

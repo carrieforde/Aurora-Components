@@ -5,8 +5,8 @@
 $body-type: (
 	body-family: #{'Fira Sans', sans-serif},
 	body-line-height: 1.6,
-	body-weight: 400,
-	body-size: $base-context * 1px
+	body-size: $base-context * 1px,
+	body-weight: 400
 );
 
 $heading-type: (
@@ -18,6 +18,6 @@ $heading-type: (
 $code-type: (
 	code-family: #{'Fira Mono', monospace},
 	code-line-height: map-get($body-type, body-line-height),
-	code-weight: map-get($body-type, body-weight),
-	code-size: map-get($body-type, body-size) * 0.8em
+	code-size: map-get($body-type, body-size) * 0.8em,
+	code-weight: map-get($body-type, body-weight)
 )

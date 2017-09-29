@@ -18,17 +18,21 @@
 	box-sizing: border-box;
 }
 
-body {
-	font-family: 'Roboto', sans-serif;
+body,
+button,
+input,
+select,
+textarea {
+	font-family: $font__body;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5em;
+#{headings(1, 6)}{
+	@if ($font__headings-line-height != $font__body-line-height) {
+
+		line-height: $font__headings-line-height;
+	}
+
+	margin: 0 0 0 0.5em;
 }
 
 .site-header {
