@@ -23,6 +23,85 @@
     transition-delay: 0.2s;
     visibility: visible; }
 
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="file"],
+.button {
+  background-color: #999;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out; }
+  button:visited,
+  input[type="button"]:visited,
+  input[type="reset"]:visited,
+  input[type="submit"]:visited,
+  input[type="file"]:visited,
+  .button:visited {
+    background-color: #999; }
+  button:hover, button:active, button:focus,
+  input[type="button"]:hover,
+  input[type="button"]:active,
+  input[type="button"]:focus,
+  input[type="reset"]:hover,
+  input[type="reset"]:active,
+  input[type="reset"]:focus,
+  input[type="submit"]:hover,
+  input[type="submit"]:active,
+  input[type="submit"]:focus,
+  input[type="file"]:hover,
+  input[type="file"]:active,
+  input[type="file"]:focus,
+  .button:hover,
+  .button:active,
+  .button:focus {
+    background-color: #adadad; }
+
+.button.button--small {
+  font-size: 0.8em; }
+.button.button--md {
+  font-size: 1.2em; }
+.button.button--lg {
+  font-size: 1.4em; }
+
+.button.button--primary {
+  background-color: #e5346c; }
+  .button.button--primary:visited {
+    background-color: #e5346c; }
+  .button.button--primary:hover, .button.button--primary:active, .button.button--primary:focus {
+    background-color: rgba(229, 52, 108, 0.8); }
+.button.button--info {
+  background-color: #424143; }
+  .button.button--info:visited {
+    background-color: #424143; }
+  .button.button--info:hover, .button.button--info:active, .button.button--info:focus {
+    background-color: rgba(66, 65, 67, 0.8); }
+.button.button--success {
+  background-color: #04be51; }
+  .button.button--success:visited {
+    background-color: #04be51; }
+  .button.button--success:hover, .button.button--success:active, .button.button--success:focus {
+    background-color: rgba(4, 190, 81, 0.8); }
+.button.button--warning {
+  background-color: #ffc417; }
+  .button.button--warning:visited {
+    background-color: #ffc417; }
+  .button.button--warning:hover, .button.button--warning:active, .button.button--warning:focus {
+    background-color: rgba(255, 196, 23, 0.8); }
+.button.button--danger {
+  background-color: #ff3505; }
+  .button.button--danger:visited {
+    background-color: #ff3505; }
+  .button.button--danger:hover, .button.button--danger:active, .button.button--danger:focus {
+    background-color: rgba(255, 53, 5, 0.8); }
+
 * {
   box-sizing: border-box; }
 

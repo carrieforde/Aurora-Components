@@ -19,6 +19,20 @@ $colors: (
 
 
 //-----------------------------------------
+// Color Variables
+//-----------------------------------------
+$color__default: color(default, $neutral-colors);
+$color__primary: color(primary, $brand-colors);
+$color__secondary: color(secondary, $brand-colors);
+$color__black: color(black, $neutral-colors);
+$color__white: color(white, $neutral-colors);
+$color__info: color(info, $utility-colors);
+$color__warning: color(warning, $utility-colors);
+$color__danger: color(danger, $utility-colors);
+$color__success: color(success, $utility-colors);
+
+
+//-----------------------------------------
 // Global Elements
 //-----------------------------------------
 $color__background-color: color(white);
