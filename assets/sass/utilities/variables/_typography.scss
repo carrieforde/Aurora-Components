@@ -1,21 +1,14 @@
 //--------------------------------------------------------------
 // TYPOGRAPHY
 //--------------------------------------------------------------
-
-
-//-----------------------------------------
-// Font Palette
-//-----------------------------------------
-$fira-sans: 'Fira Sans', sans-serif;
-$fira-sans-extra-condensed: 'Fira Sans Extra Condensed', sans-serif;
-
+$typography: map-merge($body-type, map-merge($heading-type, $code-type));
 
 //-----------------------------------------
 // Typography Config
 //-----------------------------------------
-$font__body: $fira-sans-extra-condensed;
-$font__body-line-height: 1.6;
-$font__body-weight: 400;
-$font__body-size: $base-context * 1px;
-$font__headings: $fira-sans;
-
+$font__body: type(body-family);
+$font__body-line-height: type(body-line-height);
+$font__body-weight: type(body-weight);
+$font__body-size: type(body-size);
+$font__headings: type(heading-family);
+$font__headings-line-height: type(heading-line-height);

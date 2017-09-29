@@ -1,0 +1,23 @@
+//--------------------------------------------------------------
+// TYPOGRAPHY
+//--------------------------------------------------------------
+
+$body-type: (
+	body-family: #{'Fira Sans', sans-serif},
+	body-line-height: 1.6,
+	body-weight: 400,
+	body-size: $base-context * 1px
+);
+
+$heading-type: (
+	heading-family: #{'Fira Sans Extra Condensed', san-serif},
+	heading-line-height: map-get($body-type, body-line-height),
+	heading-weight: map-get($body-type, body-weight)
+);
+
+$code-type: (
+	code-family: #{'Fira Mono', monospace},
+	code-line-height: map-get($body-type, body-line-height),
+	code-weight: map-get($body-type, body-weight),
+	code-size: map-get($body-type, body-size) * 0.8em
+)
