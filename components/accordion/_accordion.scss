@@ -8,7 +8,7 @@ $accordion__border: 1px solid #ccc;
 	// .accordion__nav
 	&__nav {
 		@include list-reset;
-
+		
 		border: $accordion__border;
 
 		li {
