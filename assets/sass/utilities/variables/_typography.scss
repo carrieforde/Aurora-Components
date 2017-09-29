@@ -1,0 +1,21 @@
+//--------------------------------------------------------------
+// TYPOGRAPHY
+//--------------------------------------------------------------
+
+
+//-----------------------------------------
+// Font Palette
+//-----------------------------------------
+$fira-sans: 'Fira Sans', sans-serif;
+$fira-sans-extra-condensed: 'Fira Sans Extra Condensed', sans-serif;
+
+
+//-----------------------------------------
+// Typography Config
+//-----------------------------------------
+$font__body: $fira-sans-extra-condensed;
+$font__body-line-height: 1.6;
+$font__body-weight: 400;
+$font__body-size: $base-context * 1px;
+$font__headings: $fira-sans;
+

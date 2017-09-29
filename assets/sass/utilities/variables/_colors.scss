@@ -1,0 +1,50 @@
+//--------------------------------------------------------------
+// COLORS
+//--------------------------------------------------------------
+
+$colors: (
+	charcoal: #424143,
+	mine-shaft: #323132,
+	razzmatazz: #e5346c,
+	classic-rose: #eac5de,
+	ocean-boat-blue: #0075c4,
+	honey-flower: #461775,
+	dark-pastel-green: #04be51,
+	lightening-yellow: #ffc417,
+	neon-carrot: #ff9a3d,
+	french-gray: #bdbec0,
+	white-smoke: #eee,
+	white: #fff
+);
+
+
+//-----------------------------------------
+// Global Elements
+//-----------------------------------------
+$color__background-color: color(white);
+
+
+//-----------------------------------------
+// Buttons
+//-----------------------------------------
+$color__button-background: color(razzmatazz);
+$color__background-hover: rgba(color(razzmatazz), 0.2);
+
+
+//-----------------------------------------
+// Forms
+//-----------------------------------------
+$color__forms-text: color(charcoal);
+$color__forms-border: color(french-gray);
+$color__forms-border-focus: color(charcoal);
+
+
+//-----------------------------------------
+// Typography
+//-----------------------------------------
+$color__body-text: color(charcoal);
+$color__headings: color(mine-shaft);
+$color__hr: color(french-gray);
+$color__link: color(razzmatazz);
+$color__link-hover: rgba(color(razzmatazz), 0.2);
+$color__ins: color(lightening-yellow);
