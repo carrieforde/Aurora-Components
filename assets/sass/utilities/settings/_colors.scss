@@ -8,17 +8,17 @@ $brand-colors: (
 );
 
 $neutral-colors: (
-	default: #999,
 	black: #000,
-	white: #fff,
 	dark-gray: #333,
 	mid-dark-gray: #666,
+	mid-gray: #999,
 	mid-light-gray: #ccc,
-	light-gray: #eee
+	light-gray: #eee,
+	white: #fff
 );
 
 $utility-colors: (
-	info: #424143,
+	info: #0075c4,
 	success: #04be51,
 	warning: #ffc417,
 	danger: #ff3505
