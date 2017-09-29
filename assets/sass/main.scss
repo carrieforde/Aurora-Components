@@ -27,10 +27,8 @@ textarea {
 }
 
 #{headings(1, 6)}{
-	@if ($font__headings-line-height != $font__body-line-height) {
-
-		line-height: $font__headings-line-height;
-	}
+	
+	@include prop-check($font__headings-line-height, $font__body-line-height, line-height);
 
 	margin: 0 0 0 0.5em;
 }
