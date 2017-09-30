@@ -14,6 +14,10 @@ textarea {
 	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body;
 }
 
+:focus {
+	outline: $border__outline-color;
+}
+
 
 //-----------------------------------------
 // Headings

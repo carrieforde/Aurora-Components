@@ -1,0 +1,57 @@
+//--------------------------------------------------------------
+// FORMS
+//--------------------------------------------------------------
+form {
+
+	ul {
+		@include list-reset;
+	}
+
+	li {
+
+		+ li {
+			margin-top: rem(20);
+		}
+	}
+}
+
+label {
+	display: block;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea {
+	border: $border__forms;
+	max-width: 100%;
+	width: 100%;
+
+	&:focus {
+		outline-offset: -1px;
+	}
+
+	&.invalid {
+		border-color: $border__invalid;
+	}
+
+	&.valid {
+		border-color: $border__valid;
+	}
+}
+
+fieldset {
+	border: $border__forms;
+}

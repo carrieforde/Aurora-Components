@@ -1,3 +1,150 @@
+html {
+  font-size: 16px; }
+
+body,
+button,
+input,
+select,
+textarea {
+  color: #333;
+  font: 400 16px/1.6 Fira Sans Extra Condensed, san-serif; }
+
+:focus {
+  outline: #e5346c; }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .hfrom {
+  font-family: Fira Sans, sans-serif;
+  margin: 0 0 0.5em; }
+
+p {
+  margin: 0 0 1.5em; }
+
+a {
+  color: #e5346c;
+  transition: color 0.3s ease-in-out; }
+  a:visited {
+    color: #e5346c; }
+  a:hover, a:active, a:focus {
+    color: #eac5de; }
+
+ins,
+mark {
+  background-color: #ffc417;
+  text-decoration: none; }
+
+abbr {
+  cursor: help; }
+
+kbd,
+code,
+pre,
+samp,
+tt,
+var {
+  font: 400 0.8em/1.6 Fira Mono, monospace; }
+
+pre {
+  overflow-x: scroll;
+  margin: 0 0 2em; }
+
+blockquote {
+  font-size: 1.25em; }
+  blockquote cite {
+    display: block;
+    font-size: 0.8em; }
+
+cite {
+  font-weight: 700; }
+
+hr {
+  background-color: #999;
+  border: 0;
+  height: 2px; }
+
+form ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+form li + li {
+  margin-top: 1.25rem; }
+
+label {
+  display: block; }
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea {
+  border: 1px solid #999;
+  max-width: 100%;
+  width: 100%; }
+  input[type="color"]:focus,
+  input[type="date"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="email"]:focus,
+  input[type="month"]:focus,
+  input[type="number"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="text"]:focus,
+  input[type="time"]:focus,
+  input[type="url"]:focus,
+  input[type="week"]:focus,
+  input:not([type]):focus,
+  textarea:focus {
+    outline-offset: -1px; }
+  input[type="color"].invalid,
+  input[type="date"].invalid,
+  input[type="datetime"].invalid,
+  input[type="datetime-local"].invalid,
+  input[type="email"].invalid,
+  input[type="month"].invalid,
+  input[type="number"].invalid,
+  input[type="password"].invalid,
+  input[type="search"].invalid,
+  input[type="tel"].invalid,
+  input[type="text"].invalid,
+  input[type="time"].invalid,
+  input[type="url"].invalid,
+  input[type="week"].invalid,
+  input:not([type]).invalid,
+  textarea.invalid {
+    border-color: #ff3505; }
+  input[type="color"].valid,
+  input[type="date"].valid,
+  input[type="datetime"].valid,
+  input[type="datetime-local"].valid,
+  input[type="email"].valid,
+  input[type="month"].valid,
+  input[type="number"].valid,
+  input[type="password"].valid,
+  input[type="search"].valid,
+  input[type="tel"].valid,
+  input[type="text"].valid,
+  input[type="time"].valid,
+  input[type="url"].valid,
+  input[type="week"].valid,
+  input:not([type]).valid,
+  textarea.valid {
+    border-color: #04be51; }
+
+fieldset {
+  border: 1px solid #999; }
+
 .accordion__nav {
   list-style: none;
   margin: 0;
@@ -199,19 +346,6 @@ input[type="file"],
     padding: 1.25rem; }
     .tabs__content.is-active {
       display: block; }
-
-* {
-  box-sizing: border-box; }
-
-body,
-button,
-input,
-select,
-textarea {
-  font-family: Fira Sans Extra Condensed, san-serif; }
-
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .hfrom {
-  margin: 0 0 0 0.5em; }
 
 .site-header {
   align-items: center;
