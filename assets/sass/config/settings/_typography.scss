@@ -18,6 +18,6 @@ $heading-type: (
 $code-type: (
 	code-family: #{'Fira Mono', monospace},
 	code-line-height: map-get($body-type, body-line-height),
-	code-size: map-get($body-type, body-size) * 0.8em,
+	code-size: 0.8em,
 	code-weight: map-get($body-type, body-weight)
-)
+);
