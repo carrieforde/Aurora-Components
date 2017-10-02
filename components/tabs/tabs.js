@@ -4,42 +4,54 @@
 ( function( window ) {
 
 	// Set up global variables.
-	var component = document.getElementById( 'tabs' ),
-		tabs      = component.querySelectorAll( '.tabs__nav li' );
+	var tabs = document.querySelectorAll( '.tabs' );
 
 	/**
 	 * Show tab content based on selected tab.
 	 * 
 	 * @param  {any}  event 
 	 */
-	var showTabContent = function( event ) {
+	var showTabContent = function(el) {
 
 		// Prevent default action of following link.
 		event.preventDefault();
 
 		// Set up function variables.
-		var tabID         = this.querySelector( 'a' ).getAttribute( 'href' ),
-			activeTab     = document.querySelector( 'li.is-active' ),
-			activeContent = document.querySelector( '.tabs__content.is-active' ),
+		var	tabComponent  = el.parentElement.parentElement.parentElement,
+			tabID         = el.getAttribute('href'),
+			activeTab     = tabComponent.querySelector( 'li.is-active' ),
+			activeContent = tabComponent.querySelector( '.tabs__content.is-active' ),
 			newContent;
 
 		// Strip # from href.
 		tabID = tabID.substring( 1, tabID.length );
 
 		// Pass tabID to get new tab.
-		newContent = document.getElementById( tabID );
+		newContent = tabComponent.getElementById( tabID );
 
 		// Remove class from previously selected tab & tab content.
 		activeTab.classList.remove( 'is-active' );
 		activeContent.classList.remove( 'is-active' );
 		
 		// Add class to newly selected tab & tab content.
-		this.classList.add( 'is-active' );
+		el.parentElement.classList.add( 'is-active' );
 		newContent.classList.add( 'is-active' );
 	};
 
-	// Add event listener to individual tabs.
+	/**
+	 * Fires events based on event target.
+	 * 
+	 * @param {any} event 
+	 */
+	var fireEvents = function (event) {
+		
+		if (event.target.tagName.toLowerCase() === 'a') {
+			showTabContent(event.target);
+		}
+	}
+
+	// Add event listener to tab component(s).
 	for ( var i = 0; i < tabs.length; i++ ) {
-		tabs[i].addEventListener( 'click', showTabContent );
+		tabs[i].addEventListener( 'click', fireEvents );
 	}
 })( window );
