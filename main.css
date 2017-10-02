@@ -30,6 +30,7 @@ a {
 ins,
 mark {
   background-color: #ffc417;
+  color: #333;
   text-decoration: none; }
 
 abbr {
@@ -90,6 +91,23 @@ textarea {
   border: 1px solid #999;
   max-width: 100%;
   width: 100%; }
+  input[type="color"]:disabled,
+  input[type="date"]:disabled,
+  input[type="datetime"]:disabled,
+  input[type="datetime-local"]:disabled,
+  input[type="email"]:disabled,
+  input[type="month"]:disabled,
+  input[type="number"]:disabled,
+  input[type="password"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="text"]:disabled,
+  input[type="time"]:disabled,
+  input[type="url"]:disabled,
+  input[type="week"]:disabled,
+  input:not([type]):disabled,
+  textarea:disabled {
+    cursor: not-allowed; }
   input[type="color"].invalid,
   input[type="date"].invalid,
   input[type="datetime"].invalid,
@@ -147,6 +165,12 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
   display: inline-block; }
+  input[type="checkbox"]:disabled,
+  input[type="radio"]:disabled {
+    cursor: not-allowed; }
+    input[type="checkbox"]:disabled + label,
+    input[type="radio"]:disabled + label {
+      cursor: not-allowed; }
   input[type="checkbox"] + label,
   input[type="radio"] + label {
     display: inline-block;
