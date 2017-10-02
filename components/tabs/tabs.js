@@ -27,16 +27,30 @@
 		tabID = tabID.substring( 1, tabID.length );
 
 		// Pass tabID to get new tab.
-		newContent = tabComponent.getElementById( tabID );
+		newContent = document.getElementById( tabID );
 
 		// Remove class from previously selected tab & tab content.
 		activeTab.classList.remove( 'is-active' );
 		activeContent.classList.remove( 'is-active' );
 		
 		// Add class to newly selected tab & tab content.
-		el.parentElement.classList.add( 'is-active' );
-		newContent.classList.add( 'is-active' );
+		activateTab(el.parentElement, newContent);
 	};
+
+	/**
+	 * Update classes and attributes for active tab & panel.
+	 * 
+	 * @param {any} tab 
+	 * @param {any} panel 
+	 */
+	var activateTab = function (tab, panel) {
+		
+		tab.setAttribute('aria-selected', 'true');
+		tab.classList.add('is-active');
+		panel.removeAttribute('aria-hidden');
+		panel.setAttribute('aria-expanded', 'true');
+		panel.classList.add('is-active');
+	}
 
 	/**
 	 * Fires events based on event target.
