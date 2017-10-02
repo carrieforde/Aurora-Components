@@ -63,24 +63,6 @@
 			padding: rem(10) rem(15);
 			text-decoration: none;
 		}
-
-		&.tabs--vertical {
-			display: flex;
-			margin-top: rem(60);
-
-			&__nav {
-				flex: 0 1 25%;
-				flex-direction: column;
-				text-align: right;
-
-				li.is-active {
-					border: $border__default;
-					border-right: 0;
-					margin-bottom: 0;
-					margin-right: rem(-1);
-				}
-			}
-		}
 	}
 
 	// .tabs__content
@@ -92,6 +74,28 @@
 
 		&.is-active {
 			display: block;
+		}
+	}
+
+	&.tabs--vertical {
+		display: flex;
+		margin-top: rem(60);
+
+		.tabs__nav {
+			flex: 0 1 25%;
+			flex-direction: column;
+			text-align: right;
+
+			li.is-active {
+				border: $border__default;
+				border-right: 0;
+				margin-bottom: 0;
+				margin-right: rem(-1);
+			}
+		}
+
+		.tabs__content {
+			flex: 0 1 75%;
 		}
 	}
 }
