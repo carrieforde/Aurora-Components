@@ -39,6 +39,10 @@ textarea {
 	max-width: 100%;
 	width: 100%;
 
+	&:disabled {
+		cursor: not-allowed;
+	}
+
 	&.invalid {
 		border-color: $border__invalid;
 	}
@@ -57,6 +61,14 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
 	display: inline-block;
+
+	&:disabled {
+		cursor: not-allowed;
+
+		+ label {
+			cursor: not-allowed;
+		}
+	}
 
 	+ label {
 		display: inline-block;
