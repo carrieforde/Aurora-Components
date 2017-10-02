@@ -34,30 +34,30 @@
 				</header>
 				
 				<div class="component__content">
-					<div id="tabs" class="tabs">
+					<div id="tabs" class="tabs" role="tabset">
 						<ul class="tabs__nav">
-							<li class="is-active"><a href="#k2">K2</a></li>
-							<li><a href="#whitney">Whitney</a></li>
-							<li><a href="#minnie">Minnie</a></li>
-							<li><a href="#paul">Paul</a></li>
+							<li id="k2Tab" class="is-active" role="tab" aria-controls="k2" aria-selected="true"><a href="#k2">K2</a></li>
+							<li id="whitneyTab" role="tab" aria-controls="whitney" aria-selected="false"><a href="#whitney">Whitney</a></li>
+							<li id="minnieTab" role="tab" aria-controls="minnie" aria-selected="false"><a href="#minnie">Minnie</a></li>
+							<li id="paulTab" role="tab" aria-controls="paul" aria-selected="false"><a href="#paul">Paul</a></li>
 						</ul>
 
-						<div id="k2" class="tabs__content is-active">
+						<div id="k2" class="tabs__content is-active" role="tabpanel" aria-labelledby="k2Tab" aria-expanded="true">
 							<h2>K2</h2>
 							<p>K2 is the first cat I adopted.</p>
 						</div>
 
-						<div id="whitney" class="tabs__content">
+						<div id="whitney" class="tabs__content" role="tabpanel" aria-labelledby="whitneyTab" aria-hidden="true">
 							<h2>Whitney</h2>
 							<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
 						</div>
 
-						<div id="minnie" class="tabs__content">
+						<div id="minnie" class="tabs__content" role="tabpanel" aria-labelledby="minnieTab" aria-hidden="true">
 							<h2>Minnie</h2>
 							<p>Minnie is the third Forde family cat, and the first named after a city.</p>
 						</div>
 
-						<div id="paul" class="tabs__content">
+						<div id="paul" class="tabs__content" role="tabpanel" aria-labelledby="paulTab" aria-hidden="true">
 							<h2>Paul</h2>
 							<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
 						</div>
