@@ -22,6 +22,10 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
+
+	p {
+		margin-bottom: 0;
+	}
 }
 
 .menu {
@@ -40,4 +44,12 @@
 
 .page {
 	padding: 20px;
+}
+
+.component {
+	padding: rem(40) rem(20) rem(60);
+
+	@include media($tablet-portrait-up, null) {
+		padding: rem(60) rem(20) rem(90);
+	}
 }
