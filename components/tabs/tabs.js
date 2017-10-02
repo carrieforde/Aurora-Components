@@ -29,13 +29,27 @@
 		// Pass tabID to get new tab.
 		newContent = document.getElementById( tabID );
 
-		// Remove class from previously selected tab & tab content.
-		activeTab.classList.remove( 'is-active' );
-		activeContent.classList.remove( 'is-active' );
+		// Remove class from previously selected tab & tab content, update ARIA attributes.
+		deactivateTab(activeTab, activeContent);
 		
-		// Add class to newly selected tab & tab content.
+		// Add class to newly selected tab & tab content, update ARIA attributes.
 		activateTab(el.parentElement, newContent);
 	};
+
+	/**
+	 * Update classes and attributes for inactive tab & panel.
+	 * 
+	 * @param {any} tab 
+	 * @param {any} panel 
+	 */
+	var deactivateTab = function (tab, panel) {
+		
+		tab.setAttribute('aria-selected', 'false');
+		tab.classList.remove('is-active');
+		panel.removeAttribute('aria-expanded');
+		panel.setAttribute('aria-hidden', 'true');
+		panel.classList.remove('is-active');
+	}
 
 	/**
 	 * Update classes and attributes for active tab & panel.
