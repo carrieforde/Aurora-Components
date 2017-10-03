@@ -1,0 +1,117 @@
+//--------------------------------------------------------------
+// TYPOGRAPHY
+//--------------------------------------------------------------
+html {
+	font-size: $base-context * 1px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__body;
+	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body;
+}
+
+:focus {
+	outline-color: $border__outline-color;
+}
+
+
+//-----------------------------------------
+// Headings
+//-----------------------------------------
+#{headings(1, 6)} {
+	@include prop-check(color, $color__heading, $color__body);
+	@include prop-check(font-family, $font__heading, $font__body);
+	@include prop-check(font-weight, $font__heading-weight, $font__body-weight);
+	@include prop-check(line-height, $font__heading-line-height, $font__body-line-height);
+
+	margin: 0 0 0.5em;
+}
+
+h1,
+.h1 {}
+
+h2,
+.h2 {}
+
+h3,
+.h3 {}
+
+h4,
+.h4 {}
+
+h5,
+.h5 {}
+
+h6,
+.h6 {}
+
+
+//-----------------------------------------
+// Inline elements
+//-----------------------------------------
+p {
+	margin: 0 0 1.5em;
+}
+
+a {
+	color: $color__link;
+	transition: $transition__color;
+
+	&:visited {
+		color: $color__link;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: $color__link-hover;
+	}
+}
+
+ins,
+mark {
+	background-color: $color__ins;
+	color: $color__body;
+	text-decoration: none;
+}
+
+abbr {
+	cursor: help;
+}
+
+kbd,
+code,
+pre,
+samp,
+tt,
+var {
+	font: $font__code-weight #{$font__code-size}/#{$font__code-line-height} $font__code;
+}
+
+pre {
+	overflow-x: scroll;
+	margin: 0 0 2em;
+}
+
+blockquote {
+	font-size: 1.25em;
+
+	cite {
+		display: block;
+		font-size: 0.8em;
+	}
+}
+
+cite {
+	font-weight: 700;
+}
+
+hr {
+	background-color: $color__hr;
+	border: 0;
+	height: 2px;
+}

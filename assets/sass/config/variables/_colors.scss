@@ -1,0 +1,34 @@
+//--------------------------------------------------------------
+// COLORS
+//--------------------------------------------------------------
+$colors: map-merge($brand-colors, map-merge($neutral-colors, $utility-colors));
+
+
+//-----------------------------------------
+// Variables
+//-----------------------------------------
+$color__default: color(mid-gray);
+$color__primary: color(primary);
+$color__secondary: color(secondary);
+$color__black: color(black);
+$color__white: color(white);
+$color__dark-gray: color(dark-gray);
+$color__mid-dark-gray: color(mid-dark-gray);
+$color__mid-gray: color(mid-gray);
+$color__mid-light-gray: color(mid-light-gray);
+$color__light-gray: color(light-gray);
+$color__info: color(info);
+$color__warning: color(warning);
+$color__danger: color(danger);
+$color__success: color(success);
+
+
+//-----------------------------------------
+// Text Colors
+//-----------------------------------------
+$color__body: $color__dark-gray;
+$color__heading: $color__body;
+$color__link: $color__primary;
+$color__link-hover: $color__secondary;
+$color__ins: $color__warning;
+$color__hr: $color__default;

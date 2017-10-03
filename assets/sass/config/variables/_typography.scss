@@ -1,0 +1,19 @@
+//--------------------------------------------------------------
+// TYPOGRAPHY
+//--------------------------------------------------------------
+$typography: map-merge($body-type, map-merge($heading-type, $code-type));
+
+//-----------------------------------------
+// Variables
+//-----------------------------------------
+$font__body: type(body-family);
+$font__body-line-height: type(body-line-height);
+$font__body-size: type(body-size);
+$font__body-weight: type(body-weight);
+$font__heading: type(heading-family);
+$font__heading-line-height: type(heading-line-height);
+$font__heading-weight: type(heading-weight);
+$font__code: type(code-family);
+$font__code-line-height: type(code-line-height);
+$font__code-size: type(code-size);
+$font__code-weight: type(code-weight);

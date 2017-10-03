@@ -1,0 +1,16 @@
+//--------------------------------------------------------------
+// BORDERS
+//--------------------------------------------------------------
+
+$border__radius: 5px;
+$border__default: 1px solid $color__default;
+$border__outline-color: $color__primary;
+
+
+//-----------------------------------------
+// Forms Borders
+//-----------------------------------------
+$border__forms: $border__default;
+$border__forms-focus: $color__primary;
+$border__invalid: $color__danger;
+$border__valid: $color__success;

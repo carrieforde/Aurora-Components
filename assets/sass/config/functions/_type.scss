@@ -1,0 +1,27 @@
+//--------------------------------------------------------------
+// TYPE
+//--------------------------------------------------------------
+
+
+/// Gets the type settings from the typography Sass map.
+///
+/// @author Carrie Forde
+///
+/// @param {String } $key
+/// @param {Map} $map [$typography]
+///
+/// @example scss - Usage
+///   $font__body: type(font-body);
+///
+/// @example css - Output
+///   body {
+///     font-family: 'Fira Sans Extra Condensed', sans-serif;
+///   }
+///
+/// @return {string}
+
+
+@function type($key, $color-map: $typography) {
+
+	@return map-get($color-map, $key);
+}

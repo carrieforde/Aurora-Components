@@ -1,0 +1,55 @@
+//--------------------------------------------------------------
+// MAIN
+//
+// This is the mainifest for the project Sass.
+//--------------------------------------------------------------
+
+// Utilities
+@import 'config/index';
+
+// Elements
+@import 'elements/index';
+
+// Components
+@import '../../components/accordion/accordion';
+@import '../../components/buttons/buttons';
+@import '../../components/carousel/carousel';
+@import '../../components/tabs/tabs';
+
+// General page styles (for now)
+.site-header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu__item {
+	display: inline-block;
+}
+
+.menu__item + .menu__item {
+	margin-left: 20px;
+}
+
+.page {
+	padding: 20px;
+}
+
+.component {
+	padding: rem(40) rem(20) rem(60);
+
+	@include media($tablet-portrait-up, null) {
+		padding: rem(60) rem(20) rem(90);
+	}
+}

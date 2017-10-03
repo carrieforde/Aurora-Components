@@ -1,0 +1,42 @@
+//--------------------------------------------------------------
+// ACCORDION
+//--------------------------------------------------------------
+.accordion {
+	
+	// .accordion__nav
+	&__nav {
+		@include list-reset;
+		
+		border: $border__default;
+
+		li {
+			padding: rem(20);
+
+			+ li {
+				border-top: $border__default;
+			}
+		}
+
+		h3 {
+			cursor: default;
+			margin: 0;
+		}
+	}
+
+	// .accordion__content
+	&__content {
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: $transition__all;
+		visibility: hidden;
+
+		.is-active & {
+			max-height: 100vh;
+			opacity: 1;
+			transition: $transition__all;
+			transition-delay: 0.2s;
+			visibility: visible;
+		}
+	}
+} // .accordion

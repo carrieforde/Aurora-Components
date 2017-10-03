@@ -1,0 +1,35 @@
+//--------------------------------------------------------------
+// MEDIA 
+//--------------------------------------------------------------
+
+/// Pass Sass Map(s) or Number(s) to create custom media queries.
+///
+/// @author Carrie Forde
+///
+/// @param  {Number (with unit)}  $min  - The value for min-width.
+/// @param  {Number (with unit)}  $max  - The value for max-width.
+///
+/// @example - scss  Usage
+///   @include media(null, $tablet-portrait) {};
+///
+/// @example - css Output
+///   @media and screen (max-width: $tablet-portrait)
+///
+
+@mixin media($min, $max) {
+
+	// Create the media query.
+	@if $min == null {
+		@media only screen and (max-width: $max - 1) {
+			@content;
+		}
+	} @else if $max == null {
+		@media only screen and (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $min) and (max-width: $max - 1) {
+			@content;
+		}
+	}
+}

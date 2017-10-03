@@ -1,0 +1,19 @@
+//--------------------------------------------------------------
+// PROP CHECK
+//--------------------------------------------------------------
+
+/// Check if two values are the same before outputting unneeded CSS. Great for checking variables & inheritence.
+///
+/// @author Carrie Forde
+///
+/// @param {string}  $input      -  The variable or value to check.
+/// @param {string}  $reference  -  The variable or value against which you are checking.
+/// @param {string}  $prop       -  The property to set if $input and $reference are not equal.
+
+
+@mixin prop-check($prop, $input, $reference) {
+
+	@if ($input != $reference) {
+		#{$prop}: $input;
+	}
+}
