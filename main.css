@@ -189,7 +189,7 @@ fieldset {
     padding: 1.25rem; }
     .accordion__nav li + li {
       border-top: 1px solid #999; }
-  .accordion__nav h2 {
+  .accordion__nav h3 {
     cursor: default;
     margin: 0; }
 .accordion__content {
