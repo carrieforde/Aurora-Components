@@ -70,30 +70,30 @@
 					<h2>Vertical Tabs</h2>
 				</header>
 				<div class="component__content">
-					<div class="tabs tabs--vertical">
+					<div class="tabs tabs--vertical" role="tabset">
 						<ul class="tabs__nav">
-							<li class="is-active"><a href="#k2-2">K2</a></li>
-							<li><a href="#whitney-2">Whitney</a></li>
-							<li><a href="#minnie-2">Minnie</a></li>
-							<li><a href="#paul-2">Paul</a></li>
+							<li id="k2-2tab" class="is-active" role="tab" aria-controls="k2-2" aria-selected="true"><a href="#k2-2">K2</a></li>
+							<li id="whitney-2tab" role="tab" aria-controls="whitney-2" aria-selected="false"><a href="#whitney-2">Whitney</a></li>
+							<li id="minnie-2tab" role="tab" aria-controls="minnie-2" aria-selected="false"><a href="#minnie-2">Minnie</a></li>
+							<li id="paul-2tab" role="tab" aria-controls="paul-2" aria-selected="false"><a href="#paul-2">Paul</a></li>
 						</ul>
 
-						<div id="k2-2" class="tabs__content is-active">
+						<div id="k2-2" class="tabs__content is-active" role="tabpanel" aria-labelledby="k2-2tab" aria-expanded="true">
 							<h2>K2</h2>
 							<p>K2 is the first cat I adopted.</p>
 						</div>
 
-						<div id="whitney-2" class="tabs__content">
+						<div id="whitney-2" class="tabs__content" role="tabpanel" aria-labelledby="whitney-2tab" aria-hidden="true">
 							<h2>Whitney</h2>
 							<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
 						</div>
 
-						<div id="minnie-2" class="tabs__content">
+						<div id="minnie-2" class="tabs__content" role="tabpanel" aria-labelledby="minnie-2tab" aria-hidden="true">
 							<h2>Minnie</h2>
 							<p>Minnie is the third Forde family cat, and the first named after a city.</p>
 						</div>
 
-						<div id="paul-2" class="tabs__content">
+						<div id="paul-2" class="tabs__content" role="tabpanel" aria-labelledby="paul-2tab" aria-hidden="true">
 							<h2>Paul</h2>
 							<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
 						</div>
