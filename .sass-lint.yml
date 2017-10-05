@@ -33,8 +33,6 @@ rules:
       include: true
   border-zero:
     - 1
-    -
-      convention: 'none'
   brace-style:
     - 1
     -
@@ -102,9 +100,7 @@ rules:
     -
       order: 'alphabetical'
   quotes:
-    - 1
-    -
-      style: 'single'
+    - 0
   shorthand-values: 1
   single-line-per-selector: 1
   space-after-colon:
@@ -134,6 +130,9 @@ rules:
   variable-for-property:
     - 1
     -
+      'allowed-functions':
+        - 'color'
+        - 'rgba'
       'properties':
         - 'color'
         - 'font-family'
