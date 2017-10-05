@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 			target: {
 				files: [
 					{
-						src: ["dist/styles/*.css", "!*.min.css"],
+						src: ["*.css", "!*.min.css"],
 						dest: "dist/style.min.css",
 						ext: ".min.css"
 					}
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: "assets/",
 						src: ["icons/*.svg"],
-						dest: "svg/",
+						dest: "assets/icons/svg/",
 						flatten: true
 					}
 				]
