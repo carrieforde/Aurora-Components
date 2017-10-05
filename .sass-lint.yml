@@ -83,7 +83,7 @@ rules:
   no-color-keywords: 1
   no-duplicate-properties:
     exclude: []
-  no-empty-rulesets: 2
+  no-empty-rulesets: 1
   no-extends: 1
   no-ids: 1
   no-important: 2
