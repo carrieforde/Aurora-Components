@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					"dist/styles/style.css": "assets/sass/main.scss"
+					"style.css": "assets/sass/main.scss"
 				}
 			}
 		},
@@ -30,18 +30,18 @@ module.exports = function(grunt) {
 				]
 			},
 			dist: {
-				src: "dist/styles/*.css"
+				src: "styles/*.css"
 			}
 		},
 		sasslint: {
-			target: ["assets/sass/*.scss", "assets/sass/**/*.scss"]
+			target: ["assets/sass/*.scss", "assets/sass/**/*.scss", "components/**/*.scss"]
 		},
 		cssmin: {
 			target: {
 				files: [
 					{
 						src: ["dist/styles/*.css", "!*.min.css"],
-						dest: "dist/styles/style.min.css",
+						dest: "dist/style.min.css",
 						ext: ".min.css"
 					}
 				]
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					"dist/scripts/app.js": "assets/scripts/app.js"
+					"assets/scripts/app.js": "assets/scripts/app.js"
 				}
 			}
 		},
@@ -70,14 +70,14 @@ module.exports = function(grunt) {
 				sourceMap: true
 			},
 			dist: {
-				src: ["assets/scripts/src/*.js"],
+				src: ["assets/scripts/src/*.js", "components/**/*.js"],
 				dest: "assets/scripts/app.js"
 			}
 		},
 		uglify: {
 			dist: {
 				files: {
-					"dist/scripts/app.min.js": "dist/scripts/app.js"
+					"dist/app.min.js": "assets/scripts/app.js"
 				}
 			}
 		},
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: "assets/",
 						src: ["images/*.{png,jpg,gif}"],
-						dest: "dist/images/",
+						dest: "images/processed",
 						flatten: true
 					}
 				]
@@ -106,14 +106,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			css: {
-				files: ["assets/sass/**/*.scss"],
+				files: ["assets/sass/**/*.scss", "components/**/*.scss"],
 				tasks: ["styles"],
 				options: {
 					livereload: true
 				}
 			},
 			js: {
-				files: ["assets/scripts/src/*.js"],
+				files: ["assets/scripts/src/*.js", "components/**/*.js"],
 				tasks: ["scripts"],
 				options: {
 					livereload: true
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: "assets/",
 						src: ["icons/*.svg"],
-						dest: "dist/icons/svg/",
+						dest: "svg/",
 						flatten: true
 					}
 				]
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
 		svgstore: {
 			dist: {
 				files: {
-					"dist/icons/svg-defs.svg": ["dist/icons/svg/*.svg"]
+					"assets/icons/svg-defs.svg": ["assets/icons/svg/*.svg"]
 				}
 			},
 			options: {
