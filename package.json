@@ -1,0 +1,45 @@
+{
+  "name": "bov-web-components",
+  "version": "1.0.3",
+  "description": "Grab & go UI components for web projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrieforde/bov-web-components.git"
+  },
+  "author": "Carrie Forde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carrieforde/bov-web-components/issues"
+  },
+  "homepage": "https://github.com/carrieforde/bov-web-components#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "bourbon": "^4.3.4",
+    "css-mqpacker": "^6.0.1",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-exec": "^3.0.0",
+    "grunt-lint5": "^0.3.2",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-sass-lint": "^0.2.4",
+    "grunt-sassdoc": "^2.0.2",
+    "grunt-svgmin": "^4.0.0",
+    "grunt-svgstore": "^1.0.0",
+    "grunt-version": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "sanitize.scss": "^1.0.0"
+  }
+}
