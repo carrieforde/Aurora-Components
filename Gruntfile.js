@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 				]
 			},
 			dist: {
-				src: "styles/*.css"
+				src: "*.css"
 			}
 		},
 		sasslint: {
