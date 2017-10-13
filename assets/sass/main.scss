@@ -22,8 +22,14 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
+}
+
+.site-info {
 
 	p {
+		font-family: $font__heading;
+		font-size: rem(30);
+		font-weight: 700;
 		margin-bottom: 0;
 	}
 }
