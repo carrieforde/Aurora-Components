@@ -36,6 +36,7 @@ input[type="week"],
 input:not([type]),
 textarea {
 	border: $border__forms;
+	box-sizing: border-box;
 	max-width: 100%;
 	width: 100%;
 
