@@ -34,5 +34,9 @@
 		transition: $transition__max-height;
 		transition-duration: 0.5s;
 		width: rem(175);
+
+		li {
+			margin-top: rem(10);
+		}
 	}
 }
