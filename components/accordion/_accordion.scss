@@ -26,17 +26,12 @@
 	// .accordion__content
 	&__content {
 		max-height: 0;
-		opacity: 0;
 		overflow: hidden;
-		transition: $transition__all;
-		visibility: hidden;
+		transition: $transition__max-height;
+		transition-duration: 0.5s;
 
 		.is-active & {
 			max-height: 100vh;
-			opacity: 1;
-			transition: $transition__all;
-			transition-delay: 0.2s;
-			visibility: visible;
 		}
 	}
 } // .accordion
