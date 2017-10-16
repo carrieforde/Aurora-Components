@@ -49,7 +49,8 @@
 	/**
 	 * Adds a smooth-scrolling effect when a menu-item is clicked.
 	 *
-	 * @link  https://css-tricks.com/snippets/jquery/smooth-scrolling/
+	 * {@link  https://css-tricks.com/snippets/jquery/smooth-scrolling/}
+	 * {@link  https://css-tricks.com/smooth-scrolling-accessibility/}
 	 * @param {any} event 
 	 */
 	var smoothScroll = function (event) {
