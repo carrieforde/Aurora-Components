@@ -5,7 +5,9 @@
 //--------------------------------------------------------------
 
 // Utilities
+@import 'bourbon';
 @import 'config/index';
+@import 'sanitize';
 
 // Elements
 @import 'elements/index';
@@ -15,6 +17,7 @@
 @import '../../components/buttons/buttons';
 @import '../../components/carousel/carousel';
 @import '../../components/tabs/tabs';
+@import '../../components/header-navigation/menu';
 
 // General page styles (for now)
 .site-header {

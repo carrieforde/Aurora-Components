@@ -12,7 +12,8 @@
 			margin-left: rem(20);
 		}
 
-		&:hover {
+		&:hover,
+		&.is-toggled {
 
 			.menu__sub-menu {
 				max-height: 100vh; // arbitrary value that allows for reasonable flexibility
@@ -28,9 +29,10 @@
 	&__sub-menu {
 		@include position(absolute, 100% null null 0);
 
+		background-color: $color__white;
 		max-height: 0;
 		overflow: hidden;
-		padding: 0;
+		padding: 0 rem(10) rem(10);
 		transition: $transition__max-height;
 		transition-duration: 0.5s;
 		width: rem(175);
