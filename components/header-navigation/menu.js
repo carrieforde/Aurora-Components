@@ -1,7 +1,7 @@
 /**
  * Menu JS
  */
-(function (window) {
+(function () {
 	
 	var navMenu = document.querySelector('.nav-menu');
 
@@ -46,5 +46,35 @@
 		}
 	};
 
+	/**
+	 * Adds a smooth-scrolling effect when a menu-item is clicked.
+	 *
+	 * @link  https://css-tricks.com/snippets/jquery/smooth-scrolling/
+	 * @param {any} event 
+	 */
+	var smoothScroll = function (event) {
+		
+		event.preventDefault();
+
+		var el     = event.target,
+			url    = window.location.pathname,
+			hash   = el.getAttribute('href'),
+			target = document.querySelector(hash);
+		
+		// Smooth scroll into view.
+		target.scrollIntoView({ behavior: 'smooth' });
+
+		// Update focus after scolling is complete.
+		setTimeout(function () {
+			// Updates focus to our target element.
+			target.setAttribute("tabindex", "-1");
+			target.focus();
+
+			// Because we prevented the default action, we have to update the URL manually.
+			window.location.href = url + hash;
+		}, 300);
+	};
+
 	navMenu.addEventListener('keyup', tabNavigation);
-})(window);
+	navMenu.addEventListener('click', smoothScroll);
+})();
