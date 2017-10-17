@@ -6,6 +6,27 @@
 	var navMenu = document.querySelector('.nav-menu');
 
 	/**
+	 * Adds helper classes on page load.
+	 * 
+	 */
+	var addClasses = function () {
+
+		var menuItems = navMenu.querySelectorAll('li');
+
+		for (var i = 0, len = menuItems.length; i < len; i++) {
+
+			if (menuItems[i].lastElementChild.classList.contains('menu__sub-menu')) {
+				menuItems[i].classList.add('has-children');
+			}
+			
+			// If sub-menu will open offscreen, add a class so it doesn't.
+			if ((window.outerWidth - menuItems[i].offsetLeft) < 175) {
+				menuItems[i].classList.add('reverse-open');
+			}
+		}
+	};
+
+	/**
 	 * Visibly opens submenus on tabpress.
 	 * 
 	 * @param {any} event
@@ -76,6 +97,7 @@
 		}, 300);
 	};
 
+	window.addEventListener('load', addClasses);
 	navMenu.addEventListener('keyup', tabNavigation);
 	navMenu.addEventListener('click', smoothScroll);
 })();
