@@ -40,5 +40,10 @@
 		li {
 			margin-top: rem(10);
 		}
+
+		.reverse-open & {
+			left: auto;
+			right: 0;
+		}
 	}
 }
