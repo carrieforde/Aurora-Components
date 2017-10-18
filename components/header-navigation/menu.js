@@ -37,6 +37,8 @@
 			subMenu = el.nextElementSibling,
 			lastItem,
 			toggled = document.querySelector('.is-toggled');
+		
+		// console.log(event.keyCode);
 
 		// Show submenu once parent has been selected.
 		if (subMenu && subMenu.classList.contains('menu__sub-menu')) {
@@ -64,6 +66,18 @@
 		// If we Shift + Tab away from the parent with a sub-menu, close the sub-menu.
 		if (!subMenu && toggled) {
 			toggled.classList.remove('is-toggled');
+		}
+
+		// Close a toggled submenu when esc is pressed.
+		if (toggled && event.keyCode === 27){
+			toggled.classList.remove('is-toggled');
+		}
+
+		// If the submenu is toggled, and we click on the body of the page, let's close the menu.
+		if (toggled) {
+			document.querySelector('body').onclick = function () {
+				toggled.classList.remove('is-toggled');
+			}
 		}
 	};
 
