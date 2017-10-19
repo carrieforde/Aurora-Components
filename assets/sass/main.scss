@@ -35,37 +35,46 @@
 }
 
 .site-info {
+	font-family: $font__heading;
+	font-size: rem(24);
+	font-weight: 700;
+	margin-bottom: 0;
+	text-decoration: none;
+}
 
-	p {
-		font-family: $font__heading;
-		font-size: rem(30);
-		font-weight: 700;
-		margin-bottom: 0;
+.page {
+	@include center-block;
+
+	max-width: 100%;
+	padding: 20px;
+	width: rem(1100);
+
+	.components & {
+		display: grid;
+		grid-gap: $gutter;
+		grid-template-columns: auto rem(900);
+	}
+}
+
+.components {
+
+	.page__header {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}
+
+.module {
+	padding: rem(40) rem(20) rem(60);
+
+	@include media($tablet-portrait-up, null) {
+		padding: rem(60) 0 rem(90);
 	}
 }
 
 .menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
 
-.menu__item {
-	display: inline-block;
-}
-
-.menu__item + .menu__item {
-	margin-left: 20px;
-}
-
-.page {
-	padding: 20px;
-}
-
-.component {
-	padding: rem(40) rem(20) rem(60);
-
-	@include media($tablet-portrait-up, null) {
-		padding: rem(60) rem(20) rem(90);
+	h4 {
+		margin-bottom: 0;
 	}
 }
