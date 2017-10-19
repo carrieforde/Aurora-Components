@@ -10,15 +10,15 @@
 @import 'sanitize';
 
 // Elements
+@import 'elements/buttons';
 @import 'elements/forms';
 @import 'elements/typography';
 
 // Components
-@import '../../components/accordion/accordion';
-@import '../../components/buttons/buttons';
-@import '../../components/carousel/carousel';
-@import '../../components/tabs/tabs';
-@import '../../components/header-navigation/menu';
+@import 'components/accordion';
+@import 'components/carousel';
+@import 'components/tabs';
+@import 'components/menu';
 
 // General page styles (for now)
 .site-header {
