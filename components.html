@@ -9,7 +9,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body class="components">
 	<header class="site-header">
 		<p class="site-info">Bov Web Components</p>
 		<nav class="main-navigation">
@@ -40,11 +40,11 @@
 						<li>
 							<a href="#components"><h4>Components</h4></a>
 							<ul class="menu__sub-menu">
-								<li><a href="#buttons">Buttons</a></li>
 								<li><a href="#accordion">Accordion</a></li>
+								<li><a href="#buttons">Buttons</a></li>
 								<li><a href="#carousel">Carousel</a></li>
-								<li><a href="#tabs">Tabs</a></li>
 								<li><a href="#menu">Menu</a></li>
+								<li><a href="#tabs">Tabs</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -261,6 +261,323 @@ p q r s t u v w x y z { | } ~</pre>
 							</li>
 						</ul>
 					</form>
+				</div>
+			</section>
+
+			<h2 id="content">Content</h2>
+			<section id="accordion" class="module">
+				<header class="module__header">
+					<h2>Accordion</h2>
+				</header>
+
+				<div class="module__content">
+					<div id="accordion" class="accordion" role="tabset">
+						<ul class="accordion__nav" role="tablist">
+							<li class="is-active">
+								<h3 id="k2" class="accordion__heading" role="tab" aria-controls="k2Panel" aria-selected="true">K2</h3>
+								<div id="k2Panel" class="accordion__content" role="tabpanel" aria-labelledby="k2" aria-expanded="true">
+									<p>K2 is the first cat I adopted.</p>
+								</div>
+							</li>
+					
+							<li>
+								<h3 id="whitney" class="accordion__heading" role="tab" aria-controls="whitneyPanel" aria-selected="false">Whitney</h3>
+								<div id="whitneyPanel" class="accordion__content" role="tabpanel" aria-labelledby="whitney" aria-hidden="true">
+									<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
+								</div>
+							</li>
+					
+							<li>
+								<h3 id="minnie" class="accordion__heading" role="tab" aria-controls="minniePanel" aria-selected="false">Minnie</h3>
+								<div id="minniePanel" class="accordion__content" role="tabpanel" aria-labelledby="minnie" aria-hidden="true">
+									<p>Minnie is the third Forde family cat, and the first named after a city.</p>
+								</div>
+							</li>
+					
+							<li>
+								<h3 id="paul" class="accordion__heading" role="tab" aria-controls="paulPanel" aria-selected="false">Paul</h3>
+								<div id="paulPanel" class="accordion__content" role="tabpanel" aria-labelledby="paul" aria-hidden="true">
+									<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="buttons" class="module">
+				<header class="module__header">
+					<h2>Buttons</h2>
+				</header>
+
+				<div class="module__content">
+					<h3>A Basic Button</h3>
+					<div class="button">Buy Now</div>
+					
+					<h3>A Button Element with the Button Class</h3>
+					<button class="button">Send Mail</button>
+					
+					<h3>An Anchor with a Button Class</h3>
+					<a href="#" class="button">Search</a>
+					
+					<h3>Buttons of different sizes</h3>
+					<div class="button button--sm">A Small Button</div>
+					<div class="button button--md">A Medium Button</div>
+					<div class="button button--lg">A Large Button</div>
+					
+					<h3>Buttons of different types</h3>
+					<button class="button">Default</button>
+					<button class="button button--primary">Primary</button>
+					<button class="button button--info">Info</button>
+					<button class="button button--success">Sucess</button>
+					<button class="button button--warning">Warning</button>
+					<button class="button button--danger">Danger</button>
+				</div>
+			</section>
+
+			<section id="carousel" class="module">
+				<header class="module__header">
+					<h2>Carousel</h2>
+				</header>
+
+				<div class="module__content">
+					<div class="carousel">
+						<nav class="carousel__nav">
+							<ul>
+								<li class="is-active" data-thumb="bridge1">
+									<img src="https://unsplash.it/400/300?image=392">
+								</li>
+								<li data-thumb="bridge2">
+									<img src="https://unsplash.it/400/300?image=436">
+								</li>
+								<li data-thumb="bridge3">
+									<img src="https://unsplash.it/400/300?image=503">
+								</li>
+								<li data-thumb="bridge4">
+									<img src="https://unsplash.it/400/300?image=613">
+								</li>
+								<li data-thumb="bridge5">
+									<img src="https://unsplash.it/400/300?image=623">
+								</li>
+							</ul>
+						</nav>
+					
+						<div class="carousel__slides">
+							<div class="carousel__slide is-active" data-slide="bridge1">
+								<img src="https://unsplash.it/1200/740?image=392">
+							</div>
+							<div class="carousel__slide" data-slide="bridge2">
+								<img src="https://unsplash.it/1200/740?image=436">
+							</div>
+							<div class="carousel__slide" data-slide="bridge3">
+								<img src="https://unsplash.it/1200/740?image=503">
+							</div>
+							<div class="carousel__slide" data-slide="bridge4">
+								<img src="https://unsplash.it/1200/740?image=613">
+							</div>
+							<div class="carousel__slide" data-slide="bridge5">
+								<img src="https://unsplash.it/1200/740?image=623">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="menu" class="module">
+				<header class="module__header">
+					<h2>Menu</h2>
+				</header>
+
+				<div class="module__content">
+					<header class="site-header">
+						<div class="site-info">Header Navigation</div>
+						<nav class="nav-menu">
+							<ul class="menu" aria-expanded="false">
+								<li>
+									<a href="#about">About</a>
+								</li>
+								<li>
+									<a href="#projects">Projects</a>
+								</li>
+								<li>
+									<a href="#skills">Skills</a>
+									<ul class="menu__sub-menu">
+										<li>
+											<a href="#front-end">Front-End</a>
+										</li>
+										<li>
+											<a href="#back-end">Back-End</a>
+										</li>
+										<li>
+											<a href="#other">Other</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+					<section id="about" class="section">
+						<header class="section__header">
+							<h2>About</h2>
+						</header>
+						<div class="section__content">
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel.
+								Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum
+								theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt.
+								Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+						</div>
+					</section>
+					<section id="projects" class="section">
+						<header class="section__header">
+							<h2>Projects</h2>
+						</header>
+						<div class="section__content">
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel.
+								Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum
+								theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt.
+								Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+						</div>
+					</section>
+					<section id="skills" class="section">
+						<header class="section__header">
+							<h2>Skills</h2>
+						</header>
+						<div class="section__content">
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel.</p>
+					
+							<h3 id="front-end">Front-End Skills</h3>
+							<ul>
+								<li>HTML</li>
+								<li>CSS</li>
+								<li>JavaScript</li>
+							</ul>
+					
+							<h3 id="back-end">Back-End Skills</h3>
+							<ul>
+								<li>PHP</li>
+								<li>Node</li>
+								<li>React</li>
+							</ul>
+					
+							<h3 id="other">Other Skills</h3>
+							<ul>
+								<li>Writing</li>
+								<li>Public Speaking</li>
+								<li>Cat caretaking</li>
+							</ul>
+						</div>
+					</section>
+					<section id="contact" class="section">
+						<header class="section__header">
+							<h2>Contact</h2>
+						</header>
+						<div class="section__content">
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel.
+								Ex audiam
+								<a href="#">prompta</a> mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum theophrastus
+								no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt. Te usu assueverit
+								scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+						</div>
+				</div>
+			</section>
+
+			<section id="tabs" class="module">
+				<header class="module__header">
+					<h2>Tabs</h2>
+				</header>
+
+				<div class="module__content">
+					<section class="component component--tabs">
+						<header class="component__header">
+							<h2 class="component__title">Horizontal Tabs</h2>
+						</header>
+					
+						<div class="component__content">
+							<div id="tabs" class="tabs" role="tabset">
+								<ul class="tabs__nav" role="tablist">
+									<li id="k2Tab" class="is-active" role="tab" aria-controls="k2" aria-selected="true">
+										<a href="#k2">K2</a>
+									</li>
+									<li id="whitneyTab" role="tab" aria-controls="whitney" aria-selected="false">
+										<a href="#whitney">Whitney</a>
+									</li>
+									<li id="minnieTab" role="tab" aria-controls="minnie" aria-selected="false">
+										<a href="#minnie">Minnie</a>
+									</li>
+									<li id="paulTab" role="tab" aria-controls="paul" aria-selected="false">
+										<a href="#paul">Paul</a>
+									</li>
+								</ul>
+					
+								<div id="k2" class="tabs__content is-active" role="tabpanel" aria-labelledby="k2Tab" aria-expanded="true">
+									<h2>K2</h2>
+									<p>K2 is the first cat I adopted.</p>
+								</div>
+					
+								<div id="whitney" class="tabs__content" role="tabpanel" aria-labelledby="whitneyTab" aria-hidden="true">
+									<h2>Whitney</h2>
+									<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
+								</div>
+					
+								<div id="minnie" class="tabs__content" role="tabpanel" aria-labelledby="minnieTab" aria-hidden="true">
+									<h2>Minnie</h2>
+									<p>Minnie is the third Forde family cat, and the first named after a city.</p>
+								</div>
+					
+								<div id="paul" class="tabs__content" role="tabpanel" aria-labelledby="paulTab" aria-hidden="true">
+									<h2>Paul</h2>
+									<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+					
+					<section class="component component--tabs">
+						<header class="component__header">
+							<h2>Vertical Tabs</h2>
+						</header>
+						<div class="component__content">
+							<div class="tabs tabs--vertical" role="tabset">
+								<ul class="tabs__nav">
+									<li id="k2-2tab" class="is-active" role="tab" aria-controls="k2-2" aria-selected="true">
+										<a href="#k2-2">K2</a>
+									</li>
+									<li id="whitney-2tab" role="tab" aria-controls="whitney-2" aria-selected="false">
+										<a href="#whitney-2">Whitney</a>
+									</li>
+									<li id="minnie-2tab" role="tab" aria-controls="minnie-2" aria-selected="false">
+										<a href="#minnie-2">Minnie</a>
+									</li>
+									<li id="paul-2tab" role="tab" aria-controls="paul-2" aria-selected="false">
+										<a href="#paul-2">Paul</a>
+									</li>
+								</ul>
+					
+								<div id="k2-2" class="tabs__content is-active" role="tabpanel" aria-labelledby="k2-2tab" aria-expanded="true">
+									<h2>K2</h2>
+									<p>K2 is the first cat I adopted.</p>
+								</div>
+					
+								<div id="whitney-2" class="tabs__content" role="tabpanel" aria-labelledby="whitney-2tab" aria-hidden="true">
+									<h2>Whitney</h2>
+									<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
+								</div>
+					
+								<div id="minnie-2" class="tabs__content" role="tabpanel" aria-labelledby="minnie-2tab" aria-hidden="true">
+									<h2>Minnie</h2>
+									<p>Minnie is the third Forde family cat, and the first named after a city.</p>
+								</div>
+					
+								<div id="paul-2" class="tabs__content" role="tabpanel" aria-labelledby="paul-2tab" aria-hidden="true">
+									<h2>Paul</h2>
+									<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</section>
 		</div>
