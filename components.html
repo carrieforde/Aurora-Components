@@ -25,7 +25,245 @@
 			<h1>Components</h1>
 		</header>
 
-		<div class="page__content"></div>
+		<aside class="sidebar">
+			<div class="widget">
+				<h3>Components</h3>
+				<nav class="sidebar-nav">
+					<ul class="menu flex-column">
+						<li>
+							<a href="#content"><h4>Content</h4></a>
+							<ul class="menu__sub-menu">
+								<li><a href="#typography">Typography</a></li>
+								<li><a href="#form-elements">Form Elements</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#components"><h4>Components</h4></a>
+							<ul class="menu__sub-menu">
+								<li><a href="#buttons">Buttons</a></li>
+								<li><a href="#accordion">Accordion</a></li>
+								<li><a href="#carousel">Carousel</a></li>
+								<li><a href="#tabs">Tabs</a></li>
+								<li><a href="#menu">Menu</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</aside>
+
+		<div class="page__content">
+			<h2 id="content">Content</h2>
+			<section id="typography" class="module">
+				<header class="module__header">
+					<h3>Typography</h3>
+				</header>
+
+				<div class="module__content">
+					<div class="text-element">
+						<h2>Headings</h2>
+					
+						<h1>Heading 1</h1>
+						<h2>Heading 2</h2>
+						<h3>Heading 3</h3>
+						<h4>Heading 4</h4>
+						<h5>Heading 5</h5>
+						<h6>Heading 6</h6>
+					</div>
+					
+					<div class="text-element">
+						<h2>Horizontal Rule</h2>
+					
+						<hr />
+					</div>
+					
+					<div class="text-element">
+						<h2>Inline Elements</h2>
+					
+						<p>
+							<a href="#">This is a text link</a>
+						</p>
+					
+						<p>
+							<strong>Strong is used to indicate strong importance</strong>
+						</p>
+					
+						<p>
+							<em>This text has added emphasis</em>
+						</p>
+					
+						<p>The
+							<b>b element</b> is stylistically different from normal text, without any special importance</p>
+					
+						<p>The
+							<i>i element</i> is text that is set off from the normal text</p>
+					
+						<p>The
+							<u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation
+						</p>
+					
+						<p>
+							<del>This text is deleted</del> and
+							<ins>this text is inserted</ins>
+						</p>
+					
+						<p>
+							<s>This text as a strikethrough</s>
+						</p>
+					
+						<p>Superscript
+							<sup>®</sup>
+						</p>
+					
+						<p>Subscript for things like H
+							<sub>2</sub>O</p>
+					
+						<p>
+							<small>This small text is small for fine print, etc</small>
+						</p>
+					
+						<p>Abbreviation:
+							<abbr title="HyperText Markup Language">HTML</abbr>
+						</p>
+					
+						<p>Keyboard input:
+							<kbd>Cmd</kbd>
+						</p>
+					
+						<p>
+							<q cite="">This text is a short inline quotation</q>
+						</p>
+					
+						<p>
+							<cite>This is a citation</cite>
+						</p>
+					
+						<p>The
+							<dfn>dfn element</dfn> indicates a definition.</p>
+					
+						<p>The
+							<mark>mark element</mark> indicates a highlight</p>
+					
+						<p>
+							<code>This is what inline code looks like</code>
+						</p>
+					
+						<p>
+							<samp>This is sample output from a computer program</samp>
+						</p>
+					
+						<p>The
+							<var>variable element</var> such as
+							<var>x</var> =
+							<var>y</var>
+						</p>
+					
+						<p>
+							<address>1410 Dore Ave, San Mateo, CA 94401</address>
+						</p>
+					</div>
+					
+					<div class="text-element">
+						<h2>Paragraph</h2>
+						<p>A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse
+							in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required
+							by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+					</div>
+					
+					<div class="text-element">
+						<h2>Preformatted Text</h2>
+						<pre>P R E F O R M A T T E D T E X T
+! " # $ % & ' ( ) * + , - . /
+0 1 2 3 4 5 6 7 8 9 : ; < = > ?
+@ A B C D E F G H I J K L M N O
+P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o
+p q r s t u v w x y z { | } ~</pre>
+					</div>
+					
+					<div class="text-element">
+						<h2>Blockquote</h2>
+						<blockquote>
+							You shouldn't restrict peoples' freedom on what they can and cannot do with code.
+							<cite>Matt Mullenweg</cite>
+						</blockquote>
+					</div>
+				</div>
+			</section>
+
+			<section id="form-elements" class="module">
+				<header class="module__header">
+					<h2>Form Elements</h2>
+				</header>
+
+				<div class="module__content">
+					<form method="GET" action="" name="form-elements">
+						<ul>
+							<li>
+								<label for="default">Default</label>
+								<input type="text" id="default" name="default" placeholder="Placeholder">
+							</li>
+							<li>
+								<label for="disabled">Disabled</label>
+								<input type="text" id="disabled" name="disabled" placeholder="Placeholder" disabled>
+							</li>
+							<li>
+								<label for="valid">Valid</label>
+								<input type="text" id="valid" name="valid" placeholder="Placeholder" class="valid" valid>
+							</li>
+							<li>
+								<label for="invalid">Invalid</label>
+								<input type="text" id="invalid" name="invalid" placeholder="Placeholder" class="invalid">
+							</li>
+							<li>
+								<fieldset>
+									<legend>Radios</legend>
+									<input type="radio" id="true" value="true" name="radios">
+									<label for="true">True</label>
+									<input type="radio" id="false" value="false" name="radios" checked>
+									<label for="false">False</label>
+									<input type="radio" id="other" value="other" name="radios" disabled>
+									<label for="other">Other</label>
+								</fieldset>
+							</li>
+							<li>
+								<fieldset>
+									<legend>Checkboxes</legend>
+									<input type="checkbox" id="pizza" value="pizza">
+									<label for="pizza" name="foods">Pizza</label>
+									<input type="checkbox" id="burritos" value="burritos" name="foods" checked>
+									<label for="burritos">Burritos</label>
+									<input type="checkbox" id="burgers" value="burgers" name="foods" disabled>
+									<label for="burgers">Burgers</label>
+								</fieldset>
+							</li>
+							<li>
+								<label for="select">Select</label>
+								<select>
+									<option value="" disabled selected>Month</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
+								</select>
+							</li>
+							<li>
+								<label for="textarea">Textarea</label>
+								<textarea></textarea>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</section>
+		</div>
 	</main>
 
 	<footer class="site-footer">
