@@ -7,7 +7,7 @@
 	var options = {
 		menuSelector: '.nav-menu .menu',
 		mobileBreakPoint : 900,
-		headerHeight: 0,
+		headerHeight: 20,
 		timeout: 500 // in milleseconds
 	},
 		menu = document.querySelector( options.menuSelector );
