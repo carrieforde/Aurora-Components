@@ -2,24 +2,33 @@
 // ACCORDION
 //--------------------------------------------------------------
 .accordion {
+	@include list-reset;
 	
-	// .accordion__nav
-	&__nav {
-		@include list-reset;
-		
-		border: $border__default;
+	border: $border__default;
 
-		li {
-			padding: rem(20);
+	li {
+		padding: $gutter;
 
-			+ li {
-				border-top: $border__default;
-			}
+		+ li {
+			border-top: $border__default;
 		}
+	}
 
-		h3 {
-			cursor: default;
-			margin: 0;
+	// .accordion__heading
+	&__heading {
+		margin-bottom: 0;
+	}
+
+	// .accordion__button
+	&__button {
+		background-color: transparent;
+		padding: 0;
+		text-align: left;
+		width: 100%;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
 		}
 	}
 
