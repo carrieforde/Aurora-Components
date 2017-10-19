@@ -5,11 +5,14 @@
 	@include list-reset;
 
 	> li {
-		display: inline-block;
 		position: relative;
-
-		+ li {
-			margin-left: rem(20);
+		
+		@include media($tablet-landscape-up, null) {
+			display: inline-block;
+			
+			+ li {
+				margin-left: rem(20);
+			}
 		}
 
 		&:hover,
@@ -27,23 +30,28 @@
 
 	// .menu__sub-menu
 	&__sub-menu {
-		@include position(absolute, 100% null null 0);
 
-		background-color: $color__white;
 		max-height: 0;
 		overflow: hidden;
-		padding: 0 rem(10) rem(10);
+		padding: 0 rem(10);
 		transition: $transition__max-height;
 		transition-duration: 0.5s;
-		width: rem(175);
 
-		li {
-			margin-top: rem(10);
-		}
+		@include media($tablet-landscape-up, null) {
+			@include position(absolute, 100% null null 0);
 
-		.reverse-open & {
-			left: auto;
-			right: 0;
+			background-color: $color__white;
+			padding-bottom: rem(10);
+			width: rem(175);
+
+			li {
+				margin-top: rem(10);
+			}
+			
+			.reverse-open & {
+				left: auto;
+				right: 0;
+			}
 		}
 	}
 }

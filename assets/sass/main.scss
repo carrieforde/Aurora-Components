@@ -21,10 +21,13 @@
 
 // General page styles (for now)
 .site-header {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
 	padding: 20px;
+
+	@include media($tablet-landscape-up, null) {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 .site-info {
