@@ -641,24 +641,34 @@ hr {
   height: 2px;
 }
 
-.accordion__nav {
+.accordion {
   list-style: none;
   margin: 0;
   padding: 0;
   border: 1px solid #999;
 }
 
-.accordion__nav li {
+.accordion li {
   padding: 1.25rem;
 }
 
-.accordion__nav li + li {
+.accordion li + li {
   border-top: 1px solid #999;
 }
 
-.accordion__nav h3 {
-  cursor: default;
-  margin: 0;
+.accordion__heading {
+  margin-bottom: 0;
+}
+
+.accordion__button {
+  background-color: transparent;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion__button:hover, .accordion__button:focus {
+  background-color: transparent;
 }
 
 .accordion__content {
