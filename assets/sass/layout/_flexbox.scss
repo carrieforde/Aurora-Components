@@ -3,6 +3,13 @@
 //--------------------------------------------------------------
 .flex {
 	display: flex;
+
+	// .flex--m
+	&--m {
+		@include media($tablet-landscape-up, null) {
+			display: flex;
+		}
+	}
 }
 
 .flex-column {
