@@ -59,9 +59,9 @@
 	 */
 	function keyboardNav(event) {
 
-		var key = event.keyCode,
-			target = event.target,
-			parent = target.parentElement.parentElement,
+		var key       = event.keyCode,
+			target    = event.target,
+			parent    = target.parentElement.parentElement,
 			accordion = parent.parentElement,
 			newTarget;
 
