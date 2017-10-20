@@ -348,42 +348,31 @@ p q r s t u v w x y z { | } ~</pre>
 
 				<div class="module__content">
 					<div class="carousel">
-						<nav class="carousel__nav">
-							<ul>
-								<li class="is-active" data-thumb="bridge1">
-									<img src="https://unsplash.it/400/300?image=392">
-								</li>
-								<li data-thumb="bridge2">
-									<img src="https://unsplash.it/400/300?image=436">
-								</li>
-								<li data-thumb="bridge3">
-									<img src="https://unsplash.it/400/300?image=503">
-								</li>
-								<li data-thumb="bridge4">
-									<img src="https://unsplash.it/400/300?image=613">
-								</li>
-								<li data-thumb="bridge5">
-									<img src="https://unsplash.it/400/300?image=623">
-								</li>
-							</ul>
+						<nav class="carousel__dots">
+							<a href="#item-1" class="is-active"><span class="screen-reader-text">1</span></a>
+							<a href="#item-2"><span class="screen-reader-text">2</span></a>
+							<a href="#item-3"><span class="screen-reader-text">3</span></a>
+							<a href="#item-4"><span class="screen-reader-text">4</span></a>
+							<a href="#item-5"><span class="screen-reader-text">5</span></a>
 						</nav>
-					
+
+						<nav class="carousel__arrows">
+							<button type="button" class="carousel__button carousel__button--previous">
+								<i class="fa fa-chevron-left" aria-hidden="true"></i>
+								<span class="screen-reader-text">Previous Slide</span>
+							</button>
+							<button type="button" class="carousel__button carousel__button--next">
+								<i class="fa fa-chevron-right" aria-hidden="true"></i>
+								<span class="screen-reader-text">Next Slide</span>
+							</button>
+						</nav>
+
 						<div class="carousel__slides">
-							<div class="carousel__slide is-active" data-slide="bridge1">
-								<img src="https://unsplash.it/1200/740?image=392">
-							</div>
-							<div class="carousel__slide" data-slide="bridge2">
-								<img src="https://unsplash.it/1200/740?image=436">
-							</div>
-							<div class="carousel__slide" data-slide="bridge3">
-								<img src="https://unsplash.it/1200/740?image=503">
-							</div>
-							<div class="carousel__slide" data-slide="bridge4">
-								<img src="https://unsplash.it/1200/740?image=613">
-							</div>
-							<div class="carousel__slide" data-slide="bridge5">
-								<img src="https://unsplash.it/1200/740?image=623">
-							</div>
+							<div class="carousel__slide is-active" id="item-1">1</div>
+							<div class="carousel__slide" id="item-2">2</div>
+							<div class="carousel__slide" id="item-3">3</div>
+							<div class="carousel__slide" id="item-4">4</div>
+							<div class="carousel__slide" id="item-5">5</div>
 						</div>
 					</div>
 				</div>
