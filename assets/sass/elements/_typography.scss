@@ -11,7 +11,7 @@ input,
 select,
 textarea {
 	color: $color__body;
-	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body;
+	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body; // sass-lint:disable-line space-around-operator
 }
 
 :focus {
@@ -31,6 +31,7 @@ textarea {
 	margin: 0 0 0.5em;
 }
 
+// sass-lint:disable no-empty-rulesets, brace-style
 h1,
 .h1 {}
 
@@ -48,6 +49,7 @@ h5,
 
 h6,
 .h6 {}
+// sass-lint:enable no-empty-rulesets, brace-style
 
 
 //-----------------------------------------
@@ -89,12 +91,12 @@ pre,
 samp,
 tt,
 var {
-	font: $font__code-weight #{$font__code-size}/#{$font__code-line-height} $font__code;
+	font: $font__code-weight #{$font__code-size}/#{$font__code-line-height} $font__code; // sass-lint:disable-line space-around-operator
 }
 
 pre {
-	overflow-x: scroll;
 	margin: 0 0 2em;
+	overflow-x: scroll;
 }
 
 blockquote {

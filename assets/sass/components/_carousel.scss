@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 .carousel {
 	@include center;
-	
+
 	max-width: 100%;
 	position: relative;
 	width: 100%;
@@ -43,7 +43,7 @@
 			transition: $transition__height, $transition__width;
 			transition-duration: 0.5s;
 			vertical-align: middle;
-		
+
 			+ a {
 				margin-left: $gutter__half;
 			}

@@ -1,5 +1,7 @@
 //--------------------------------------------------------------
 // TABS
+//
+// sass-lint:disable nesting-depth
 //--------------------------------------------------------------
 .tabs {
 	margin-top: rem(40);
@@ -22,14 +24,17 @@
 		li {
 			border-top: 0;
 
-			&.is-active a {
-				color: $color__primary;
-				font-weight: 600;
+			&.is-active {
+
+				a {
+					color: $color__primary;
+					font-weight: 600;
+				}
 			}
 
 			@include media(null, $tablet-portrait-up) {
 				border-bottom: 0;
-				
+
 				+li,
 				&:first-of-type {
 					border-top: $border__default;
@@ -86,11 +91,14 @@
 			flex-direction: column;
 			text-align: right;
 
-			li.is-active {
-				border: $border__default;
-				border-right: 0;
-				margin-bottom: 0;
-				margin-right: rem(-1);
+			li {
+
+				&.is-active {
+					border: $border__default;
+					border-right: 0;
+					margin-bottom: 0;
+					margin-right: rem(-1);
+				}
 			}
 		}
 

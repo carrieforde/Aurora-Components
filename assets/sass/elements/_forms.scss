@@ -33,7 +33,6 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
-input:not([type]),
 textarea {
 	border: $border__forms;
 	box-sizing: border-box;
@@ -53,8 +52,8 @@ textarea {
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 0.125em rgba($color__primary, 0.25);
 		border-color: $border__forms-focus;
+		box-shadow: 0 0 0 0.125em rgba($color__primary, 0.25);
 		outline: 0;
 	}
 }
