@@ -15,7 +15,9 @@ textarea {
 }
 
 :focus {
-	outline-color: $border__outline-color;
+	border: $border__focus;
+	box-shadow: 0 0 0 0.125em rgba($color__primary, 0.25);
+	outline: 0;
 }
 
 
