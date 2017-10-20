@@ -354,7 +354,7 @@
 /**
  * Tabs Scripts
  */
-(function (window) {
+(function () {
 
 	// Set up global variables.
 	var tabs = document.querySelectorAll('.tabs');
@@ -364,7 +364,7 @@
   * 
   * @param  {any}  event 
   */
-	var showTabContent = function (el) {
+	function showTabContent(el) {
 
 		// Prevent default action of following link.
 		event.preventDefault();
@@ -372,21 +372,18 @@
 		// Set up function variables.
 		var tabComponent = el.parentElement.parentElement.parentElement,
 		    tabID = el.getAttribute('href'),
-		    activeTab = tabComponent.querySelector('li.is-active'),
-		    activeContent = tabComponent.querySelector('.tabs__content.is-active'),
+		    currentTab = tabComponent.querySelector('li.is-active a'),
+		    currentContent = tabComponent.querySelector('.tabs__content.is-active'),
 		    newContent;
 
-		// Strip # from href.
-		tabID = tabID.substring(1, tabID.length);
-
 		// Pass tabID to get new tab.
-		newContent = document.getElementById(tabID);
+		newContent = tabComponent.querySelector(tabID);
 
 		// Remove class from previously selected tab & tab content, update ARIA attributes.
-		deactivateTab(activeTab, activeContent);
+		deactivateTab(currentTab, currentContent);
 
 		// Add class to newly selected tab & tab content, update ARIA attributes.
-		activateTab(el.parentElement, newContent);
+		activateTab(el, newContent);
 	};
 
 	/**
@@ -395,14 +392,12 @@
   * @param {any} tab 
   * @param {any} panel 
   */
-	var deactivateTab = function (tab, panel) {
+	function deactivateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'false');
-		tab.classList.remove('is-active');
-		panel.removeAttribute('aria-expanded');
-		panel.setAttribute('aria-hidden', 'true');
+		tab.parentElement.classList.remove('is-active');
 		panel.classList.remove('is-active');
-	};
+	}
 
 	/**
   * Update classes and attributes for active tab & panel.
@@ -410,31 +405,79 @@
   * @param {any} tab 
   * @param {any} panel 
   */
-	var activateTab = function (tab, panel) {
+	function activateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'true');
-		tab.classList.add('is-active');
-		panel.removeAttribute('aria-hidden');
-		panel.setAttribute('aria-expanded', 'true');
+		tab.parentElement.classList.add('is-active');
 		panel.classList.add('is-active');
-	};
+	}
 
 	/**
   * Fires events based on event target.
   * 
   * @param {any} event 
   */
-	var fireEvents = function (event) {
+	function fireEvents(event) {
 
 		if (event.target.tagName.toLowerCase() === 'a') {
 			showTabContent(event.target);
 		}
-	};
+	}
+
+	function keyboardNav(event) {
+
+		var key = event.keyCode,
+		    target = event.target,
+		    listItem = target.parentElement,
+		    tabComponent = listItem.parentElement.parentElement,
+		    newTarget;
+
+		switch (key) {
+
+			// If up or left key is pressed.
+			case 37:
+			case 38:
+
+				// Set the new target.
+				if (listItem.previousElementSibling === null) {
+					newTarget = tabComponent.querySelectorAll('.tabs__nav a');
+					newTarget = newTarget[newTarget.length - 1];
+				} else {
+					newTarget = listItem.previousElementSibling;
+					newTarget = newTarget.querySelector('a');
+				}
+
+				newTarget.focus();
+				showTabContent(newTarget);
+				break;
+
+			// If down or right key is pressed.
+			case 39: // left
+			case 40:
+				// down
+
+				// Set the new target.
+				if (listItem.nextElementSibling === null) {
+					newTarget = tabComponent.querySelector('.tabs__nav a');
+				} else {
+					newTarget = listItem.nextElementSibling;
+					newTarget = newTarget.querySelector('a');
+				}
+
+				newTarget.focus();
+				showTabContent(newTarget);
+				break;
+
+			default:
+				break;
+		}
+	}
 
 	// Add event listener to tab component(s).
-	for (var i = 0; i < tabs.length; i++) {
+	for (var i = 0, len = tabs.length; i < len; i++) {
 		tabs[i].addEventListener('click', fireEvents);
+		tabs[i].addEventListener('keyup', keyboardNav);
 	}
-})(window);
+})();
 
 //# sourceMappingURL=app.js.map
