@@ -6,7 +6,43 @@
 (function () {
 
 	// Get global variables.
-	var accordions = document.querySelectorAll('.accordion');
+	var components = document.querySelectorAll('.accordion');
+
+	/**
+  * Magically add accessibility attributes. 🎩
+  * 
+  */
+	function addAccessibilityAttrs() {
+
+		// Loop through accordion components.
+		for (var i = 0; i < components.length; i++) {
+
+			var headings = components[i].querySelectorAll('.accordion__heading');
+
+			// Add attribute to accordion.
+			components[i].setAttribute('role', 'presentation');
+
+			for (var j = 0; j < headings.length; j++) {
+				var toggle = headings[j].querySelector('.accordion__toggle'),
+				    headingID = headings[j].getAttribute('id'),
+				    panel = headings[j].nextElementSibling,
+				    panelID = panel.getAttribute('id'),
+				    listItem = headings[j].parentElement;
+
+				// Add attributes to toggles.
+				toggle.setAttribute('aria-expanded', 'false');
+				toggle.setAttribute('aria-controls', panelID);
+
+				// Add attributes to panels.
+				panel.setAttribute('aria-labelledby', headingID);
+
+				// If the item is active, update the aria-expanded attribute.
+				if (listItem.classList.contains('is-active')) {
+					toggle.setAttribute('aria-expanded', 'true');
+				}
+			}
+		}
+	}
 
 	/**
   * Toggle the accordion content panel.
@@ -15,10 +51,13 @@
   */
 	function togglePanel(event) {
 
-		// Bail if the event target isn't the button.
-		if (!event.target.classList.contains('accordion__button')) {
+		// Bail if the event target isn't the toggle.
+		if (!event.target.classList.contains('accordion__toggle')) {
 			return;
 		}
+
+		// Prevent link follow.
+		event.preventDefault();
 
 		var target = event.target,
 		    parent = target.parentElement.parentElement;
@@ -106,10 +145,12 @@
 	}
 
 	// Add event listeners.
-	for (var i = 0; i < accordions.length; i++) {
-		accordions[i].addEventListener('click', togglePanel);
-		accordions[i].addEventListener('keyup', keyboardNav);
+	for (var i = 0; i < components.length; i++) {
+		components[i].addEventListener('click', togglePanel);
+		components[i].addEventListener('keyup', keyboardNav);
 	}
+
+	window.addEventListener('load', addAccessibilityAttrs);
 })();
 
 /**
@@ -357,12 +398,53 @@
 (function () {
 
 	// Set up global variables.
-	var tabs = document.querySelectorAll('.tabs');
+	var components = document.querySelectorAll('.tabs');
+
+	/**
+  * Magically add accessiblity attributes. 🎩
+  *
+  */
+	function addAccessibilityAttrs() {
+
+		// Loop through tab components.
+		for (var i = 0; i < components.length; i++) {
+
+			var tabs = components[i].querySelectorAll('.tabs__tab'),
+			    tabList = components[i].querySelector('.tabs__nav');
+
+			// Add tablist attribute.
+			tabList.setAttribute('role', 'tablist');
+
+			for (var j = 0; j < tabs.length; j++) {
+				var panelID = tabs[j].getAttribute('href'),
+				    tabID = tabs[j].getAttribute('id');
+				controls = panelID.substring(1, panelID.length), panel = components[i].querySelector(panelID);
+
+				// Add tab attributes.
+				tabs[j].setAttribute('role', 'tab');
+				tabs[j].setAttribute('aria-controls', controls);
+				tabs[j].setAttribute('aria-selected', 'false');
+				tabs[j].setAttribute('tabindex', '-1');
+
+				// Add panel attributes.
+				panel.setAttribute('role', 'tabpanel');
+				panel.setAttribute('aria-labelledby', tabID);
+				panel.setAttribute('tabindex', '0');
+
+				// If the tab & related panel are the first in the component, update the attributes.
+				if (j === 0) {
+					tabs[j].setAttribute('aria-selected', 'true');
+					tabs[j].parentElement.classList.add('is-active');
+					panel.classList.add('is-active');
+				}
+			}
+		}
+	}
 
 	/**
   * Show tab content based on selected tab.
-  * 
-  * @param  {any}  event 
+  *
+  * @param  {any}  event
   */
 	function showTabContent(el) {
 
@@ -370,14 +452,14 @@
 		event.preventDefault();
 
 		// Set up function variables.
-		var tabComponent = el.parentElement.parentElement.parentElement,
+		var component = el.parentElement.parentElement.parentElement,
 		    tabID = el.getAttribute('href'),
-		    currentTab = tabComponent.querySelector('li.is-active a'),
-		    currentContent = tabComponent.querySelector('.tabs__content.is-active'),
+		    currentTab = component.querySelector('li.is-active a'),
+		    currentContent = component.querySelector('.tabs__panel.is-active'),
 		    newContent;
 
 		// Pass tabID to get new tab.
-		newContent = tabComponent.querySelector(tabID);
+		newContent = component.querySelector(tabID);
 
 		// Remove class from previously selected tab & tab content, update ARIA attributes.
 		deactivateTab(currentTab, currentContent);
@@ -388,9 +470,9 @@
 
 	/**
   * Update classes and attributes for inactive tab & panel.
-  * 
-  * @param {any} tab 
-  * @param {any} panel 
+  *
+  * @param {any} tab
+  * @param {any} panel
   */
 	function deactivateTab(tab, panel) {
 
@@ -401,9 +483,9 @@
 
 	/**
   * Update classes and attributes for active tab & panel.
-  * 
-  * @param {any} tab 
-  * @param {any} panel 
+  *
+  * @param {any} tab
+  * @param {any} panel
   */
 	function activateTab(tab, panel) {
 
@@ -414,8 +496,8 @@
 
 	/**
   * Fires events based on event target.
-  * 
-  * @param {any} event 
+  *
+  * @param {any} event
   */
 	function fireEvents(event) {
 
@@ -424,12 +506,17 @@
 		}
 	}
 
+	/**
+  * Enables keyboard navigation through tabbed interface.
+  *
+  * @param {any} event
+  */
 	function keyboardNav(event) {
 
 		var key = event.keyCode,
 		    target = event.target,
 		    listItem = target.parentElement,
-		    tabComponent = listItem.parentElement.parentElement,
+		    component = listItem.parentElement.parentElement,
 		    newTarget;
 
 		switch (key) {
@@ -440,7 +527,7 @@
 
 				// Set the new target.
 				if (listItem.previousElementSibling === null) {
-					newTarget = tabComponent.querySelectorAll('.tabs__nav a');
+					newTarget = component.querySelectorAll('.tabs__nav a');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = listItem.previousElementSibling;
@@ -458,7 +545,7 @@
 
 				// Set the new target.
 				if (listItem.nextElementSibling === null) {
-					newTarget = tabComponent.querySelector('.tabs__nav a');
+					newTarget = component.querySelector('.tabs__nav a');
 				} else {
 					newTarget = listItem.nextElementSibling;
 					newTarget = newTarget.querySelector('a');
@@ -474,10 +561,13 @@
 	}
 
 	// Add event listener to tab component(s).
-	for (var i = 0, len = tabs.length; i < len; i++) {
-		tabs[i].addEventListener('click', fireEvents);
-		tabs[i].addEventListener('keyup', keyboardNav);
+	for (var i = 0; i < components.length; i++) {
+		components[i].addEventListener('click', fireEvents);
+		components[i].addEventListener('keyup', keyboardNav);
 	}
+
+	// Add event listner to window to add accessibilty attributes on load.
+	window.addEventListener('load', addAccessibilityAttrs);
 })();
 
 //# sourceMappingURL=app.js.map
