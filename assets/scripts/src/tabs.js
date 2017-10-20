@@ -71,6 +71,11 @@
 		}
 	}
 
+	/**
+	 * Enables keyboard navigation through tabbed interface.
+	 * 
+	 * @param {any} event 
+	 */
 	function keyboardNav(event) {
 
 		var key          = event.keyCode,
