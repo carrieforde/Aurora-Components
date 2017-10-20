@@ -16,31 +16,33 @@
 
 	// .carousel__slide
 	&__slide {
+		flex-shrink: 1;
+		opacity: 0;
 		overflow: hidden;
-		transition: $transition__width;
-		width: 0;
+		transition: $transition__opacity;
 
 		&.is-active {
 			flex-shrink: 0;
+			opacity: 1;
 			width: 100%;
 		}
 	}
 
 	// .carousel__dots
 	&__dots {
-		@include position(absolute, null 0 $gutter * -1 0);
+		@include position(absolute, null 0 $gutter * -2 0);
 
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		margin-top: $gutter;
-		transition: $transition__height, $transition__width;
+		text-align: center;
 
 		a {
 			@include size(rem(10));
 
 			background-color: $color__secondary;
 			border-radius: 50%;
+			display: inline-block;
+			transition: $transition__height, $transition__width;
+			transition-duration: 0.5s;
+			vertical-align: middle;
 		
 			+ a {
 				margin-left: $gutter__half;
@@ -58,21 +60,22 @@
 	&__button {
 		@include position(absolute, 50% null null null);
 
-		background-color: transparent;
+		background-color: rgba($color__white, 0.8);
 		color: $color__primary;
 		transform: translateY(-50%);
+		z-index: 2;
 
 		&:hover,
 		&:focus {
-			background-color: transparent;
+			background-color: $color__white;
 		}
 
 		&--previous {
-			left: $gutter * -1;
+			left: $gutter;
 		}
 
 		&--next {
-			right: $gutter * -1;
+			right: $gutter;
 		}
 	}
 } // .carousel
