@@ -4,7 +4,43 @@
 ( function() {
 
 	// Get global variables.
-	var accordions = document.querySelectorAll('.accordion');
+	var components = document.querySelectorAll('.accordion');
+
+	/**
+	 * Magically add accessibility attributes. 🎩
+	 * 
+	 */
+	function addAccessibilityAttrs() {
+
+		// Loop through accordion components.
+		for (var i = 0; i < components.length; i++) {
+
+			var headings = components[i].querySelectorAll('.accordion__heading');
+
+			// Add attribute to accordion.
+			components[i].setAttribute('role', 'presentation');
+
+			for (var j = 0; j < headings.length; j++) {
+				var toggle    = headings[j].querySelector('.accordion__toggle'),
+					headingID = headings[j].getAttribute('id'),
+					panel     = headings[j].nextElementSibling,
+					panelID   = panel.getAttribute('id'),
+					listItem  = headings[j].parentElement;
+
+				// Add attributes to toggles.
+				toggle.setAttribute('aria-expanded', 'false');
+				toggle.setAttribute('aria-controls', panelID);
+
+				// Add attributes to panels.
+				panel.setAttribute('aria-labelledby', headingID);
+
+				// If the item is active, update the aria-expanded attribute.
+				if (listItem.classList.contains('is-active')) {
+					toggle.setAttribute('aria-expanded', 'true');
+				}
+			}
+		}
+	}
 
 	/**
 	 * Toggle the accordion content panel.
@@ -13,10 +49,13 @@
 	 */
 	function togglePanel(event) {
 
-		// Bail if the event target isn't the button.
-		if (!event.target.classList.contains('accordion__button')) {
+		// Bail if the event target isn't the toggle.
+		if (!event.target.classList.contains('accordion__toggle')) {
 			return;
 		}
+
+		// Prevent link follow.
+		event.preventDefault();
 
 		var target = event.target,
 			parent = target.parentElement.parentElement;
@@ -104,8 +143,10 @@
 	}
 
 	// Add event listeners.
-	for (var i = 0; i < accordions.length; i++) {
-		accordions[i].addEventListener('click', togglePanel);
-		accordions[i].addEventListener('keyup', keyboardNav);
+	for (var i = 0; i < components.length; i++) {
+		components[i].addEventListener('click', togglePanel);
+		components[i].addEventListener('keyup', keyboardNav);
 	}
+
+	window.addEventListener('load', addAccessibilityAttrs);
 })();

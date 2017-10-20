@@ -4,6 +4,7 @@
 .accordion {
 	@include list-reset;
 	
+	background-color: $color__white;
 	border: $border__default;
 
 	li {
@@ -19,16 +20,15 @@
 		margin-bottom: 0;
 	}
 
-	// .accordion__button
-	&__button {
-		background-color: transparent;
-		padding: 0;
-		text-align: left;
-		width: 100%;
+	// .accordion__toggle
+	&__toggle {
+		color: $color__default;
+		text-decoration: none;
 
+		.is-active &,
 		&:hover,
 		&:focus {
-			background-color: transparent;
+			color: $color__primary;
 		}
 	}
 

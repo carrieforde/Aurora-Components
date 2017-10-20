@@ -8,7 +8,7 @@
 
 	/**
 	 * Magically add accessiblity attributes. 🎩
-	 * 
+	 *
 	 */
 	function addAccessibilityAttrs() {
 
@@ -20,7 +20,6 @@
 
 			// Add tablist attribute.
 			tabList.setAttribute('role', 'tablist');
-			
 
 			for (var j = 0; j < tabs.length; j++) {
 				var panelID  = tabs[j].getAttribute('href'),
@@ -51,8 +50,8 @@
 
 	/**
 	 * Show tab content based on selected tab.
-	 * 
-	 * @param  {any}  event 
+	 *
+	 * @param  {any}  event
 	 */
 	function showTabContent(el) {
 
@@ -78,12 +77,12 @@
 
 	/**
 	 * Update classes and attributes for inactive tab & panel.
-	 * 
-	 * @param {any} tab 
-	 * @param {any} panel 
+	 *
+	 * @param {any} tab
+	 * @param {any} panel
 	 */
 	function deactivateTab(tab, panel) {
-		
+
 		tab.setAttribute('aria-selected', 'false');
 		tab.parentElement.classList.remove('is-active');
 		panel.classList.remove('is-active');
@@ -91,9 +90,9 @@
 
 	/**
 	 * Update classes and attributes for active tab & panel.
-	 * 
-	 * @param {any} tab 
-	 * @param {any} panel 
+	 *
+	 * @param {any} tab
+	 * @param {any} panel
 	 */
 	function activateTab(tab, panel) {
 
@@ -104,11 +103,11 @@
 
 	/**
 	 * Fires events based on event target.
-	 * 
-	 * @param {any} event 
+	 *
+	 * @param {any} event
 	 */
 	function fireEvents(event) {
-		
+
 		if (event.target.tagName.toLowerCase() === 'a') {
 			showTabContent(event.target);
 		}
@@ -116,8 +115,8 @@
 
 	/**
 	 * Enables keyboard navigation through tabbed interface.
-	 * 
-	 * @param {any} event 
+	 *
+	 * @param {any} event
 	 */
 	function keyboardNav(event) {
 
@@ -149,7 +148,7 @@
 			// If down or right key is pressed.
 			case 39: // left
 			case 40: // down
-				
+
 				// Set the new target.
 				if (listItem.nextElementSibling === null) {
 					newTarget = component.querySelector('.tabs__nav a');
@@ -161,7 +160,7 @@
 				newTarget.focus();
 				showTabContent(newTarget);
 				break;
-		
+
 			default:
 				break;
 		}
