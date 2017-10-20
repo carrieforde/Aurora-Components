@@ -1,7 +1,7 @@
 /**
  * Tabs Scripts
  */
-( function( window ) {
+( function() {
 
 	// Set up global variables.
 	var tabs = document.querySelectorAll( '.tabs' );
@@ -11,29 +11,26 @@
 	 * 
 	 * @param  {any}  event 
 	 */
-	var showTabContent = function(el) {
+	function showTabContent(el) {
 
 		// Prevent default action of following link.
 		event.preventDefault();
 
 		// Set up function variables.
-		var	tabComponent  = el.parentElement.parentElement.parentElement,
-			tabID         = el.getAttribute('href'),
-			activeTab     = tabComponent.querySelector( 'li.is-active' ),
-			activeContent = tabComponent.querySelector( '.tabs__content.is-active' ),
+		var	tabComponent   = el.parentElement.parentElement.parentElement,
+			tabID          = el.getAttribute('href'),
+			currentTab     = tabComponent.querySelector( 'li.is-active a' ),
+			currentContent = tabComponent.querySelector( '.tabs__content.is-active' ),
 			newContent;
 
-		// Strip # from href.
-		tabID = tabID.substring( 1, tabID.length );
-
 		// Pass tabID to get new tab.
-		newContent = document.getElementById( tabID );
+		newContent = tabComponent.querySelector( tabID );
 
 		// Remove class from previously selected tab & tab content, update ARIA attributes.
-		deactivateTab(activeTab, activeContent);
+		deactivateTab(currentTab, currentContent);
 		
 		// Add class to newly selected tab & tab content, update ARIA attributes.
-		activateTab(el.parentElement, newContent);
+		activateTab(el, newContent);
 	};
 
 	/**
@@ -42,12 +39,10 @@
 	 * @param {any} tab 
 	 * @param {any} panel 
 	 */
-	var deactivateTab = function (tab, panel) {
+	function deactivateTab(tab, panel) {
 		
 		tab.setAttribute('aria-selected', 'false');
-		tab.classList.remove('is-active');
-		panel.removeAttribute('aria-expanded');
-		panel.setAttribute('aria-hidden', 'true');
+		tab.parentElement.classList.remove('is-active');
 		panel.classList.remove('is-active');
 	}
 
@@ -57,12 +52,10 @@
 	 * @param {any} tab 
 	 * @param {any} panel 
 	 */
-	var activateTab = function (tab, panel) {
-		
+	function activateTab(tab, panel) {
+
 		tab.setAttribute('aria-selected', 'true');
-		tab.classList.add('is-active');
-		panel.removeAttribute('aria-hidden');
-		panel.setAttribute('aria-expanded', 'true');
+		tab.parentElement.classList.add('is-active');
 		panel.classList.add('is-active');
 	}
 
@@ -71,7 +64,7 @@
 	 * 
 	 * @param {any} event 
 	 */
-	var fireEvents = function (event) {
+	function fireEvents(event) {
 		
 		if (event.target.tagName.toLowerCase() === 'a') {
 			showTabContent(event.target);
@@ -79,7 +72,7 @@
 	}
 
 	// Add event listener to tab component(s).
-	for ( var i = 0; i < tabs.length; i++ ) {
-		tabs[i].addEventListener( 'click', fireEvents );
+	for (var i = 0, len = tabs.length; i < len; i++) {
+		tabs[i].addEventListener('click', fireEvents);
 	}
-})( window );
+})();
