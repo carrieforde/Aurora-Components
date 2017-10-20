@@ -71,8 +71,57 @@
 		}
 	}
 
+	function keyboardNav(event) {
+
+		var key          = event.keyCode,
+			target       = event.target,
+			listItem     = target.parentElement,
+			tabComponent = listItem.parentElement.parentElement,
+			newTarget;
+
+		switch (key) {
+
+			// If up or left key is pressed.
+			case 37:
+			case 38:
+
+				// Set the new target.
+				if (listItem.previousElementSibling === null) {
+					newTarget = tabComponent.querySelectorAll('.tabs__nav a');
+					newTarget = newTarget[newTarget.length -1];
+				} else {
+					newTarget = listItem.previousElementSibling;
+					newTarget = newTarget.querySelector('a');
+				}
+
+				newTarget.focus();
+				showTabContent(newTarget);
+				break;
+
+			// If down or right key is pressed.
+			case 39: // left
+			case 40: // down
+				
+				// Set the new target.
+				if (listItem.nextElementSibling === null) {
+					newTarget = tabComponent.querySelector('.tabs__nav a');
+				} else {
+					newTarget = listItem.nextElementSibling;
+					newTarget = newTarget.querySelector('a');
+				}
+
+				newTarget.focus();
+				showTabContent(newTarget);
+				break;
+		
+			default:
+				break;
+		}
+	}
+
 	// Add event listener to tab component(s).
 	for (var i = 0, len = tabs.length; i < len; i++) {
 		tabs[i].addEventListener('click', fireEvents);
+		tabs[i].addEventListener('keyup', keyboardNav);
 	}
 })();
