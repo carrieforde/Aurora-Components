@@ -21,6 +21,12 @@
 	 */
 	function smoothScroll( event ) {
 
+		// Return if a link isn't clicked.
+		if (event.target.tagName.toLowerCase() !== 'a') {
+			return;
+		}
+
+		// Prevent follow action.
 		event.preventDefault();
 			
 		var el     = event.target,
