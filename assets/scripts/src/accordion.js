@@ -112,11 +112,11 @@
 
 				// Set the new target.
 				if (parent.previousElementSibling === null) {
-					newTarget = accordion.querySelectorAll('.accordion__button');
+					newTarget = accordion.querySelectorAll('.accordion__toggle');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = parent.previousElementSibling;
-					newTarget = newTarget.querySelector('.accordion__button');
+					newTarget = newTarget.querySelector('.accordion__toggle');
 				}
 
 				newTarget.focus();
@@ -128,10 +128,10 @@
 
 				// Set the new target.
 				if (parent.nextElementSibling === null) {
-					newTarget = accordion.querySelector('.accordion__button');
+					newTarget = accordion.querySelector('.accordion__toggle');
 				} else {
 					newTarget = parent.nextElementSibling;
-					newTarget = newTarget.querySelector('.accordion__button');
+					newTarget = newTarget.querySelector('.accordion__toggle');
 				}
 
 				newTarget.focus();
