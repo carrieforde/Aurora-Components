@@ -123,7 +123,7 @@
 		var key          = event.keyCode,
 			target       = event.target,
 			listItem     = target.parentElement,
-			component = listItem.parentElement.parentElement,
+			component    = listItem.parentElement.parentElement,
 			newTarget;
 
 		switch (key) {
