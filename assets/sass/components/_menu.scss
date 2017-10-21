@@ -17,13 +17,16 @@
 	> li {
 		position: relative;
 
-		&:hover,
 		&.is-toggled {
 
 			.menu__sub-menu {
 				max-height: 100vh; // arbitrary value that allows for reasonable flexibility
 			}
 		}
+	}
+
+	.has-children {
+		padding-right: $gutter * 1.5;
 	}
 
 	a {
@@ -34,7 +37,6 @@
 
 	// .menu__sub-menu
 	&__sub-menu {
-
 		max-height: 0;
 		overflow: hidden;
 		padding-left: 0;
@@ -48,6 +50,7 @@
 			width: rem(175);
 
 			.flex-column & {
+				background-color: transparent;
 				position: relative;
 			}
 
@@ -55,6 +58,39 @@
 				left: auto;
 				right: 0;
 			}
+		}
+	}
+}
+
+.button--sub-menu {
+	@include position(absolute, rem(8) 0 null null);
+	@include size($gutter);
+
+	background-color: transparent;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: transparent;
+	}
+
+	&:after,
+	&:before {
+		@include position(absolute, 0 0 0 0);
+		@include size(rem(15) rem(2));
+
+		background-color: $color__primary;
+		content: '';
+		display: block;
+		margin: auto;
+		transition: $transition__transform;
+	}
+
+	&:before {
+		transform: rotate(-90deg);
+
+		.is-toggled & {
+			transform: rotate(0);
 		}
 	}
 }
