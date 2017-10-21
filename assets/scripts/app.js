@@ -114,11 +114,11 @@
 
 				// Set the new target.
 				if (parent.previousElementSibling === null) {
-					newTarget = accordion.querySelectorAll('.accordion__button');
+					newTarget = accordion.querySelectorAll('.accordion__toggle');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = parent.previousElementSibling;
-					newTarget = newTarget.querySelector('.accordion__button');
+					newTarget = newTarget.querySelector('.accordion__toggle');
 				}
 
 				newTarget.focus();
@@ -130,10 +130,10 @@
 
 				// Set the new target.
 				if (parent.nextElementSibling === null) {
-					newTarget = accordion.querySelector('.accordion__button');
+					newTarget = accordion.querySelector('.accordion__toggle');
 				} else {
 					newTarget = parent.nextElementSibling;
-					newTarget = newTarget.querySelector('.accordion__button');
+					newTarget = newTarget.querySelector('.accordion__toggle');
 				}
 
 				newTarget.focus();
@@ -257,51 +257,77 @@
  */
 (function () {
 
-	var navMenu = document.querySelector('.nav-menu');
+	var components = document.querySelectorAll('.menu');
 
 	/**
   * Adds helper classes on page load.
   * 
   */
-	var addClasses = function () {
+	function addClasses() {
 
-		var menuItems = navMenu.querySelectorAll('li');
+		for (var i = 0; i < components.length; i++) {
 
-		for (var i = 0, len = menuItems.length; i < len; i++) {
+			var menuItems = components[i].querySelectorAll('li');
 
-			if (menuItems[i].lastElementChild.classList.contains('menu__sub-menu')) {
-				menuItems[i].classList.add('has-children');
-			}
+			for (var j = 0; j < menuItems.length; j++) {
 
-			// If sub-menu will open offscreen, add a class so it doesn't.
-			if (window.outerWidth - menuItems[i].offsetLeft < 175) {
-				menuItems[i].classList.add('reverse-open');
+				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
+					menuItems[j].classList.add('has-children');
+				}
+
+				// If sub-menu will open offscreen, add a class so it doesn't.
+				if (window.innerWidth - menuItems[j].offsetLeft < 175) {
+					menuItems[j].classList.add('reverse-open');
+				}
 			}
 		}
-	};
+	}
+
+	/**
+  * Adds toggle buttons for sub-menus.
+  * 
+  */
+	function addHelpers() {
+
+		for (var i = 0; i < components.length; i++) {
+
+			var menuItems = components[i].querySelectorAll('li'),
+			    toggles;
+
+			for (var j = 0; j < menuItems.length; j++) {
+
+				var toggle = document.createElement('button'),
+				    textWrap = document.createElement('span'),
+				    toggleText = document.createTextNode('Toggle');
+
+				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
+					textWrap.appendChild(toggleText);
+					textWrap.classList.add('screen-reader-text');
+					toggle.appendChild(textWrap);
+					toggle.classList.add('button', 'button--sub-menu');
+					menuItems[j].appendChild(toggle);
+				}
+			}
+		}
+	}
 
 	/**
   * Visibly opens submenus on tabpress.
   * 
   * @param {any} event
   */
-	var tabNavigation = function (event) {
+	function tabNavigation(event) {
 
 		var el = event.target,
-		    subMenu = el.nextElementSibling,
+		    subMenu = el.nextElementSibling ? el.nextElementSibling : '',
 		    lastItem,
 		    toggled = document.querySelector('.is-toggled');
 
-		// console.log(event.keyCode);
-
-		// Show submenu once parent has been selected.
-		if (subMenu && subMenu.classList.contains('menu__sub-menu')) {
+		// Show submenu once parent has been selected, but close it once we tab away from the last item.
+		if (subMenu) {
 			toggled = el.parentElement;
 			toggled.classList.add('is-toggled');
-		}
 
-		// If we're in a sub-menu, toggle it closed once we've tabbed away from the last menu item.
-		if (subMenu) {
 			lastItem = subMenu.querySelectorAll('li');
 			lastItem = lastItem[lastItem.length - 1].firstElementChild;
 
@@ -333,10 +359,41 @@
 				toggled.classList.remove('is-toggled');
 			};
 		}
-	};
+	}
 
+	/**
+  * Adds functionality to toggle sub-menu on button press.
+  * 
+  * @param {any} event 
+  * @returns 
+  */
+	function toggleSubMenu(event) {
+
+		var el = event.target,
+		    parent = el.parentElement;
+
+		// Bail if we're not looking at a sub-menu toggle.
+		if (!el.classList.contains('button--sub-menu')) {
+			return;
+		}
+
+		// Add or remove class on list item.
+		if (parent.classList.contains('is-toggled')) {
+			parent.classList.remove('is-toggled');
+		} else {
+			parent.classList.add('is-toggled');
+		}
+	}
+
+	// Add event listeners on menus.
+	for (var i = 0; i < components.length; i++) {
+		components[i].addEventListener('keyup', tabNavigation);
+		components[i].addEventListener('click', toggleSubMenu);
+	}
+
+	// Add event listners on window.
 	window.addEventListener('load', addClasses);
-	navMenu.addEventListener('keyup', tabNavigation);
+	window.addEventListener('load', addHelpers);
 })();
 
 /**
@@ -362,6 +419,12 @@
   */
 	function smoothScroll(event) {
 
+		// Return if a link isn't clicked.
+		if (event.target.tagName.toLowerCase() !== 'a') {
+			return;
+		}
+
+		// Prevent follow action.
 		event.preventDefault();
 
 		var el = event.target,

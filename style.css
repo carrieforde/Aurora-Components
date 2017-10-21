@@ -505,27 +505,6 @@ textarea.valid {
   border-color: #04be51;
 }
 
-input[type="color"]:focus,
-input[type="date"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="email"]:focus,
-input[type="month"]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="time"]:focus,
-input[type="url"]:focus,
-input[type="week"]:focus,
-textarea:focus {
-  border-color: #e5346c;
-  -webkit-box-shadow: 0 0 0 0.125em rgba(229, 52, 108, 0.25);
-          box-shadow: 0 0 0 0.125em rgba(229, 52, 108, 0.25);
-  outline: 0;
-}
-
 input[type="checkbox"],
 input[type="radio"] {
   display: inline-block;
@@ -566,7 +545,10 @@ textarea {
 }
 
 :focus {
-  outline-color: #e5346c;
+  border: 1px solid #e5346c;
+  -webkit-box-shadow: 0 0 0 0.125em rgba(229, 52, 108, 0.25);
+          box-shadow: 0 0 0 0.125em rgba(229, 52, 108, 0.25);
+  outline: 0;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .hfrom {
@@ -823,8 +805,12 @@ img {
   position: relative;
 }
 
-.menu > li:hover .menu__sub-menu, .menu > li.is-toggled .menu__sub-menu {
+.menu > li.is-toggled .menu__sub-menu {
   max-height: 100vh;
+}
+
+.menu .has-children {
+  padding-right: 1.875rem;
 }
 
 .menu a {
@@ -841,6 +827,47 @@ img {
   transition: max-height 0.3s ease-in-out;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
+}
+
+.button--sub-menu {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  background-color: transparent;
+}
+
+.button--sub-menu:hover, .button--sub-menu:active, .button--sub-menu:focus {
+  background-color: transparent;
+}
+
+.button--sub-menu:after, .button--sub-menu:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.125rem;
+  width: 0.9375rem;
+  background-color: #e5346c;
+  content: '';
+  display: block;
+  margin: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.button--sub-menu:before {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.is-toggled .button--sub-menu:before {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
 }
 
 .flex {
@@ -1005,6 +1032,7 @@ img {
     width: 10.9375rem;
   }
   .flex-column .menu__sub-menu {
+    background-color: transparent;
     position: relative;
   }
   .reverse-open .menu__sub-menu {
