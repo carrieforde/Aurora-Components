@@ -25,7 +25,8 @@
 @import 'layout/flexbox';
 
 // General page styles (for now)
-.site-header {
+.site-header,
+.site-footer {
 	padding: 20px;
 
 	@include media($tablet-landscape-up, null) {
@@ -50,19 +51,61 @@
 	padding: 20px;
 	width: rem(1100);
 
-	.components & {
-		display: grid;
-		grid-gap: $gutter;
-		grid-template-columns: auto rem(900);
+	@include media($tablet-landscape-up, null) {
+
+		.components & {
+			display: grid;
+			grid-gap: $gutter__double;
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 }
 
 .components {
-	background-color: #eee;
 
-	.page__header {
-		grid-column-end: 3;
-		grid-column-start: 1;
+	@include media($tablet-landscape-up, null) {
+		background-color: $color__light-gray;
+
+		.page__header {
+			grid-column-end: 5;
+			grid-column-start: 1;
+		}
+
+		.sidebar {
+			grid-column-end: 2;
+			grid-column-start: 1;
+		}
+
+		.page__content {
+			background-color: $color__white;
+			grid-column-end: 5;
+			grid-column-start: 2;
+			padding: $gutter;
+		}
+	}
+}
+
+.page__content {
+	@include media(null, $tablet-landscape-up) {
+		margin-top: $gutter * 4;
+	}
+}
+
+.site-footer {
+	background-color: $color__dark-gray;
+	color: $color__white;
+
+	@include media(null, $tablet-landscape-up) {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	a {
+		color: $color__white;
 	}
 }
 
