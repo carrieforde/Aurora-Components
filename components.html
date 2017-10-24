@@ -45,6 +45,7 @@
 								<li><a href="#carousel">Carousel</a></li>
 								<li><a href="#menu">Menu</a></li>
 								<li><a href="#tabs">Tabs</a></li>
+								<li><a href="#modal">Modal</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -589,6 +590,15 @@ p q r s t u v w x y z { | } ~</pre>
 							</div>
 						</div>
 					</section>
+					<section class="module">
+						<header class="module__header">
+							<h2>Modal</h2>
+						</header>
+						<div class="module__content">
+							<button type="button" id="modal-button" class="button button--info button--modal" onclick="openModal('modal-1')">Open Modal</button>
+							<!-- Modal content before closing body tag -->
+						</div>
+					</section>
 				</div>
 			</section>
 		</div>
@@ -598,6 +608,34 @@ p q r s t u v w x y z { | } ~</pre>
 		<p class="copyright"><small>Copyright &copy; 2017 <a href="https://carrieforde.com">Carrie Forde</a></small></p>
 		<a href="https://github.com/carrieforde/bov-web-components"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">Github</span></a>
 	</footer>
+
+	<!-- Modal content -->
+	<section class="modal-screen is-hidden">
+		<div id="modal-1" class="modal" role="dialog">
+			<div class="modal-content">
+				<header class="modal-content__header">
+					<h2>Hello! This is a modal</h2>
+					<button type="button" class="button button--close">Close</button>
+				</header>
+				<div class="modal-content__content">
+					<img src="https://picsum.photos/200/300" alt="">
+					<p>Lorem ipsum dolor sit amet, mei salutandi vituperata ad. Utroque fierent et vel. Tollit latine aliquam his ea, cum idque simul melius at. Ius te aliquid omittam eloquentiam, graeci ocurreret vel ut. Id nam soluta tempor, illud maiestatis ea sit, ex mel nostrum forensibus. In agam ipsum deseruisse has, no nec accusata gloriatur.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 	<script src="assets/scripts/app.js"></script>
+	<script>
+	function openModal(modal) {
+
+		var dialog = document.querySelector('#' + modal),
+			wrapper = dialog.parentElement,
+			body = document.querySelector('body');
+
+		dialog.classList.add('show');
+		body.classList.add('modal-open');
+		wrapper.classList.remove('is-hidden');
+	}
+	</script>
 </body>
 </html>

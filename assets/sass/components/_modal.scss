@@ -1,0 +1,58 @@
+//--------------------------------------------------------------
+// MODAL
+//--------------------------------------------------------------
+.modal-screen {
+	@include position(fixed, 0 0 0 0);
+
+	background-color: rgba($color__black, 0.5);
+	opacity: 1;
+	transition: $transition__opacity;
+	z-index: 1;
+
+	&.is-hidden {
+		opacity: 0;
+		z-index: -20;
+	}
+}
+
+.modal {
+	@include position(absolute, 0 0 0 0);
+
+	background-color: $color__white;
+	transition: $transition__left;
+
+	.is-hidden & {
+		left: 100%;
+		transition: $transition__left;
+	}
+	
+	@include media($tablet-portrait-up, null) {
+		left: 50%;
+		padding-top: 3 / 2 * 50%; // 2:3 ratio
+		top: 50%;
+		transform: translate(-50%, -50%); // centers element
+		width: 50%;
+	}
+
+	@include media($tablet-landscape-up, null) {
+		padding-top: 2 / 3 * 50%; // 3:2 ratio
+		width: 50%;
+	}
+}
+
+.modal-content {
+	@include position(absolute, 0 0 0 0);
+
+	overflow: auto;
+	padding: $gutter;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+// Keeps background from scrolling when modal is open.
+.modal-open {
+	overflow: hidden;
+}
