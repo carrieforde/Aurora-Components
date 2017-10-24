@@ -1,7 +1,7 @@
 //--------------------------------------------------------------
 // MODAL
 //--------------------------------------------------------------
-.modal-screen {
+.modal-container {
 	@include position(fixed, 0 0 0 0);
 
 	background-color: rgba($color__black, 0.5);
@@ -20,22 +20,24 @@
 
 	background-color: $color__white;
 	transition: $transition__left;
+	z-index: 3;
 
-	.is-hidden & {
+	&.is-hidden {
 		left: 100%;
 		transition: $transition__left;
+		z-index: 2;
 	}
 	
 	@include media($tablet-portrait-up, null) {
 		left: 50%;
-		padding-top: 3 / 2 * 50%; // 2:3 ratio
+		padding-top: 3 / 2 * 50%; // 2:3 ratio * % width
 		top: 50%;
 		transform: translate(-50%, -50%); // centers element
 		width: 50%;
 	}
 
 	@include media($tablet-landscape-up, null) {
-		padding-top: 2 / 3 * 50%; // 3:2 ratio
+		padding-top: 2 / 3 * 50%; // 3:2 ratio * % width
 		width: 50%;
 	}
 }
