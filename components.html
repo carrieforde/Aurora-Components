@@ -610,14 +610,14 @@ p q r s t u v w x y z { | } ~</pre>
 	</footer>
 
 	<!-- Modal content -->
-	<section class="modal-screen is-hidden">
-		<div id="modal-1" class="modal" role="dialog">
+	<section class="modal-container is-hidden">
+		<div id="modal-1" class="modal is-hidden" role="dialog" aria-labelledby="modal-1_label" aria-describedby="modal-1_content" aria-modal="true">
 			<div class="modal-content">
 				<header class="modal-content__header">
-					<h2>Hello! This is a modal</h2>
+					<h2 id="modal-1_label">Hello! This is a modal</h2>
 					<button type="button" class="button button--close">Close</button>
 				</header>
-				<div class="modal-content__content">
+				<div id="modal-1_content" class="modal-content__content">
 					<img src="https://picsum.photos/200/300" alt="">
 					<p>Lorem ipsum dolor sit amet, mei salutandi vituperata ad. Utroque fierent et vel. Tollit latine aliquam his ea, cum idque simul melius at. Ius te aliquid omittam eloquentiam, graeci ocurreret vel ut. Id nam soluta tempor, illud maiestatis ea sit, ex mel nostrum forensibus. In agam ipsum deseruisse has, no nec accusata gloriatur.</p>
 				</div>
@@ -625,17 +625,5 @@ p q r s t u v w x y z { | } ~</pre>
 		</div>
 	</section>
 	<script src="assets/scripts/app.js"></script>
-	<script>
-	function openModal(modal) {
-
-		var dialog = document.querySelector('#' + modal),
-			wrapper = dialog.parentElement,
-			body = document.querySelector('body');
-
-		dialog.classList.add('show');
-		body.classList.add('modal-open');
-		wrapper.classList.remove('is-hidden');
-	}
-	</script>
 </body>
 </html>
