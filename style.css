@@ -914,6 +914,8 @@ img {
 
 .modal-container.is-hidden {
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out 0.3s;
+  transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out 0.3s;
   z-index: -20;
 }
 
@@ -1073,8 +1075,17 @@ img {
   padding: 2.5rem 1.25rem 3.75rem;
 }
 
+.module .site-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .menu h4 {
   margin-bottom: 0;
+}
+
+.component--tabs + .component--tabs {
+  margin-top: 2.5rem;
 }
 
 @media only screen and (min-width: 600px) {
