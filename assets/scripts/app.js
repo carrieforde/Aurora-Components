@@ -304,7 +304,7 @@
 					textWrap.appendChild(toggleText);
 					textWrap.classList.add('screen-reader-text');
 					toggle.appendChild(textWrap);
-					toggle.classList.add('button', 'button--sub-menu');
+					toggle.classList.add('button', 'button--plus-minus');
 					menuItems[j].appendChild(toggle);
 				}
 			}
@@ -373,7 +373,7 @@
 		    parent = el.parentElement;
 
 		// Bail if we're not looking at a sub-menu toggle.
-		if (!el.classList.contains('button--sub-menu')) {
+		if (!el.classList.contains('button--plus-minus')) {
 			return;
 		}
 

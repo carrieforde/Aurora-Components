@@ -415,6 +415,76 @@ input[type="file"]:focus,
   background-color: rgba(255, 53, 5, 0.8);
 }
 
+.button.button--close {
+  background-color: transparent;
+  padding: 0.625rem;
+  position: relative;
+}
+
+.button.button--close .bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.125rem;
+  width: 0.9375rem;
+  background-color: #e5346c;
+  display: block;
+  margin: auto;
+}
+
+.button.button--close .bar-1 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.button.button--close .bar-2 {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.button.button--plus-minus {
+  position: absolute;
+  top: 0.4375rem;
+  right: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  background-color: transparent;
+}
+
+.button.button--plus-minus:hover, .button.button--plus-minus:active, .button.button--plus-minus:focus {
+  background-color: transparent;
+}
+
+.button.button--plus-minus:after, .button.button--plus-minus:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.125rem;
+  width: 0.625rem;
+  background-color: #e5346c;
+  content: '';
+  display: block;
+  margin: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.button.button--plus-minus:before {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.is-toggled .button.button--plus-minus:before {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
 form ul {
   list-style: none;
   margin: 0;
@@ -829,47 +899,6 @@ img {
           transition-duration: 0.5s;
 }
 
-.button--sub-menu {
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  height: 1.25rem;
-  width: 1.25rem;
-  background-color: transparent;
-}
-
-.button--sub-menu:hover, .button--sub-menu:active, .button--sub-menu:focus {
-  background-color: transparent;
-}
-
-.button--sub-menu:after, .button--sub-menu:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 0.125rem;
-  width: 0.9375rem;
-  background-color: #e5346c;
-  content: '';
-  display: block;
-  margin: auto;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-}
-
-.button--sub-menu:before {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-}
-
-.is-toggled .button--sub-menu:before {
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-}
-
 .modal-container {
   position: fixed;
   top: 0;
@@ -918,12 +947,20 @@ img {
 }
 
 .modal-content__header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+.modal-content__header h2 {
+  margin-bottom: 0;
 }
 
 .modal-open {
@@ -1042,12 +1079,13 @@ img {
 
 @media only screen and (min-width: 600px) {
   .modal {
+    height: 0;
+    width: 50%;
     left: 50%;
     padding-top: 75%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 50%;
   }
   .module {
     padding: 3.75rem 0 5.625rem;
