@@ -130,3 +130,67 @@ input[type="file"],
 		}
 	}
 }
+
+//-----------------------------------------
+// Stylized CSS buttons
+//-----------------------------------------
+.button {
+
+	// Close button.
+	&.button--close {
+		background-color: transparent;
+		padding: $gutter__half;
+		position: relative;
+
+		.bar {
+			@include position(absolute, 0 0 0 0);
+			@include size(rem(15) rem(2));
+
+			background-color: $color__primary;
+			display: block;
+			margin: auto;
+
+			&-1 {
+				transform: rotate(45deg);
+			}
+
+			&-2 {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	// Plus-Minus (used for sub-menu toggles)
+	&.button--plus-minus {
+		@include position(absolute, rem(7) 0 null null);
+		@include size($gutter);
+
+		background-color: transparent;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: transparent;
+		}
+
+		&:after,
+		&:before {
+			@include position(absolute, 0 0 0 0);
+			@include size(rem(10) rem(2));
+
+			background-color: $color__primary;
+			content: '';
+			display: block;
+			margin: auto;
+			transition: $transition__transform;
+		}
+
+		&:before {
+			transform: rotate(-90deg);
+
+			.is-toggled & {
+				transform: rotate(0);
+			}
+		}
+	}
+}
