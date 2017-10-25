@@ -116,6 +116,11 @@
 	@include media($tablet-portrait-up, null) {
 		padding: rem(60) 0 rem(90);
 	}
+
+	.site-header {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .menu {
