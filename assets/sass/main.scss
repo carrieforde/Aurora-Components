@@ -124,3 +124,10 @@
 		margin-bottom: 0;
 	}
 }
+
+.component--tabs {
+
+	+ .component--tabs {
+		margin-top: $gutter__double;
+	}
+}
