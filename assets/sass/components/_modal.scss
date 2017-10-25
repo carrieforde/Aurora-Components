@@ -29,11 +29,13 @@
 	}
 	
 	@include media($tablet-portrait-up, null) {
+
+		@include size(50% 0);
+
 		left: 50%;
 		padding-top: 3 / 2 * 50%; // 2:3 ratio * % width
 		top: 50%;
 		transform: translate(-50%, -50%); // centers element
-		width: 50%;
 	}
 
 	@include media($tablet-landscape-up, null) {
