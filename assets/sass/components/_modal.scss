@@ -51,8 +51,14 @@
 	padding: $gutter;
 
 	&__header {
+		align-items: center;
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 0.5em;
+
+		h2 {
+			margin-bottom: 0;
+		}
 	}
 }
 
