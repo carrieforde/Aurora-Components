@@ -34,6 +34,11 @@
 @import 'config/variables/borders';
 @import 'sanitize';
 
+// Utilities
+@import 'utilities/colors';
+@import 'utilities/flexbox';
+@import 'utilities/padding';
+
 // Elements
 @import 'elements/buttons';
 @import 'elements/forms';
@@ -48,20 +53,12 @@
 @import 'components/modal';
 
 // Layout
-@import 'layout/flexbox';
+@import 'layout/sidebar';
+
+// State
+@import 'state/is-fixed';
 
 // General page styles (for now)
-.site-header,
-.site-footer {
-	padding: 20px;
-
-	@include media($tablet-landscape-up, null) {
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-	}
-}
-
 .site-info {
 	font-family: $font__heading;
 	font-size: rem(24);
@@ -74,7 +71,6 @@
 	@include center-block;
 
 	max-width: 100%;
-	padding: 20px;
 	width: rem(1100);
 
 	@include media($tablet-landscape-up, null) {
@@ -118,8 +114,6 @@
 }
 
 .site-footer {
-	background-color: $color__dark-gray;
-	color: $color__white;
 
 	@include media(null, $tablet-landscape-up) {
 		flex-direction: column;
@@ -128,10 +122,6 @@
 
 	p {
 		margin-bottom: 0;
-	}
-
-	a {
-		color: $color__white;
 	}
 }
 
