@@ -253,6 +253,34 @@
 })();
 
 /**
+ * Fixed Sidebar
+ */
+(function () {
+
+	// Script options.
+	var options = {
+		sidebarSelector: '.sidebar',
+		fixPosition: 20
+	},
+	    sidebar = document.querySelector(options.sidebarSelector);
+
+	/**
+  * Fixes the sidebar within the viewport.
+  * 
+  */
+	function fixSidebar() {
+
+		if (sidebar.offsetTop - window.scrollY < options.fixPosition) {
+			sidebar.classList.add('is-fixed');
+		} else {
+			sidebar.classList.remove('is-fixed');
+		}
+	}
+
+	window.addEventListener('scroll', fixSidebar);
+})();
+
+/**
  * Menu JS
  */
 (function () {
@@ -713,6 +741,35 @@
 
 	// Add event listner to window to add accessibilty attributes on load.
 	window.addEventListener('load', addAccessibilityAttrs);
+})();
+
+/**
+ * Tooltip scripts.
+ */
+(function () {
+
+	var tooltips = document.querySelectorAll('.has-tooltip');
+
+	window.addEventListener('load', function () {
+		for (var i = 0; i < tooltips.length; i++) {
+			var tooltip = tooltips[i].dataset.tooltip,
+			    tooltipBox = document.createElement('span');
+
+			console.log('boo');
+
+			tooltipBox.textContent = tooltip;
+			tooltipBox.classList.add('tooltip', 'is-hidden');
+			tooltips[i].appendChild(tooltipBox);
+
+			tooltips[i].onmouseenter = function () {
+				tooltipBox.classList.toggle('is-hidden');
+			};
+
+			tooltips[i].onmouseleave = function () {
+				tooltipBox.classList.toggle('is-hidden');
+			};
+		}
+	});
 })();
 
 //# sourceMappingURL=app.js.map
