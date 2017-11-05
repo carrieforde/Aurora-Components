@@ -51,12 +51,15 @@
 @import 'components/tabs';
 @import 'components/menu';
 @import 'components/modal';
+@import 'components/tooltip';
 
 // Layout
 @import 'layout/sidebar';
 
 // State
 @import 'state/is-fixed';
+@import 'state/has-tooltip';
+@import 'state/is-hidden';
 
 // General page styles (for now)
 .site-info {

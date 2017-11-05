@@ -1,0 +1,27 @@
+//--------------------------------------------------------------
+// TOOLTIP
+//--------------------------------------------------------------
+.tooltip {
+	@include position(absolute, null null 150% calc(50% - #{rem(150)}));
+
+	background-color: $color__black;
+	color: $color__white;
+	display: block;
+	padding: $gutter__half;
+	text-align: center;
+	transition: $transition__visibility;
+	width: rem(300);
+	z-index: 5;
+
+	&:after {
+		@include position(absolute, null 0 rem(-5) 0);
+		@include size(rem(10));
+
+		background-color: $color__black;
+		content: '';
+		display: block;
+		margin: 0 auto;
+		transform: rotate(45deg);
+		z-index: -1;
+	}
+}
