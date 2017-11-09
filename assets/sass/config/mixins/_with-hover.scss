@@ -1,0 +1,23 @@
+//--------------------------------------------------------------
+// WITH HOVER
+//--------------------------------------------------------------
+
+@mixin with-hover($property, $value, $classname: '') {
+	@if ($classname != '') {
+		.#{$classname} {
+			#{$property}: $value;
+		}
+
+		.hover\:#{$classname}:hover {
+			#{$property}: $value;
+		}
+	} @else {
+		.#{$value} {
+			#{$property}: $value;
+		}
+
+		.hover\:#{$value}:hover {
+			#{$property}: $value;
+		}
+	}
+}
