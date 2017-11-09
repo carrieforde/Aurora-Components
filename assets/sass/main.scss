@@ -4,6 +4,9 @@
 // Manifest for the project Sass.
 //--------------------------------------------------------------
 
+// Config.
+@import 'config';
+
 // Utilities
 @import 'bourbon';
 @import 'config/functions/color';
@@ -22,6 +25,7 @@
 @import 'config/mixins/media';
 @import 'config/mixins/vertical-rhythm';
 @import 'config/mixins/prop-check';
+@import 'config/mixins/create-classes';
 @import 'config/settings/base-context';
 @import 'config/settings/colors';
 @import 'config/settings/typography';
