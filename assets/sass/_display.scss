@@ -1,0 +1,14 @@
+//--------------------------------------------------------------
+// DISPLAY
+//--------------------------------------------------------------
+// .block
+@include responsive(display, block);
+
+// .flex
+@include responsive(display, flex);
+
+// .grid
+@include responsive(display, grid);
+
+// .inline-block
+@include responsive(display, inline-block);
