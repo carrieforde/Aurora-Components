@@ -1,131 +1,113 @@
 //--------------------------------------------------------------
 // TYPOGRAPHY
 //--------------------------------------------------------------
-html {
-	font-size: $base-context * 1px;
-}
 
-body,
-button,
-input,
-select,
-textarea {
-	color: $color__body;
-	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body; // sass-lint:disable-line space-around-operator
-}
+//-----------------------------------------
+// Classes from configuration file.
+//-----------------------------------------
 
-:focus {
-	border: $border__focus;
-	box-shadow: 0 0 0 0.125em rgba($color__primary, 0.25);
-	outline: 0;
-}
+// .{font-family}
+@include create-classes($font-families, font-family);
+
+// .font-{size}
+@include create-classes($font-sizes, font-size, font);
+
+// .font-{weight}
+@include create-classes($font-weights, font-weight, font);
+
+// .lh-{size}
+@include create-classes($line-heights, line-height, lh);
+
+// .ls-{size}
+@include create-classes($letter-spacing, letter-spacing, ls);
 
 
 //-----------------------------------------
-// Headings
+// Other utilities
 //-----------------------------------------
-#{headings(1, 6)} {
-	@include prop-check(color, $color__heading, $color__body);
-	@include prop-check(font-family, $font__heading, $font__body);
-	@include prop-check(font-weight, $font__heading-weight, $font__body-weight);
-	@include prop-check(line-height, $font__heading-line-height, $font__body-line-height);
+.text {
 
-	margin: 0 0 0.5em;
-}
-
-// sass-lint:disable no-empty-rulesets, brace-style
-h1,
-.h1 {}
-
-h2,
-.h2 {}
-
-h3,
-.h3 {}
-
-h4,
-.h4 {}
-
-h5,
-.h5 {}
-
-h6,
-.h6 {}
-// sass-lint:enable no-empty-rulesets, brace-style
-
-
-//-----------------------------------------
-// Inline elements
-//-----------------------------------------
-p {
-	margin: 0 0 1.5em;
-}
-
-a {
-	color: $color__link;
-	transition: $transition__color;
-
-	&:visited {
-		color: $color__link;
+	&-left {
+		text-align: center;
 	}
 
-	&:hover,
-	&:active,
-	&:focus {
-		color: $color__link-hover;
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-justify {
+		text-align: justify;
 	}
 }
 
-ins,
-mark {
-	background-color: $color__ins;
-	color: $color__body;
-	text-decoration: none;
-}
+.whitespace {
 
-abbr {
-	cursor: help;
-}
+	&-normal {
+		white-space: normal
+	}
 
-kbd,
-code,
-pre,
-samp,
-tt,
-var {
-	font: $font__code-weight #{$font__code-size}/#{$font__code-line-height} $font__code; // sass-lint:disable-line space-around-operator
-}
+	&-no-wrap {
+		white-space: nowrap;
+	}
 
-pre {
-	margin: 0 0 2em;
-	overflow-x: scroll;
-}
+	&-pre {
+		white-space: pre;
+	}
 
-blockquote {
-	font-size: 1.25em;
+	&-pre-line {
+		white-space: pre-line;
+	}
 
-	cite {
-		display: block;
-		font-size: 0.8em;
+	&-pre-wrap {
+		white-space: pre-wrap;
 	}
 }
 
-cite {
-	font-weight: 700;
+.wordwrap {
+
+	&-break {
+		word-wrap: break-word;
+	}
+
+	&-normal {
+		word-wrap: normal;
+	}
 }
 
-hr {
-	background-color: $color__hr;
-	border: 0;
-	height: 2px;
-}
-
-
-//-----------------------------------------
-// Utility classes
-//-----------------------------------------
 .screen-reader-text {
 	@include hide-text;
 }
 
-@include create-classes($font-families, font-family);
+// .italic, .hover:italic
+@include with-hover(font-style, italic);
+
+// .normal, .hover:normal
+@include with-hover(font-style, normal);
+
+// .oblique, .hover:oblique
+@include with-hover(font-style, oblique);
+
+// .lowercase, .hover:lowercase
+@include with-hover(text-transform, lowercase);
+
+// .uppercase, .hover:uppercase
+@include with-hover(text-transform, uppercase);
+
+// .capitalize, .hover:capitalize
+@include with-hover(text-transform, capitalize);
+
+// .normal-case, .hover:normal-case
+@include with-hover(text-transform, none, normal-case);
+
+// .underline, .hover:underline
+@include with-hover(text-decoration, underline);
+
+// .no-underline, .hover:no-underline
+@include with-hover(text-decoration, none, no-underline);
+
+// .line-through, .hover:line-through
+@include with-hover(text-decoration, line-through);
