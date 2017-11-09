@@ -4,18 +4,12 @@
 
 @mixin with-hover($property, $value, $classname: '') {
 	@if ($classname != '') {
-		.#{$classname} {
-			#{$property}: $value;
-		}
-
+		.#{$classname},
 		.hover\:#{$classname}:hover {
 			#{$property}: $value;
 		}
 	} @else {
-		.#{$value} {
-			#{$property}: $value;
-		}
-
+		.#{$value},
 		.hover\:#{$value}:hover {
 			#{$property}: $value;
 		}
