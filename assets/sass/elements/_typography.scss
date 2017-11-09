@@ -127,3 +127,5 @@ hr {
 .screen-reader-text {
 	@include hide-text;
 }
+
+@include create-classes($font-families, font-family);
