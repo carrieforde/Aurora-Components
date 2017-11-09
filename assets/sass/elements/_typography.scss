@@ -79,7 +79,14 @@
 }
 
 .screen-reader-text {
-	@include hide-text;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: rem(-1);
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 // .italic, .hover:italic
