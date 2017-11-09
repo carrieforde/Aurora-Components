@@ -5,8 +5,14 @@
 @mixin create-classes($map, $property: '', $prefix: '') {
 	
 	@each $key, $value in $map {
-		.#{$key} {
-			#{$property}: $value;
+		@if ($prefix != '') {
+			.#{$prefix}-#{$key} {
+				#{$property}: $value;
+			}
+		} @else {
+			.#{$key} {
+				#{$property}: $value;
+			}
 		}
 	}
 }
