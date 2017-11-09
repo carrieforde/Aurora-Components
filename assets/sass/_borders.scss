@@ -1,0 +1,68 @@
+//--------------------------------------------------------------
+// BORDERS
+//--------------------------------------------------------------
+
+
+//-----------------------------------------
+// Border Sizes
+//-----------------------------------------
+@each $key, $value in $border-sizes {
+
+	// .b-{size}
+	.b-#{$key} {
+		border: $value solid;
+	}
+
+	.bv-#{$key} {
+		border-bottom: $value solid;
+		border-top: $value solid;
+	}
+
+	.bh-#{$key} {
+		border-left: $value solid;
+		border-right: $value solid;
+	}
+
+	.bt-#{$key} {
+		border-top: $value solid;
+	}
+
+	.br-#{$key} {
+		border-right: $value solid;
+	}
+
+	.bb-#{$key} {
+		border-bottom: $value solid;
+	}
+
+	.bl-#{$key} {
+		border-left: $value solid;
+	}
+}
+
+//-----------------------------------------
+// Border Styles
+//-----------------------------------------
+.b-dashed {
+	border-style: dashed;
+}
+
+.b-dotted {
+	border-style: dotted;
+}
+
+.b-none {
+	border-style: none;
+}
+
+//-----------------------------------------
+// Border colors
+//-----------------------------------------
+@each $key, $value in $colors {
+
+	// .b-{color}, .hover:b-{color}
+	.b-#{$key},
+	.hover\:b-#{$key} {
+		border-color: $value;
+	}
+}
