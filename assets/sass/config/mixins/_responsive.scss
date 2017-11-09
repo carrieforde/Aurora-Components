@@ -1,0 +1,23 @@
+//--------------------------------------------------------------
+// RESPONSIVE
+//--------------------------------------------------------------
+@mixin responsive($property, $value, $classname: '') {
+
+	@each $bp-name, $bp-value in $breakpoints {
+
+		@if ($classname != '') {
+			
+			.#{$bp-name}\:#{$classname} {
+				@media screen and (min-width: #{$bp-value}) {
+					#{$property}: $value;
+				}
+			}
+		} @else {
+			.#{$bp-name}\:#{$value} {
+				@media screen and (min-width: #{$bp-value}) {
+					#{$property}: $value;
+				}
+			}
+		}
+	}
+}
