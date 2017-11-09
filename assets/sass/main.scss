@@ -8,138 +8,20 @@
 @import 'config';
 
 // Utilities
-@import 'config/functions/strip-units';
-@import 'config/functions/px-to-em';
-@import 'config/functions/px-to-rem';
+// @import 'config/functions/strip-units';
+// @import 'config/functions/px-to-em';
+// @import 'config/functions/px-to-rem';
 @import 'config/mixins/create-classes';
 @import 'config/mixins/with-hover';
-@import 'config/settings/base-context';
-@import 'config/settings/colors';
-@import 'config/variables/colors';
-@import 'config/variables/icons';
-@import 'config/variables/breakpoints';
-@import 'config/variables/sizes';
-@import 'config/variables/transitions';
-@import 'config/variables/borders';
 @import 'sanitize';
 
+@import 'colors';
+@import 'typography';
 // Utilities
-@import 'utilities/colors';
-@import 'utilities/flexbox';
-@import 'utilities/padding';
+// @import 'utilities/flexbox';
+// @import 'utilities/padding';
 
-// Elements
-@import 'elements/buttons';
-@import 'elements/forms';
-@import 'elements/typography';
-@import 'elements/media';
-
-// Components
-@import 'components/accordion';
-@import 'components/carousel';
-@import 'components/tabs';
-@import 'components/menu';
-@import 'components/modal';
-@import 'components/tooltip';
-
-// Layout
-@import 'layout/sidebar';
-
-// State
-@import 'state/is-fixed';
-@import 'state/has-tooltip';
-@import 'state/is-hidden';
-
-// General page styles (for now)
-.site-info {
-	font-family: $font__heading;
-	font-size: rem(24);
-	font-weight: 700;
-	margin-bottom: 0;
-	text-decoration: none;
-}
-
-.page {
-	@include center-block;
-
-	max-width: 100%;
-	width: rem(1100);
-
-	@include media($tablet-landscape-up, null) {
-
-		.components & {
-			display: grid;
-			grid-gap: $gutter__double;
-			grid-template-columns: repeat(4, 1fr);
-		}
-	}
-}
-
-.components {
-
-	@include media($tablet-landscape-up, null) {
-		background-color: $color__light-gray;
-
-		.page__header {
-			grid-column-end: 5;
-			grid-column-start: 1;
-		}
-
-		.sidebar {
-			grid-column-end: 2;
-			grid-column-start: 1;
-		}
-
-		.page__content {
-			background-color: $color__white;
-			grid-column-end: 5;
-			grid-column-start: 2;
-			padding: $gutter;
-		}
-	}
-}
-
-.page__content {
-	@include media(null, $tablet-landscape-up) {
-		margin-top: $gutter * 4;
-	}
-}
-
-.site-footer {
-
-	@include media(null, $tablet-landscape-up) {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	p {
-		margin-bottom: 0;
-	}
-}
-
-.module {
-	padding: rem(40) rem(20) rem(60);
-
-	@include media($tablet-portrait-up, null) {
-		padding: rem(60) 0 rem(90);
-	}
-
-	.site-header {
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
-.menu {
-
-	h4 {
-		margin-bottom: 0;
-	}
-}
-
-.component--tabs {
-
-	+ .component--tabs {
-		margin-top: $gutter__double;
-	}
-}
+// // State
+// @import 'state/is-fixed';
+// @import 'state/has-tooltip';
+// @import 'state/is-hidden';

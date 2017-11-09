@@ -1,0 +1,24 @@
+//--------------------------------------------------------------
+// COLORS
+//--------------------------------------------------------------
+
+@each $key, $value in $colors {
+
+	// .text-{color}, .hover:text-{color}
+	.text-#{$key},
+	.hover\:text-#{$key} {
+		color: $value;
+	}
+
+	// .bg-{color}, .hover:bg-{color}
+	.bg-#{$key},
+	.hover\:bg-#{$key} {
+		color: $value
+	}
+
+	// .fill-{color}, .hover-fill-{color}
+	.fill-#{$key},
+	.hover\:fill-#{$key} {
+		fill: $value;
+	}
+}
