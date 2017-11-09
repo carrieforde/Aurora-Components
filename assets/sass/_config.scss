@@ -26,7 +26,7 @@ $colors: (
 // Typography
 //-----------------------------------------
 $font-families: (
-	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial,sans-serif},
+	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif},
 	serif: #{Georgia, times, serif},
 	monospace: #{Consolas, monaco, monospace}
 );
@@ -42,6 +42,7 @@ $font-sizes: (
 );
 
 $font-weights: (
+	// sass-lint:disable-block no-color-keywords
 	hairline: 100,
 	thin: 200,
 	light: 300,
