@@ -1,0 +1,27 @@
+//--------------------------------------------------------------
+// THEME
+//--------------------------------------------------------------
+.button--plus-minus {
+	height: 20px;
+	top: 7.5px;
+	width: 20px;
+
+	&:after,
+	&:before {
+		background-color: map-get($colors, primary);
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 2px;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 10px;
+	}
+
+	&:after {
+		transform: rotate(90deg);
+	}
+}
