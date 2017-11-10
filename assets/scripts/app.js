@@ -5,45 +5,6 @@
  */
 (function () {
 
-	// Get global variables.
-	var components = document.querySelectorAll('.accordion');
-
-	/**
-  * Magically add accessibility attributes. 🎩
-  * 
-  */
-	function addAccessibilityAttrs() {
-
-		// Loop through accordion components.
-		for (var i = 0; i < components.length; i++) {
-
-			var headings = components[i].querySelectorAll('.accordion__heading');
-
-			// Add attribute to accordion.
-			components[i].setAttribute('role', 'presentation');
-
-			for (var j = 0; j < headings.length; j++) {
-				var toggle = headings[j].querySelector('.accordion__toggle'),
-				    headingID = headings[j].getAttribute('id'),
-				    panel = headings[j].nextElementSibling,
-				    panelID = panel.getAttribute('id'),
-				    listItem = headings[j].parentElement;
-
-				// Add attributes to toggles.
-				toggle.setAttribute('aria-expanded', 'false');
-				toggle.setAttribute('aria-controls', panelID);
-
-				// Add attributes to panels.
-				panel.setAttribute('aria-labelledby', headingID);
-
-				// If the item is active, update the aria-expanded attribute.
-				if (listItem.classList.contains('is-active')) {
-					toggle.setAttribute('aria-expanded', 'true');
-				}
-			}
-		}
-	}
-
 	/**
   * Toggle the accordion content panel.
   *
@@ -51,21 +12,16 @@
   */
 	function togglePanel(event) {
 
-		// Bail if the event target isn't the toggle.
-		if (!event.target.classList.contains('accordion__toggle')) {
-			return;
-		}
-
 		// Prevent link follow.
 		event.preventDefault();
 
 		var target = event.target,
-		    parent = target.parentElement.parentElement;
+		    panel = target.parentElement.nextElementSibling;
 
-		if (parent.classList.contains('is-active')) {
-			deactivatePanel(target, parent);
+		if (target.getAttribute('aria-expanded') === 'true') {
+			deactivatePanel(target, panel);
 		} else {
-			activatePanel(target, parent);
+			activatePanel(target, panel);
 		}
 	}
 
@@ -75,10 +31,13 @@
   * @param {string}  tab    The tab element.
   * @param {string}  panel  The panel element.
   */
-	function deactivatePanel(tab, parent) {
+	function deactivatePanel(tab, panel) {
 
 		tab.setAttribute('aria-expanded', 'false');
-		parent.classList.remove('is-active');
+		tab.classList.add('text-mid-gray');
+		tab.classList.add('text-primary');
+		panel.classList.remove('max-h-screen');
+		panel.classList.add('max-h-0');
 	}
 
 	/**
@@ -87,10 +46,13 @@
   * @param {string}  tab    The tab element.
   * @param {string}  panel  The panel element.
   */
-	function activatePanel(tab, parent) {
+	function activatePanel(tab, panel) {
 
 		tab.setAttribute('aria-expanded', 'true');
-		parent.classList.add('is-active');
+		tab.classList.add('text-primary');
+		tab.classList.remove('text-mid-gray');
+		panel.classList.add('max-h-screen');
+		panel.classList.remove('max-h-0');
 	}
 
 	/**
@@ -114,11 +76,11 @@
 
 				// Set the new target.
 				if (parent.previousElementSibling === null) {
-					newTarget = accordion.querySelectorAll('.accordion__toggle');
+					newTarget = accordion.querySelectorAll('a');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = parent.previousElementSibling;
-					newTarget = newTarget.querySelector('.accordion__toggle');
+					newTarget = newTarget.querySelector('a');
 				}
 
 				newTarget.focus();
@@ -130,10 +92,10 @@
 
 				// Set the new target.
 				if (parent.nextElementSibling === null) {
-					newTarget = accordion.querySelector('.accordion__toggle');
+					newTarget = accordion.querySelector('a');
 				} else {
 					newTarget = parent.nextElementSibling;
-					newTarget = newTarget.querySelector('.accordion__toggle');
+					newTarget = newTarget.querySelector('a');
 				}
 
 				newTarget.focus();
@@ -144,13 +106,47 @@
 		}
 	}
 
-	// Add event listeners.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', togglePanel);
-		components[i].addEventListener('keyup', keyboardNav);
+	/**
+  * Determines which function to fire on click.
+  * 
+  * @param {any} event 
+  * @returns 
+  */
+	function handleClickEvents(event) {
+
+		var target = event.target.closest('a') || event.target;
+
+		if (!target) {
+			return;
+		}
+
+		if (target.dataset.role === 'accordion-toggle') {
+			togglePanel(event);
+		}
 	}
 
-	window.addEventListener('load', addAccessibilityAttrs);
+	/**
+  * Determines which function to fire on keyup.
+  * 
+  * @param {any} event 
+  * @returns 
+  */
+	function handleKeyEvents(event) {
+
+		var target = event.target.closest('ul');
+
+		if (!target) {
+			return;
+		}
+
+		if (target.classList.contains('accordion')) {
+			keyboardNav(event);
+		}
+	}
+
+	// Add event listeners.
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
 })();
 
 /**
@@ -332,7 +328,7 @@
 					textWrap.appendChild(toggleText);
 					textWrap.classList.add('screen-reader-text');
 					toggle.appendChild(textWrap);
-					toggle.classList.add('button', 'button--plus-minus');
+					toggle.classList.add('button', 'button--plus-minus', 'absolute', 'pos-r');
 					menuItems[j].appendChild(toggle);
 				}
 			}
@@ -398,7 +394,7 @@
 	function toggleSubMenu(event) {
 
 		var el = event.target,
-		    parent = el.parentElement;
+		    subMenu = el.previousElementSibling;
 
 		// Bail if we're not looking at a sub-menu toggle.
 		if (!el.classList.contains('button--plus-minus')) {
@@ -406,10 +402,12 @@
 		}
 
 		// Add or remove class on list item.
-		if (parent.classList.contains('is-toggled')) {
-			parent.classList.remove('is-toggled');
+		if (subMenu.classList.contains('max-h-0')) {
+			subMenu.classList.remove('max-h-0');
+			subMenu.classList.add('max-h-screen');
 		} else {
-			parent.classList.add('is-toggled');
+			subMenu.classList.remove('max-h-screen');
+			subMenu.classList.add('max-h-0');
 		}
 	}
 
