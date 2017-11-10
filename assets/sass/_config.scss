@@ -183,3 +183,18 @@ $heights: (
 	full: 100%,
 	screen: 100vh
 );
+
+//-----------------------------------------
+// Transitions
+//-----------------------------------------
+$transition-prefix: trs;
+
+$transition-duration: 0.3s;
+
+$transition-timing: ease-in-out;
+
+$transition-properties: (
+	all: all,
+	mh: max-height,
+	o: opacity
+);

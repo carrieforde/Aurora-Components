@@ -1,0 +1,9 @@
+//--------------------------------------------------------------
+// TRANSITIONS
+//--------------------------------------------------------------
+@each $key, $value in $transition-properties {
+
+	.#{$transition-prefix}-#{$key} {
+		transition: $value 0.3s $transition-timing;
+	}
+}
