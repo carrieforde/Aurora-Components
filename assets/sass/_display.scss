@@ -12,3 +12,92 @@
 
 // .inline-block
 @include responsive(display, inline-block);
+
+// .inline-flex
+@include responsive(display, inline-flex);
+
+
+//-----------------------------------------
+// Flexbox
+//-----------------------------------------
+
+// ALIGN ITEMS
+// .ai-stretch
+@include responsive(align-items, stretch, ai-stretch);
+
+// .ai-center
+@include responsive(align-items, center, ai-center);
+
+// .ai-start
+@include responsive(align-items, flex-start, ai-start);
+
+// .ai-end
+@include responsive(align-items, flex-end, ai-end);
+
+// .ai-baseline
+@include responsive(align-items, baseline, ai-baseline);
+
+// ALIGN CONTENT
+// .ac-center
+@include responsive(align-content, center, ac-center);
+
+// .ac-start
+@include responsive(align-content, flex-start, ac-start);
+
+// .ac-end
+@include responsive(align-content, flex-end, ac-end);
+
+// .ac-around
+@include responsive(align-content, space-around, ac-around);
+
+// .ac-between
+@include responsive(align-content, space-between, ac-between);
+
+// ALIGN SELF
+// .as-auto
+@include responsive(align-self, auto, as-auto);
+
+// .as-start
+@include responsive(align-self, flex-start, as-start);
+
+// .as-center
+@include responsive(align-self, center, as-center);
+
+// .as-end
+@include responsive(align-self, end, as-end);
+
+// .as-stretch
+@include responsive(align-self, stretch, as-stretch);
+
+
+// JUSTIFY CONTENT
+// .jc-between
+@include responsive(justify-content, space-between, jc-between);
+
+// .jc-around
+@include responsive(justify-content, space-around, jc-around);
+
+// .jc-end
+@include responsive(justify-content, flex-end, jc-end);
+
+// .jc-start
+@include responsive(justify-content, flex-start, jc-start);
+
+// .jc-center
+@include responsive(justify-content, center, jc-center);
+
+@include responsive(flex-initial, initial);
+
+@include responsive(flex, 1, flex-1);
+
+@include responsive(flex, auto, flex-auto);
+
+@include responsive(flex, none, flex-none);
+
+@include responsive(flex-grow, 1);
+
+@include responsive(flex-grow, 0, flex-grow-0);
+
+@include responsive(flex-shrink, 1);
+
+@include responsive(flex-shrink, 0, flex-shrink-0);
