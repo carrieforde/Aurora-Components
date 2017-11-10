@@ -6,7 +6,9 @@
 
 	// .text-{color}, .hover:text-{color}
 	.text-#{$key},
-	.hover\:text-#{$key}:hover {
+	.hover\:text-#{$key}:hover,
+	.focus\:text-#{$key}:focus,
+	.active\:text-#{$key}:active {
 		color: $value;
 	}
 
