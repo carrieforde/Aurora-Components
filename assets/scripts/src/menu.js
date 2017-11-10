@@ -50,7 +50,7 @@
 					textWrap.appendChild(toggleText);
 					textWrap.classList.add('screen-reader-text');
 					toggle.appendChild(textWrap);
-					toggle.classList.add('button', 'button--plus-minus');
+					toggle.classList.add('button', 'button--plus-minus', 'absolute', 'pos-r');
 					menuItems[j].appendChild(toggle);
 				}
 			}
@@ -116,7 +116,7 @@
 	function toggleSubMenu(event) {
 
 		var el     = event.target,
-			parent = el.parentElement;
+			subMenu = el.previousElementSibling;
 
 		// Bail if we're not looking at a sub-menu toggle.
 		if (!el.classList.contains('button--plus-minus')) {
@@ -124,10 +124,12 @@
 		}
 
 		// Add or remove class on list item.
-		if (parent.classList.contains('is-toggled')) {
-			parent.classList.remove('is-toggled');
+		if (subMenu.classList.contains('max-h-0')) {
+			subMenu.classList.remove('max-h-0');
+			subMenu.classList.add('max-h-screen');
 		} else {
-			parent.classList.add('is-toggled');
+			subMenu.classList.remove('max-h-screen');
+			subMenu.classList.add('max-h-0');
 		}
 	}
 
