@@ -86,6 +86,7 @@
 // .jc-center
 @include responsive(justify-content, center, jc-center);
 
+// FLEX SHRINK & GROW
 @include responsive(flex-initial, initial);
 
 @include responsive(flex, 1, flex-1);
@@ -101,3 +102,19 @@
 @include responsive(flex-shrink, 1);
 
 @include responsive(flex-shrink, 0, flex-shrink-0);
+
+// FLEX DIRECTION
+@include responsive(flex-direction, column, flex-column);
+
+@include responsive(flex-direction, column-reverse, flex-column-reverse);
+
+@include responsive(flex-direction, row, flex-row);
+
+@include responsive(flex-direction, row-reverse, flex-row-reverse);
+
+// FLEX WRAP
+@include responsive(flex-wrap, wrap);
+
+@include responsive(flex-wrap, nowrap, flex-nowrap);
+
+@include responsive(flex-wrap, wrap-reverse, flex-wrap-reverse);
