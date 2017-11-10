@@ -10,17 +10,17 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 <body class="components">
-	<header class="site-header flex--m align-items-center justify-content-between padding">
-		<p class="site-info"><a href="index.html">Bov Web Components</a></p>
+	<header class="site-header m:flex m:ai-center m:jc-between p-20">
+		<p class="site-info m-0 font-bold font-h2"><a class="no-underline text-primary hover:text-secondary" href="index.html">Bov Web Components</a></p>
 		<nav class="main-navigation">
-			<ul class="menu">
-				<li><a href="documentation.html">Documentation</a></li>
-				<li><a href="components.html">Components</a></li>
+			<ul class="menu flex ai-center list-reset">
+				<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="documentation.html">Documentation</a></li>
+				<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="components.html">Components</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	<main class="page padding">
+	<main class="page p-20 max-w-full w-content mh-auto">
 		<header class="page__header">
 			<h1>Components</h1>
 		</header>
@@ -29,24 +29,24 @@
 			<div class="widget">
 				<h3>Components</h3>
 				<nav class="sidebar-nav">
-					<ul class="menu flex-column">
-						<li>
-							<a href="#content"><h4>Content</h4></a>
-							<ul class="menu__sub-menu">
-								<li><a href="#typography">Typography</a></li>
-								<li><a href="#form-elements">Form Elements</a></li>
+					<ul class="menu flex flex-column list-reset">
+						<li class="relative">
+							<a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#content"><h4 class="m-0">Content</h4></a>
+							<ul class="menu__sub-menu list-reset max-h-0 o-hidden">
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#typography">Typography</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#form-elements">Form Elements</a></li>
 							</ul>
 						</li>
-						<li>
-							<a href="#components"><h4>Components</h4></a>
-							<ul class="menu__sub-menu">
-								<li><a href="#accordion">Accordion</a></li>
-								<li><a href="#buttons">Buttons</a></li>
-								<li><a href="#carousel">Carousel</a></li>
-								<li><a href="#menu">Menu</a></li>
-								<li><a href="#tabs">Tabs</a></li>
-								<li><a href="#modal">Modal</a></li>
-								<li><a href="#tooltip">Tooltip</a></li>
+						<li class="relative">
+							<a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#components"><h4 class="m-0">Components</h4></a>
+							<ul class="menu__sub-menu list-reset max-h-0 o-hidden">
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#accordion">Accordion</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#buttons">Buttons</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#carousel">Carousel</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#menu">Menu</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#tabs">Tabs</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#modal">Modal</a></li>
+								<li><a class="no-underline text-primary hover:text-secondary block ph-10 pv-5" href="#tooltip">Tooltip</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -203,22 +203,22 @@ p q r s t u v w x y z { | } ~</pre>
 
 				<div class="module__content">
 					<form method="GET" action="" name="form-elements">
-						<ul>
+						<ul class="list-reset">
 							<li>
-								<label for="default">Default</label>
-								<input type="text" id="default" name="default" placeholder="Placeholder">
+								<label for="default" class="block font-bold">Default</label>
+								<input class="b-thin b-mid-gray focus:b-primary p-5 w-full" type="text" id="default" name="default" placeholder="Placeholder">
 							</li>
 							<li>
-								<label for="disabled">Disabled</label>
-								<input type="text" id="disabled" name="disabled" placeholder="Placeholder" disabled>
+								<label for="disabled" class="block font-bold">Disabled</label>
+								<input class="b-thin b-mid-gray bg-light-gray p-5 w-full" type="text" id="disabled" name="disabled" placeholder="Placeholder" disabled>
 							</li>
 							<li>
-								<label for="valid">Valid</label>
-								<input type="text" id="valid" name="valid" placeholder="Placeholder" class="valid">
+								<label for="valid" class="block font-bold">Valid</label>
+								<input class="b-thin b-success p-5 w-full" type="text" id="valid" name="valid" placeholder="Placeholder" class="valid">
 							</li>
 							<li>
-								<label for="invalid">Invalid</label>
-								<input type="text" id="invalid" name="invalid" placeholder="Placeholder" class="invalid">
+								<label for="invalid" class="block font-bold">Invalid</label>
+								<input class="b-thin b-danger p-5 w-full" type="text" id="invalid" name="invalid" placeholder="Placeholder" class="invalid">
 							</li>
 							<li>
 								<fieldset>
@@ -276,39 +276,39 @@ p q r s t u v w x y z { | } ~</pre>
 				</header>
 
 				<div class="module__content">
-					<ul class="accordion">
-						<li class="is-active">
-							<h3 id="k2Heading" class="accordion__heading">
-								<a href="#k2AccPanel" class="accordion__toggle">K2</a>
+					<ul class="accordion list-reset b-thin b-mid-gray">
+						<li class="p-20">
+							<h3 id="k2Heading" class="accordion__heading m-0">
+								<a href="#k2AccPanel" class="accordion__toggle text-mid-gray hover:text-primary no-underline">K2</a>
 							</h3>
-							<div id="k2AccPanel" class="accordion__content">
+							<div id="k2AccPanel" class="accordion__content max-h-0 o-hidden">
 								<p>K2 is the first cat I adopted.</p>
 							</div>
 						</li>
 				
-						<li>
-							<h3 id="whitneyHeading" class="accordion__heading">
-								<a href="whitneyAccPanel" class="accordion__toggle">Whitney</a>
+						<li class="p-20 bt-thin b-mid-gray">
+							<h3 id="whitneyHeading" class="accordion__heading m-0">
+								<a href="whitneyAccPanel" class="accordion__toggle text-mid-gray hover:text-primary no-underline">Whitney</a>
 							</h3>
-							<div id="whitneyAccPanel" class="accordion__content">
+							<div id="whitneyAccPanel" class="accordion__content max-h-0 o-hidden">
 								<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
 							</div>
 						</li>
 				
-						<li>
-							<h3 id="minnieHeading" class="accordion__heading">
-								<a href="minnieAccPanel" class="accordion__toggle">Minnie</a>
+						<li class="p-20 bt-thin b-mid-gray">
+							<h3 id="minnieHeading" class="accordion__heading m-0">
+								<a href="minnieAccPanel" class="accordion__toggle text-mid-gray hover:text-primary no-underline">Minnie</a>
 							</h3>
-							<div id="minnieAccPanel" class="accordion__content">
+							<div id="minnieAccPanel" class="accordion__content max-h-0 o-hidden">
 								<p>Minnie is the third Forde family cat, and the first named after a city.</p>
 							</div>
 						</li>
 				
-						<li>
-							<h3 id="paulHeading" class="accordion__heading">
-								<a href="paulAccPanel" class="accordion__toggle">Paul</a>
+						<li class="p-20 bt-thin b-mid-gray">
+							<h3 id="paulHeading" class="accordion__heading m-0">
+								<a href="paulAccPanel" class="accordion__toggle text-mid-gray hover:text-primary no-underline">Paul</a>
 							</h3>
-							<div id="paulAccPanel" class="accordion__content">
+							<div id="paulAccPanel" class="accordion__content max-h-0 o-hidden">
 								<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
 							</div>
 						</li>

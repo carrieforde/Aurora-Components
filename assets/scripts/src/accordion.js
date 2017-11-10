@@ -58,12 +58,12 @@
 		event.preventDefault();
 
 		var target = event.target,
-			parent = target.parentElement.parentElement;
+			panel  = target.parentElement.nextElementSibling;
 
-		if (parent.classList.contains('is-active')) {
-			deactivatePanel(target, parent);
+		if (target.getAttribute('aria-expanded') === 'true') {
+			deactivatePanel(target, panel);
 		} else {
-			activatePanel(target, parent);
+			activatePanel(target, panel);
 		}
 	}
 
@@ -73,10 +73,13 @@
 	 * @param {string}  tab    The tab element.
 	 * @param {string}  panel  The panel element.
 	 */
-	function deactivatePanel(tab, parent) {
+	function deactivatePanel(tab, panel) {
 
 		tab.setAttribute('aria-expanded', 'false');
-		parent.classList.remove('is-active');
+		tab.classList.add('text-mid-gray');
+		tab.classList.add('text-primary');
+		panel.classList.remove('max-h-screen');
+		panel.classList.add('max-h-0');
 	}
 
 	/**
@@ -85,10 +88,13 @@
 	 * @param {string}  tab    The tab element.
 	 * @param {string}  panel  The panel element.
 	 */
-	function activatePanel(tab, parent) {
+	function activatePanel(tab, panel) {
 
 		tab.setAttribute('aria-expanded', 'true');
-		parent.classList.add('is-active');
+		tab.classList.add('text-primary');
+		tab.classList.remove('text-mid-gray');
+		panel.classList.add('max-h-screen');
+		panel.classList.remove('max-h-0');
 	}
 
 	/**
