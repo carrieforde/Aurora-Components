@@ -3,56 +3,12 @@
  */
 ( function() {
 
-	// Get global variables.
-	var components = document.querySelectorAll('.accordion');
-
-	/**
-	 * Magically add accessibility attributes. 🎩
-	 * 
-	 */
-	function addAccessibilityAttrs() {
-
-		// Loop through accordion components.
-		for (var i = 0; i < components.length; i++) {
-
-			var headings = components[i].querySelectorAll('.accordion__heading');
-
-			// Add attribute to accordion.
-			components[i].setAttribute('role', 'presentation');
-
-			for (var j = 0; j < headings.length; j++) {
-				var toggle    = headings[j].querySelector('.accordion__toggle'),
-					headingID = headings[j].getAttribute('id'),
-					panel     = headings[j].nextElementSibling,
-					panelID   = panel.getAttribute('id'),
-					listItem  = headings[j].parentElement;
-
-				// Add attributes to toggles.
-				toggle.setAttribute('aria-expanded', 'false');
-				toggle.setAttribute('aria-controls', panelID);
-
-				// Add attributes to panels.
-				panel.setAttribute('aria-labelledby', headingID);
-
-				// If the item is active, update the aria-expanded attribute.
-				if (listItem.classList.contains('is-active')) {
-					toggle.setAttribute('aria-expanded', 'true');
-				}
-			}
-		}
-	}
-
 	/**
 	 * Toggle the accordion content panel.
 	 *
 	 * @param {any} event
 	 */
 	function togglePanel(event) {
-
-		// Bail if the event target isn't the toggle.
-		if (!event.target.classList.contains('accordion__toggle')) {
-			return;
-		}
 
 		// Prevent link follow.
 		event.preventDefault();
@@ -118,11 +74,11 @@
 
 				// Set the new target.
 				if (parent.previousElementSibling === null) {
-					newTarget = accordion.querySelectorAll('.accordion__toggle');
+					newTarget = accordion.querySelectorAll('a');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = parent.previousElementSibling;
-					newTarget = newTarget.querySelector('.accordion__toggle');
+					newTarget = newTarget.querySelector('a');
 				}
 
 				newTarget.focus();
@@ -134,10 +90,10 @@
 
 				// Set the new target.
 				if (parent.nextElementSibling === null) {
-					newTarget = accordion.querySelector('.accordion__toggle');
+					newTarget = accordion.querySelector('a');
 				} else {
 					newTarget = parent.nextElementSibling;
-					newTarget = newTarget.querySelector('.accordion__toggle');
+					newTarget = newTarget.querySelector('a');
 				}
 
 				newTarget.focus();
@@ -148,11 +104,45 @@
 		}
 	}
 
-	// Add event listeners.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', togglePanel);
-		components[i].addEventListener('keyup', keyboardNav);
+	/**
+	 * Determines which function to fire on click.
+	 * 
+	 * @param {any} event 
+	 * @returns 
+	 */
+	function handleClickEvents(event) {
+
+		var target = event.target.closest('a') || event.target;
+
+		if (!target) {
+			return;
+		}
+
+		if (target.dataset.role === 'accordion-toggle') {
+			togglePanel(event);
+		}
 	}
 
-	window.addEventListener('load', addAccessibilityAttrs);
+	/**
+	 * Determines which function to fire on keyup.
+	 * 
+	 * @param {any} event 
+	 * @returns 
+	 */
+	function handleKeyEvents(event) {
+
+		var target = event.target.closest('ul');
+
+		if (!target) {
+			return;
+		}
+
+		if (target.classList.contains('accordion')) {
+			keyboardNav(event);
+		}
+	}
+
+	// Add event listeners.
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
 })();
