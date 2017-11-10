@@ -7,40 +7,40 @@
 //-----------------------------------------
 @each $key, $value in $margin-sizes {
 
-	// .m-{size}
-	.m-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$key} {
 		margin: $value;
 	}
 
-	// .mv-{size}
-	.mv-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}-#{$vertical}-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$vertical}-#{$key} {
 		margin-bottom: $value;
 		margin-top: $value;
 	}
 
-	// .mh-{size}
-	.mh-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}-#{$horizontal}-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$horizontal}-#{$key} {
 		margin-left: $value;
 		margin-right: $value;
 	}
 
-	// .mt-{size}
-	.mt-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}t-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$top}-#{$key} {
 		margin-top: $value;
 	}
 
-	// .mr-{size}
-	.mr-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}-#{$right}-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$right}-#{$key} {
 		margin-right: $value;
 	}
 
-	// .mb-{size}
-	.mb-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}b-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$bottom}-#{$key} {
 		margin-bottom: $value;
 	}
 
-	// .ml-{size}
-	.ml-#{$key} {
+	// .#{$project-prefix}#{$margin-prefix}l-{size}
+	.#{$project-prefix}#{$margin-prefix}-#{$left}-#{$key} {
 		margin-left: $value;
 	}
 }
@@ -52,35 +52,35 @@
 		padding: $value;
 	}
 
-	// .pv-{size}
-	.pv-#{$key} {
+	// .p-#{$vertical}-{size}
+	.p-#{$vertical}-#{$key} {
 		padding-bottom: $value;
 		padding-top: $value;
 	}
 
-	// .ph-{size}
-	.ph-#{$key} {
+	// .p-#{$horizontal}-{size}
+	.p-#{$horizontal}-#{$key} {
 		padding-left: $value;
 		padding-right: $value;
 	}
 
 	// .pt-{size}
-	.pt-#{$key} {
+	.p-#{$top}-#{$key} {
 		padding-top: $value;
 	}
 
-	// .pr-{size}
-	.pr-#{$key} {
+	// .p-#{$right}-{size}
+	.p-#{$right}-#{$key} {
 		padding-right: $value;
 	}
 
 	// .pb-{size}
-	.pb-#{$key} {
+	.p-#{$bottom}-#{$key} {
 		padding-bottom: $value;
 	}
 
 	// .pl-{size}
-	.pl-#{$key} {
+	.p-#{$left}-#{$key} {
 		padding-left: $value;
 	}
 }

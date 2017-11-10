@@ -2,13 +2,13 @@
 // SIZES
 //--------------------------------------------------------------
 
-@mixin sizes($map, $types) {
+@mixin sizes($map, $prefixes) {
 
-	@each $key, $value in $types {
+	@each $key, $value in $prefixes {
 
 		@each $name, $val in $map {
 
-			@include responsive($value, $val, #{$key}-#{$name});
+			@include responsive($key, $val, #{$value}-#{$name});
 		}
 	}
 

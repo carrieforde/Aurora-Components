@@ -17,13 +17,13 @@
 
 		@if ($classname != '') {
 			
-			.#{$bp-name}\:#{$classname} {
+			.#{$breakpoint-prefix}#{$bp-name}\:#{$classname} {
 				@media screen and (min-width: #{$bp-value}) {
 					#{$property}: $value;
 				}
 			}
 		} @else {
-			.#{$bp-name}\:#{$value} {
+			.#{$breakpoint-prefix}#{$bp-name}\:#{$value} {
 				@media screen and (min-width: #{$bp-value}) {
 					#{$property}: $value;
 				}

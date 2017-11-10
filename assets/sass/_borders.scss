@@ -8,34 +8,34 @@
 //-----------------------------------------
 @each $key, $value in $border-sizes {
 
-	// .b-{size}
-	.b-#{$key} {
+	// .#{$border-prefix}-{size}
+	.#{$border-prefix}-#{$key} {
 		border: $value solid;
 	}
 
-	.bv-#{$key} {
+	.#{$border-prefix}-#{$vertical}-#{$key} {
 		border-bottom: $value solid;
 		border-top: $value solid;
 	}
 
-	.bh-#{$key} {
+	.#{$border-prefix}-#{$horizontal}-#{$key} {
 		border-left: $value solid;
 		border-right: $value solid;
 	}
 
-	.bt-#{$key} {
+	.#{$border-prefix}-#{$top}-#{$key} {
 		border-top: $value solid;
 	}
 
-	.br-#{$key} {
+	.#{$border-prefix}-#{$right}-#{$key} {
 		border-right: $value solid;
 	}
 
-	.bb-#{$key} {
+	.#{$border-prefix}-#{$bottom}-#{$key} {
 		border-bottom: $value solid;
 	}
 
-	.bl-#{$key} {
+	.#{$border-prefix}-#{$left}-#{$key} {
 		border-left: $value solid;
 	}
 }
@@ -43,15 +43,15 @@
 //-----------------------------------------
 // Border Styles
 //-----------------------------------------
-.b-dashed {
+.#{$border-prefix}-dashed {
 	border-style: dashed;
 }
 
-.b-dotted {
+.#{$border-prefix}-dotted {
 	border-style: dotted;
 }
 
-.b-none {
+.#{$border-prefix}-none {
 	border-style: none;
 }
 
@@ -60,10 +60,10 @@
 //-----------------------------------------
 @each $key, $value in $colors {
 
-	// .b-{color}, .hover:b-{color}
-	.b-#{$key},
-	.hover\:b-#{$key}:hover,
-	.focus\:b-#{$key}:focus {
+	// .#{$border-prefix}-{color}, .hover:b-{color}
+	.#{$border-prefix}-#{$key},
+	.hover\:#{$border-prefix}-#{$key}:hover,
+	.focus\:#{$border-prefix}-#{$key}:focus {
 		border-color: $value;
 	}
 }

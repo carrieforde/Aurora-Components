@@ -2,19 +2,6 @@
 // SIZES
 //--------------------------------------------------------------
 
-$width-types: (
-	max-w: max-width,
-	min-w: min-width,
-	w: width
-);
+@include sizes($widths, $width-prefixes);
 
-$height-types: (
-	h: height,
-	max-h: max-height,
-	min-h: min-height
-);
-
-// .min-w-{size}, .max-w-{size}, .w-{size}
-@include sizes($widths, $width-types);
-
-@include sizes($heights, $height-types);
+@include sizes($heights, $height-prefixes);

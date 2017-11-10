@@ -16,6 +16,12 @@ $vertical: v;
 //-----------------------------------------
 // Colors
 //-----------------------------------------
+$color-prefixes: (
+	color: text,
+	background-color: bg,
+	fill: fill
+);
+
 $colors: (
 	// sass-lint:disable-block no-color-keywords
 	primary: #e5346c,
@@ -79,6 +85,18 @@ $letter-spacing: (
 );
 
 //-----------------------------------------
+// Display
+//-----------------------------------------
+$display-prefixes: '';
+
+$flexbox-prefixes: (
+	align-content: ac,
+	align-items: ai,
+	align-self: as,
+	justify-content: jc
+);
+
+//-----------------------------------------
 // Border
 //-----------------------------------------
 $border-prefix: b;
@@ -126,6 +144,8 @@ $padding-sizes: (
 //-----------------------------------------
 // Breakpoints
 //-----------------------------------------
+$breakpoint-prefix: ''; // should include a dash if using
+
 $breakpoints: (
 	'sm': 600px,
 	'm': 900px,
@@ -136,6 +156,12 @@ $breakpoints: (
 //-----------------------------------------
 // Widths
 //-----------------------------------------
+$width-prefixes: (
+	max-width: max-w,
+	min-width: min-w,
+	width: w
+);
+
 $widths: (
 	0: 0,
 	content: 1100px,
@@ -146,6 +172,12 @@ $widths: (
 //-----------------------------------------
 // Heights
 //-----------------------------------------
+$height-prefixes: (
+	height: h,
+	max-height: max-h,
+	min-height: min-h
+);
+
 $heights: (
 	0: 0,
 	full: 100%,
