@@ -8,15 +8,13 @@
 @import 'config';
 
 // Utilities
-// @import 'config/functions/strip-units';
-// @import 'config/functions/px-to-em';
-// @import 'config/functions/px-to-rem';
-@import 'config/mixins/create-classes';
-@import 'config/mixins/with-hover';
-@import 'config/mixins/responsive';
-@import 'config/mixins/sizes';
+@import 'mixins/create-classes';
+@import 'mixins/with-hover';
+@import 'mixins/responsive';
+@import 'mixins/sizes';
 @import 'sanitize';
 
+// Classes
 @import 'colors';
 @import 'typography';
 @import 'spacing';
@@ -27,5 +25,5 @@
 @import 'overflow';
 @import 'positioning';
 
-
+// Theme styles
 @import 'theme';
