@@ -1,0 +1,12 @@
+<ul class="accordion list-reset b-thin b-mid-gray">
+	{{#each this}}
+	<li class="p-20">
+		<h3 id="k2Heading" class="accordion__heading m-0">
+			<a href="#k2AccPanel" class="accordion__toggle text-mid-gray hover:text-primary no-underline">{{tab}}</a>
+		</h3>
+		<div id="k2AccPanel" class="accordion__content max-h-0 o-hidden">
+			<p>{{content}}</p>
+		</div>
+	</li>
+	{{/each}}
+</ul>
