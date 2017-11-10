@@ -1,0 +1,48 @@
+//--------------------------------------------------------------
+// POSITIONING
+//--------------------------------------------------------------
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.static {
+	position: static;
+}
+
+.sticky {
+	position: sticky;
+}
+
+.pos-t {
+	top: 0;
+}
+
+.pos-r {
+	right: 0;
+}
+
+.pos-b {
+	bottom: 0;
+}
+
+.pos-l {
+	left: 0;
+}
+
+.pos-h-center {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.pos-v-center {
+	top: 50%;
+	transform: translateY(-50%);
+}
