@@ -6,19 +6,19 @@
 
 	// .text-{color}, .hover:text-{color}
 	.text-#{$key},
-	.hover\:text-#{$key} {
+	.hover\:text-#{$key}:hover {
 		color: $value;
 	}
 
 	// .bg-{color}, .hover:bg-{color}
 	.bg-#{$key},
-	.hover\:bg-#{$key} {
-		color: $value
+	.hover\:bg-#{$key}:hover {
+		background-color: $value
 	}
 
 	// .fill-{color}, .hover-fill-{color}
 	.fill-#{$key},
-	.hover\:fill-#{$key} {
+	.hover\:fill-#{$key}:hover {
 		fill: $value;
 	}
 }

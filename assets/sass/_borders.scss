@@ -62,7 +62,8 @@
 
 	// .b-{color}, .hover:b-{color}
 	.b-#{$key},
-	.hover\:b-#{$key} {
+	.hover\:b-#{$key}:hover,
+	.focus\:b-#{$key}:focus {
 		border-color: $value;
 	}
 }
