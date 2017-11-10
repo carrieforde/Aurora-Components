@@ -16,6 +16,8 @@
 // .inline-flex
 @include responsive(display, inline-flex);
 
+@include responsive(display, none);
+
 
 //-----------------------------------------
 // Flexbox
