@@ -1,7 +1,27 @@
-//--------------------------------------------------------------
-// SIZES
-//--------------------------------------------------------------
-
+/// Generates height and width classes.
+///
+/// @param {Map}  $map - The size map to loop through.
+/// @param {Map}  $prefixes - The prefix map to loop through.
+///
+/// @example - scss Usage
+///  @include sizes($widths, $width-prefixes);
+///
+/// @example - css Sample Output
+///  .w-0 {
+///    width: 0;
+///  }
+///  .w-content {
+///    width: 1100px;
+///  }
+///  .w-full {
+///    width: 100%;
+///  }
+///  .w-screen {
+///    width: 100vw;
+///  }
+///
+/// @example - markup Sample Usage
+///  <main class="max-w-full l:w-1100"></main>
 @mixin sizes($map, $prefixes) {
 
 	@each $key, $value in $prefixes {

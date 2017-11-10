@@ -7,19 +7,19 @@
 //-----------------------------------------
 
 // .{font-family}
-@include create-classes($font-families, font-family);
+@include typography($font-families, font-family);
 
 // .font-{size}
-@include create-classes($font-sizes, font-size, font);
+@include typography($font-sizes, font-size, font);
 
 // .font-{weight}
-@include create-classes($font-weights, font-weight, font);
+@include typography($font-weights, font-weight, font);
 
 // .lh-{size}
-@include create-classes($line-heights, line-height, lh);
+@include typography($line-heights, line-height, lh);
 
 // .ls-{size}
-@include create-classes($letter-spacing, letter-spacing, ls);
+@include typography($letter-spacing, letter-spacing, ls);
 
 
 //-----------------------------------------
@@ -90,31 +90,31 @@
 }
 
 // .italic, .hover:italic
-@include with-hover(font-style, italic);
+@include pseudo-states(font-style, italic);
 
 // .normal, .hover:normal
-@include with-hover(font-style, normal);
+@include pseudo-states(font-style, normal);
 
 // .oblique, .hover:oblique
-@include with-hover(font-style, oblique);
+@include pseudo-states(font-style, oblique);
 
 // .lowercase, .hover:lowercase
-@include with-hover(text-transform, lowercase);
+@include pseudo-states(text-transform, lowercase);
 
 // .uppercase, .hover:uppercase
-@include with-hover(text-transform, uppercase);
+@include pseudo-states(text-transform, uppercase);
 
 // .capitalize, .hover:capitalize
-@include with-hover(text-transform, capitalize);
+@include pseudo-states(text-transform, capitalize);
 
 // .normal-case, .hover:normal-case
-@include with-hover(text-transform, none, normal-case);
+@include pseudo-states(text-transform, none, normal-case);
 
 // .underline, .hover:underline
-@include with-hover(text-decoration, underline);
+@include pseudo-states(text-decoration, underline);
 
 // .no-underline, .hover:no-underline
-@include with-hover(text-decoration, none, no-underline);
+@include pseudo-states(text-decoration, none, no-underline);
 
 // .line-through, .hover:line-through
-@include with-hover(text-decoration, line-through);
+@include pseudo-states(text-decoration, line-through);

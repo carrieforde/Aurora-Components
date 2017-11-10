@@ -1,0 +1,36 @@
+/// Generates classes for regular & pseudo states.
+///
+/// @param  {String}  $property - A CSS property.
+/// @param  {String}  $value - Value to correspond with the CSS property.
+/// @param  {String}  $classname [''] - The classname to user (optional). Defaults to value if not used.
+///
+/// @example - scss Usage
+///  @include pseudo-states(font-style, italic);
+///
+/// @example - css Sample Output
+///  .italic,
+///  .hover\:italic:hover,
+///  .active\:italic:active,
+///  .focus\:italic:focus {
+///    font-style: italic;
+///  }
+///
+/// @example - markup Sample Usage
+///  <a href="#" class="text-primary hover:text-secondary"></a>
+@mixin pseudo-states($property, $value, $classname: '') {
+	@if ($classname != '') {
+		.#{$classname},
+		.hover\:#{$classname}:hover,
+		.active\:#{$classname}:active,
+		.focus\:#{$classname}:focus {
+			#{$property}: $value;
+		}
+	} @else {
+		.#{$value},
+		.hover\:#{$value}:hover,
+		.active\:#{$value}:active,
+		.focus\:#{$value}:focus {
+			#{$property}: $value;
+		}
+	}
+}

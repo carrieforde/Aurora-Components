@@ -8,10 +8,10 @@
 @import 'config';
 
 // Utilities
-@import 'mixins/create-classes';
-@import 'mixins/with-hover';
 @import 'mixins/responsive';
 @import 'mixins/sizes';
+@import 'mixins/typography';
+@import 'mixins/pseudo-states';
 @import 'sanitize';
 
 // Classes

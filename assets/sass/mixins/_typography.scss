@@ -1,0 +1,30 @@
+/// Generates typography classes by looping through typography configuration maps.
+///
+/// @param {Map} $map - The map to be looped through.
+/// @param {String} $property - The desired CSS property.
+/// @param {String} $prefix [''] - The desired prefix (optional).
+///
+/// @example - scss Usage
+///  @include typography($font-families, font-family);
+///
+/// @example - css Sample Output
+///  .sans-serif {
+///    font-family: sans-serif;
+///  }
+///
+/// @example - markup Sample Usage
+///  <h1 class="sans-serif"></h1>
+@mixin typography($map, $property: '', $prefix: '') {
+	
+	@each $key, $value in $map {
+		@if ($prefix != '') {
+			.#{$prefix}-#{$key} {
+				#{$property}: $value;
+			}
+		} @else {
+			.#{$key} {
+				#{$property}: $value;
+			}
+		}
+	}
+}
