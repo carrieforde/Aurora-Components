@@ -1,0 +1,15 @@
+//--------------------------------------------------------------
+// SIZES
+//--------------------------------------------------------------
+
+@mixin sizes($map, $types) {
+
+	@each $key, $value in $types {
+
+		@each $name, $val in $map {
+
+			@include responsive($value, $val, #{$key}-#{$name});
+		}
+	}
+
+}

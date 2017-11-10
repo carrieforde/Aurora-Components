@@ -14,17 +14,12 @@
 @import 'config/mixins/create-classes';
 @import 'config/mixins/with-hover';
 @import 'config/mixins/responsive';
+@import 'config/mixins/sizes';
 @import 'sanitize';
 
 @import 'colors';
 @import 'typography';
 @import 'spacing';
 @import 'display';
-// Utilities
-// @import 'utilities/flexbox';
-// @import 'utilities/padding';
-
-// // State
-// @import 'state/is-fixed';
-// @import 'state/has-tooltip';
-// @import 'state/is-hidden';
+@import 'borders';
+@import 'sizes';

@@ -3,6 +3,16 @@
 //--------------------------------------------------------------
 @mixin responsive($property, $value, $classname: '') {
 
+	@if ($classname != '') {
+		.#{$classname} {
+			#{$property}: $value;
+		}
+	} @else {
+		.#{$value} {
+			#{$property}: $value;
+		}
+	}
+
 	@each $bp-name, $bp-value in $breakpoints {
 
 		@if ($classname != '') {
