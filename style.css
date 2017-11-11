@@ -729,52 +729,72 @@ textarea,
 }
 
 .italic,
-.hover\:italic:hover {
+.hover\:italic:hover,
+.active\:italic:active,
+.focus\:italic:focus {
   font-style: italic;
 }
 
 .normal,
-.hover\:normal:hover {
+.hover\:normal:hover,
+.active\:normal:active,
+.focus\:normal:focus {
   font-style: normal;
 }
 
 .oblique,
-.hover\:oblique:hover {
+.hover\:oblique:hover,
+.active\:oblique:active,
+.focus\:oblique:focus {
   font-style: oblique;
 }
 
 .lowercase,
-.hover\:lowercase:hover {
+.hover\:lowercase:hover,
+.active\:lowercase:active,
+.focus\:lowercase:focus {
   text-transform: lowercase;
 }
 
 .uppercase,
-.hover\:uppercase:hover {
+.hover\:uppercase:hover,
+.active\:uppercase:active,
+.focus\:uppercase:focus {
   text-transform: uppercase;
 }
 
 .capitalize,
-.hover\:capitalize:hover {
+.hover\:capitalize:hover,
+.active\:capitalize:active,
+.focus\:capitalize:focus {
   text-transform: capitalize;
 }
 
 .normal-case,
-.hover\:normal-case:hover {
+.hover\:normal-case:hover,
+.active\:normal-case:active,
+.focus\:normal-case:focus {
   text-transform: none;
 }
 
 .underline,
-.hover\:underline:hover {
+.hover\:underline:hover,
+.active\:underline:active,
+.focus\:underline:focus {
   text-decoration: underline;
 }
 
 .no-underline,
-.hover\:no-underline:hover {
+.hover\:no-underline:hover,
+.active\:no-underline:active,
+.focus\:no-underline:focus {
   text-decoration: none;
 }
 
 .line-through,
-.hover\:line-through:hover {
+.hover\:line-through:hover,
+.active\:line-through:active,
+.focus\:line-through:focus {
   text-decoration: line-through;
 }
 
@@ -1879,6 +1899,21 @@ textarea,
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.trs-all {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.trs-mh {
+  -webkit-transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.trs-o {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .button--plus-minus {

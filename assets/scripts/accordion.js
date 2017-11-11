@@ -15,7 +15,7 @@ templates['accordion'] = template({"1":function(container,depth0,helpers,partial
     + alias4(((helper = (helper = helpers.tab || (depth0 != null ? depth0.tab : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tab","hash":{},"data":data}) : helper)))
     + "</a>\n		</h3>\n		<div id=\""
     + alias4(((helper = (helper = helpers.tab || (depth0 != null ? depth0.tab : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tab","hash":{},"data":data}) : helper)))
-    + "Panel\" class=\"max-h-0 o-hidden\" aria-labelledby=\""
+    + "Panel\" class=\"max-h-0 o-hidden trs-mh\" aria-labelledby=\""
     + alias4(((helper = (helper = helpers.tab || (depth0 != null ? depth0.tab : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tab","hash":{},"data":data}) : helper)))
     + "Tab\" data-role=\"accordion-content\">\n			<p>"
     + alias4(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data}) : helper)))
