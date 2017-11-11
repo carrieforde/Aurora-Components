@@ -55,11 +55,27 @@
 		return options.inverse(this);
 	});
 
-	var accordionData = getData(accordionURL);
+	Handlebars.registerHelper('module', function(header, footer, context, options) {
+		console.log(context);
+
+		var markup = '<section id="' + header + '" class="p-v-20">' +
+						'<header>' +
+							'<h2>' + header + '</h2>' +
+						'</header>' +
+						'<div>' +
+							options.fn(this) +
+						'</div>' +
+						'<footer>' + footer + '</footer>' +
+					'</section>';
+
+		return markup;
+	});
+
+	var data = getData(accordionURL);
 
 	var template = Handlebars.templates['accordion'];
 
-	var templateData = template(accordionData);
+	var templateData = template(data);
 
 	content.innerHTML += templateData;
 })( Handlebars );
