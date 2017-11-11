@@ -56,19 +56,20 @@
 	});
 
 	Handlebars.registerHelper('module', function(header, footer, context, options) {
-		console.log(context);
 
-		var markup = '<section id="' + header + '" class="p-v-20">' +
+		var markup = '<section id="' + header.toLowerCase() + '" class="p-v-20">' +
 						'<header>' +
 							'<h2>' + header + '</h2>' +
 						'</header>' +
 						'<div>' +
 							options.fn(this) +
-						'</div>' +
-						'<footer>' + footer + '</footer>' +
-					'</section>';
+						'</div>';
 
-		return markup;
+		if (footer) {
+			markup += '<footer>' + footer + '</footer>';
+		}
+
+		return markup += '</section>';
 	});
 
 	var data = getData(accordionURL);
