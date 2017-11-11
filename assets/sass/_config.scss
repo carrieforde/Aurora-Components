@@ -213,6 +213,7 @@ $transition-timing: ease-in-out;
 
 $transition-properties: (
 	all: all,
-	mh: max-height,
-	o: opacity
+	color: c,
+	max-height: mh,
+	opacity: o
 );
