@@ -1,21 +1,39 @@
-//--------------------------------------------------------------
-// CONFIGURATION
-//--------------------------------------------------------------
-$project-prefix: ''; // this should include a dash at the end.
+/// Add an [optional] project prefix (or namespace) to all CSS classes.
+///
+/// @type String
+///
+/// @example - scss Usage
+///  $project-prefix: cf;
+///
+/// @example - css Output
+///  .cf-text-primary {}
+///
+/// @example - markup Usage
+///  <h1 class="cf-text-primary"></h1>
 
-//-----------------------------------------
-// Directional Prefixes
-//-----------------------------------------
+$project-prefix: ''; // if using, include a dash at the end.
+
+/// Top prefix used in box-model classes.
 $top: t;
+
+/// Right prefix used in box-model classes.
 $right: r;
+
+/// Bottom prefix used in box-model classes.
 $bottom: b;
+
+/// Left prefix used in box-model classes.
 $left: l;
+
+/// Horizontal (x-asis) prefix used in box-model classes.
 $horizontal: h;
+
+/// Vertical (y-axis) prefix used in box-model classes.
 $vertical: v;
 
-//-----------------------------------------
-// Colors
-//-----------------------------------------
+/// Prefixes for generating color classes. Leave properties on left, and only update values on right. If classes aren't needed, delete property value pair as needed.
+///
+/// @type Map 
 $color-prefixes: (
 	color: text,
 	background-color: bg,
