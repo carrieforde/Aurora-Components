@@ -40,8 +40,10 @@ $color-prefixes: (
 	fill: fill
 );
 
+/// Define theme / site colors here. Colors are used to generate background, color, and fill classes.
+///
+/// @type Map
 $colors: (
-	// sass-lint:disable-block no-color-keywords
 	primary: #e5346c,
 	secondary: #eac5de,
 	black: #000,
@@ -57,15 +59,24 @@ $colors: (
 	danger: #ff3505
 );
 
-//-----------------------------------------
-// Typography
-//-----------------------------------------
+/// Define theme / site fonts here. Fonts are used to generate font-family classes.
+///
+/// @type Map
+///
+/// @example - css Sample Output
+///  .serif { Georgia, times, serif; }
 $font-families: (
 	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif},
 	serif: #{Georgia, times, serif},
 	monospace: #{Consolas, monaco, monospace}
 );
 
+/// Define theme / site font sizes. Use any unit of measure desired.
+///
+/// @type Map
+///
+/// @example - css Sample Output
+///  .font-h1 { font-size: 2.25rem; }
 $font-sizes: (
 	default: 1rem,
 	h1: 2.25rem,
@@ -76,8 +87,13 @@ $font-sizes: (
 	h6: 0.75rem
 );
 
+/// Define font weights.
+///
+/// @type Map
+///
+/// @example - css Sample Output
+///  .font-bold { font-weight: 700; }
 $font-weights: (
-	// sass-lint:disable-block no-color-keywords
 	hairline: 100,
 	thin: 200,
 	light: 300,
@@ -89,6 +105,12 @@ $font-weights: (
 	black: 900
 );
 
+/// Define line height (leading).
+///
+/// @type Map
+///
+/// @example - css Sample Output
+///  .lh-none { line-height: 1; }
 $line-heights: (
 	none: 1,
 	tight: 1.25,
@@ -96,6 +118,12 @@ $line-heights: (
 	loose: 2
 );
 
+/// Define letter-spacing (tracking). Any unit of measure may be used, but `em`s are recommended for scalability.
+///
+/// @type Map
+///
+/// @example - css Sample Output
+///  .ls-wide { letter-spacing: 0.05em; }
 $letter-spacing: (
 	tight: 0.05em,
 	normal: 0,
