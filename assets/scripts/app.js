@@ -422,195 +422,153 @@
 	window.addEventListener('load', addHelpers);
 })();
 
-/**
- * Modal Scripts
- */
-(function () {
+// /**
+//  * Modal Scripts
+//  */
+// (function() {
 
-	var components = document.querySelectorAll('.modal'),
-	    container = document.querySelector('.modal-container'),
-	    openedModal;
+// 	var components = document.querySelectorAll('.modal'),
+// 		container = document.querySelector('.modal-container'),
+// 		openedModal;
 
-	/**
-  * Open the modal a modal.
-  * 
-  * @param {string}  instance  The modal to open.
-  */
-	window.openModal = function (instance) {
+// 	/**
+// 	 * Open the modal a modal.
+// 	 * 
+// 	 * @param {string}  instance  The modal to open.
+// 	 */
+// 	window.openModal = function(instance) {
 
-		var modal = document.querySelector('#' + instance),
-		    wrapper = modal.parentElement,
-		    body = document.querySelector('body');
+// 		var modal    = document.querySelector('#' + instance),
+// 			wrapper  = modal.parentElement,
+// 			body     = document.querySelector('body');
 
-		openedModal = modal;
+// 		openedModal = modal;
 
-		modal.classList.remove('is-hidden');
-		wrapper.classList.remove('is-hidden');
-		body.classList.add('modal-open');
-	};
+// 		modal.classList.remove('is-hidden');
+// 		wrapper.classList.remove('is-hidden');
+// 		body.classList.add('modal-open');
+// 	};
 
-	/**
-  * Close currently open modal.
-  * 
-  * @param {string}  instance  The modal to close.
-  */
-	function closeModal(instance) {
+// 	/**
+// 	 * Close currently open modal.
+// 	 * 
+// 	 * @param {string}  instance  The modal to close.
+// 	 */
+// 	function closeModal(instance) {
 
-		var body = document.querySelector('body');
+// 		var body = document.querySelector('body');
 
-		body.classList.remove('modal-open');
-		instance.classList.add('is-hidden');
-		instance.parentElement.classList.add('is-hidden');
+// 		body.classList.remove('modal-open');
+// 		instance.classList.add('is-hidden');
+// 		instance.parentElement.classList.add('is-hidden');
 
-		setTimeout(function () {
-			openedModal = '';
-		}, 200);
-	}
+// 		setTimeout(function() {
+// 			openedModal = '';
+// 		}, 200);
+// 	}
 
-	/**
-  * Handles click events.
-  * 
-  * @param {any} event 
-  */
-	function handleClickEvents(event) {
+// 	/**
+// 	 * Handles click events.
+// 	 * 
+// 	 * @param {any} event 
+// 	 */
+// 	function handleClickEvents(event) {
 
-		var el = event.target;
+// 		var el = event.target;
 
-		if (el.classList.contains('button--close') || el.classList.contains('modal-container')) {
-			closeModal(openedModal);
-		}
-	}
+// 		if ( el.classList.contains('button--close') || el.classList.contains('modal-container')) {
+// 			closeModal(openedModal);
+// 		}
+// 	}
 
-	/**
-  * Closes modal when ESC is presssed.
-  * 
-  * @param {any} event 
-  */
-	function keyClose(event) {
+// 	/**
+// 	 * Closes modal when ESC is presssed.
+// 	 * 
+// 	 * @param {any} event 
+// 	 */
+// 	function keyClose(event) {
 
-		var key = event.keyCode;
+// 		var key = event.keyCode;
 
-		if (key === 27 && openedModal) {
-			closeModal(openedModal);
-		}
-	}
+// 		if (key === 27 && openedModal) {
+// 			closeModal(openedModal);
+// 		}
+// 	}
 
-	// Add event listeners to each instance of a modal.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', handleClickEvents);
-	}
+// 	// Add event listeners to each instance of a modal.
+// 	for (var i = 0; i < components.length; i++) {
+// 		components[i].addEventListener('click', handleClickEvents);
+// 	}
 
-	container.addEventListener('click', handleClickEvents);
-	document.addEventListener('keyup', keyClose);
-})();
+// 	container.addEventListener('click', handleClickEvents);
+// 	document.addEventListener('keyup', keyClose);
+// })();
 
-/**
- * Add smooth scrolling for on-page navigation.
- */
-(function () {
 
-	// Script options.
-	var options = {
-		menuSelector: '.nav-menu .menu',
-		mobileBreakPoint: 900,
-		headerHeight: 20,
-		timeout: 500 // in milleseconds
-	},
-	    menu = document.querySelector(options.menuSelector);
+// /**
+//  * Add smooth scrolling for on-page navigation.
+//  */
+// (function() {
 
-	/**
-  * Do smooth scrolling.
-  *
-  * {@link  https://css-tricks.com/snippets/jquery/smooth-scrolling/}
-  * {@link  https://css-tricks.com/smooth-scrolling-accessibility/}
-  * @param  {any}  event 
-  */
-	function smoothScroll(event) {
+// 	// Script options.
+// 	var options = {
+// 		menuSelector: '.nav-menu .menu',
+// 		mobileBreakPoint : 900,
+// 		headerHeight: 20,
+// 		timeout: 500 // in milleseconds
+// 	},
+// 		menu = document.querySelector( options.menuSelector );
 
-		// Return if a link isn't clicked.
-		if (event.target.tagName.toLowerCase() !== 'a') {
-			return;
-		}
+// 	/**
+// 	 * Do smooth scrolling.
+// 	 *
+// 	 * {@link  https://css-tricks.com/snippets/jquery/smooth-scrolling/}
+// 	 * {@link  https://css-tricks.com/smooth-scrolling-accessibility/}
+// 	 * @param  {any}  event 
+// 	 */
+// 	function smoothScroll( event ) {
 
-		// Prevent follow action.
-		event.preventDefault();
+// 		// Return if a link isn't clicked.
+// 		if (event.target.tagName.toLowerCase() !== 'a') {
+// 			return;
+// 		}
 
-		var el = event.target,
-		    hash = el.getAttribute('href'),
-		    url = window.location.pathname,
-		    target = document.querySelector(hash),
-		    offset = target.offsetTop;
+// 		// Prevent follow action.
+// 		event.preventDefault();
 
-		// Check window width, and update offset accordingly.
-		if (window.innerWidth > options.mobileBreakPoint - 1) {
-			offset = offset - options.headerHeight;
-		}
+// 		var el     = event.target,
+// 			hash   = el.getAttribute('href'),
+// 			url    = window.location.pathname,
+// 			target = document.querySelector(hash),
+// 			offset = target.offsetTop;
 
-		// Scroll the the desired element.
-		window.scroll({ left: 0, top: offset, behavior: 'smooth' });
+// 		// Check window width, and update offset accordingly.
+// 		if (window.innerWidth > options.mobileBreakPoint - 1) {
+// 			offset = offset - options.headerHeight;
+// 		}
 
-		// Update focus after scolling is complete.
-		setTimeout(function () {
+// 		// Scroll the the desired element.
+// 		window.scroll({left: 0, top: offset, behavior: 'smooth'});
 
-			// Updates focus to our target element.
-			target.setAttribute('tabindex', '-1');
-			target.focus();
-			window.location.href = url + hash;
-			window.scroll(0, offset); // prevents jumpbacks from applying focus.
-		}, options.timeout);
-	}
+// 		// Update focus after scolling is complete.
+// 		setTimeout(function () {
 
-	menu.addEventListener('click', smoothScroll);
-})();
+// 			// Updates focus to our target element.
+// 			target.setAttribute('tabindex', '-1');
+// 			target.focus();
+// 			window.location.href = url + hash;
+// 			window.scroll(0, offset); // prevents jumpbacks from applying focus.
+// 		}, options.timeout);
+// 	}
+
+// 	menu.addEventListener('click', smoothScroll);
+// })();
+
 
 /**
  * Tabs Scripts
  */
 (function () {
-
-	// Set up global variables.
-	var components = document.querySelectorAll('.tabs');
-
-	/**
-  * Magically add accessiblity attributes. 🎩
-  *
-  */
-	function addAccessibilityAttrs() {
-
-		// Loop through tab components.
-		for (var i = 0; i < components.length; i++) {
-
-			var tabs = components[i].querySelectorAll('.tabs__tab'),
-			    tabList = components[i].querySelector('.tabs__nav');
-
-			// Add tablist attribute.
-			tabList.setAttribute('role', 'tablist');
-
-			for (var j = 0; j < tabs.length; j++) {
-				var panelID = tabs[j].getAttribute('href'),
-				    tabID = tabs[j].getAttribute('id');
-				controls = panelID.substring(1, panelID.length), panel = components[i].querySelector(panelID);
-
-				// Add tab attributes.
-				tabs[j].setAttribute('role', 'tab');
-				tabs[j].setAttribute('aria-controls', controls);
-				tabs[j].setAttribute('aria-selected', 'false');
-				tabs[j].setAttribute('tabindex', '-1');
-
-				// Add panel attributes.
-				panel.setAttribute('role', 'tabpanel');
-				panel.setAttribute('aria-labelledby', tabID);
-				panel.setAttribute('tabindex', '0');
-
-				// If the tab & related panel are the first in the component, update the attributes.
-				if (j === 0) {
-					tabs[j].setAttribute('aria-selected', 'true');
-					tabs[j].parentElement.classList.add('is-active');
-					panel.classList.add('is-active');
-				}
-			}
-		}
-	}
 
 	/**
   * Show tab content based on selected tab.
@@ -625,12 +583,22 @@
 		// Set up function variables.
 		var component = el.parentElement.parentElement.parentElement,
 		    tabID = el.getAttribute('href'),
-		    currentTab = component.querySelector('li.is-active a'),
-		    currentContent = component.querySelector('.tabs__panel.is-active'),
+		    tabs = component.querySelectorAll('a'),
+		    currentTab,
+		    currentContent,
 		    newContent;
 
 		// Pass tabID to get new tab.
 		newContent = component.querySelector(tabID);
+
+		// Find the current tab & panel.
+		for (var i = 0; i < tabs.length; i++) {
+
+			if (tabs[i].getAttribute('aria-selected') === 'true') {
+				currentTab = tabs[i];
+				currentContent = component.querySelector(currentTab.getAttribute('href'));
+			}
+		}
 
 		// Remove class from previously selected tab & tab content, update ARIA attributes.
 		deactivateTab(currentTab, currentContent);
@@ -648,8 +616,10 @@
 	function deactivateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'false');
-		tab.parentElement.classList.remove('is-active');
-		panel.classList.remove('is-active');
+		tab.classList.remove('text-primary');
+		tab.parentElement.classList.remove('b-h-thin', 'b-mid-light-gray', 'b-t-thin', 'bg-white');
+		tab.classList.add('text-mid-gray');
+		panel.classList.add('none');
 	}
 
 	/**
@@ -661,20 +631,10 @@
 	function activateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'true');
-		tab.parentElement.classList.add('is-active');
-		panel.classList.add('is-active');
-	}
-
-	/**
-  * Fires events based on event target.
-  *
-  * @param {any} event
-  */
-	function fireEvents(event) {
-
-		if (event.target.tagName.toLowerCase() === 'a') {
-			showTabContent(event.target);
-		}
+		tab.classList.remove('text-mid-gray');
+		tab.parentElement.classList.add('b-h-thin', 'b-mid-light-gray', 'b-t-thin', 'bg-white');
+		tab.classList.add('text-primary');
+		panel.classList.remove('none');
 	}
 
 	/**
@@ -682,7 +642,7 @@
   *
   * @param {any} event
   */
-	function keyboardNav(event) {
+	function handleKeyEvents(event) {
 
 		var key = event.keyCode,
 		    target = event.target,
@@ -698,7 +658,7 @@
 
 				// Set the new target.
 				if (listItem.previousElementSibling === null) {
-					newTarget = component.querySelectorAll('.tabs__nav a');
+					newTarget = component.querySelectorAll('a');
 					newTarget = newTarget[newTarget.length - 1];
 				} else {
 					newTarget = listItem.previousElementSibling;
@@ -716,7 +676,7 @@
 
 				// Set the new target.
 				if (listItem.nextElementSibling === null) {
-					newTarget = component.querySelector('.tabs__nav a');
+					newTarget = component.querySelector('a');
 				} else {
 					newTarget = listItem.nextElementSibling;
 					newTarget = newTarget.querySelector('a');
@@ -731,14 +691,22 @@
 		}
 	}
 
-	// Add event listener to tab component(s).
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', fireEvents);
-		components[i].addEventListener('keyup', keyboardNav);
+	function handleClickEvents(event) {
+
+		var target = event.target.closest('a') || event.target;
+
+		// Bail if we don't have a target.
+		if (!target) {
+			return;
+		}
+
+		if (target.dataset.role === 'tab-toggle') {
+			showTabContent(target);
+		}
 	}
 
-	// Add event listner to window to add accessibilty attributes on load.
-	window.addEventListener('load', addAccessibilityAttrs);
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
 })();
 
 /**

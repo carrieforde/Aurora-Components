@@ -798,6 +798,36 @@ textarea,
   text-decoration: line-through;
 }
 
+.m--1 {
+  margin: -1px;
+}
+
+.m-v--1 {
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+.m-h--1 {
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.m-t--1 {
+  margin-top: -1px;
+}
+
+.m-r--1 {
+  margin-right: -1px;
+}
+
+.m-b--1 {
+  margin-bottom: -1px;
+}
+
+.m-l--1 {
+  margin-left: -1px;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1532,6 +1562,36 @@ textarea,
       flex-wrap: wrap-reverse;
 }
 
+.b-0 {
+  border: 0 solid;
+}
+
+.b-v-0 {
+  border-bottom: 0 solid;
+  border-top: 0 solid;
+}
+
+.b-h-0 {
+  border-left: 0 solid;
+  border-right: 0 solid;
+}
+
+.b-t-0 {
+  border-top: 0 solid;
+}
+
+.b-r-0 {
+  border-right: 0 solid;
+}
+
+.b-b-0 {
+  border-bottom: 0 solid;
+}
+
+.b-l-0 {
+  border-left: 0 solid;
+}
+
 .b-thin {
   border: 1px solid;
 }
@@ -1904,6 +1964,11 @@ textarea,
 .trs-all {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.trs-c {
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 .trs-mh {
