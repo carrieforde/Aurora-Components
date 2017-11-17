@@ -1,6 +1,6 @@
 {{#module 'Accordion' '' data}}
 <ul class="accordion list-reset b-thin b-mid-light-gray" role="presentation">
-	{{#each this}}
+	{{#each accordion}}
 	<li class="p-20{{#position @index 1 operator=">"}} b-t-thin b-mid-light-gray{{/position}}">
 		<h3 class="m-0">
 			<a id="{{tab}}Tab" href="#{{tab}}Panel" class="block text-mid-gray hover:text-primary no-underline trs-c" data-role="accordion-toggle" aria-expanded="false" aria-controls="{{tab}}Panel">{{tab}}</a>

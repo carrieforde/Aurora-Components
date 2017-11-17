@@ -1,14 +1,14 @@
 {{#module 'Tabs' '' data}}
 <div class="tabs">
 	<ul class="list-reset flex flex-column m:flex-row" aria-label="Cat facts" aria-role="tablist">
-		{{#each this}}
+		{{#each tabs}}
 		<li class="relative m-b--1{{#position @index 1}} b-h-thin b-mid-light-gray b-t-thin bg-white{{/position}}">
 			<a href="#{{tab}}Panel" id="{{tab}}Tab" class="block hover:text-secondary no-underline p-h-10 p-v-5 trs-c {{#position @index 1}} text-primary{{else}}text-mid-gray{{/position}}" data-role="tab-toggle" role="tab" aria-controls="{{tab}}Panel" aria-selected="{{#position @index 1}}true{{else}}false{{/position}}" tabindex="-1">{{tab}}</a>
 		</li>
 		{{/each}}
 	</ul>
 
-	{{#each this}}
+	{{#each tabs}}
 	<div id="{{tab}}Panel" class="b-thin b-mid-light-gray p-20 bg-white{{#position @index 1 operator="!=="}} none{{/position}}" role="tabpanel" aria-labelledby="{{tab}}Tab" tabindex="0">
 		<h2>{{tab}}</h2>
 		<p>{{content}}</p>
