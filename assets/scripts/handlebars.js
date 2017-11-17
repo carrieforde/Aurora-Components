@@ -4,7 +4,7 @@
 ( function( Handlebars ) {
 
 	var content = document.querySelector('.page'),
-		accordionURL = './accordion.json';
+		dataURL = './data.json';
 
 	function getData(dataURL) {
 		var request = new XMLHttpRequest();
@@ -84,11 +84,10 @@
 		return markup += '</section>';
 	});
 
-	var data = getData(accordionURL);
+	var data = getData(dataURL);
 
-	var template = Handlebars.templates['accordion', 'tabs'];
+	var template = Handlebars.templates.accordion(data);
+		template += Handlebars.templates.tabs(data);
 
-	var templateData = template(data);
-
-	content.innerHTML += templateData;
+	content.innerHTML += template;
 })( Handlebars );
