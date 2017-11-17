@@ -650,6 +650,10 @@
 		    component = listItem.parentElement.parentElement,
 		    newTarget;
 
+		if (!target.closest('div').classList.contains('tabs')) {
+			return;
+		}
+
 		switch (key) {
 
 			// If up or left key is pressed.
