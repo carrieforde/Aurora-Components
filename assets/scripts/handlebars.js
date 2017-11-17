@@ -16,7 +16,7 @@
 
 	Handlebars.registerHelper('position', function (index, num, options) {
 
-		if (!options.hash.operator) {
+		if (!options.hash.operator || options.hash.operator === '===') {
 			if (index + 1 === num) {
 				return options.fn(this);
 			}
@@ -24,6 +24,18 @@
 
 		if (options.hash.operator === '==') {
 			if (index + 1 == num) {
+				return options.fn(this);
+			}
+		}
+
+		if (options.hash.operator === '!=') {
+			if (index + 1 != num) {
+				return options.fn(this);
+			}
+		}
+
+		if (options.hash.operator === '!==') {
+			if (index + 1 !== num) {
 				return options.fn(this);
 			}
 		}
@@ -74,7 +86,7 @@
 
 	var data = getData(accordionURL);
 
-	var template = Handlebars.templates['accordion'];
+	var template = Handlebars.templates['accordion', 'tabs'];
 
 	var templateData = template(data);
 
