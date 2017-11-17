@@ -3,51 +3,6 @@
  */
 ( function() {
 
-	// Set up global variables.
-	var components = document.querySelectorAll( '.tabs' );
-
-	/**
-	 * Magically add accessiblity attributes. 🎩
-	 *
-	 */
-	function addAccessibilityAttrs() {
-
-		// Loop through tab components.
-		for (var i = 0; i < components.length; i++) {
-
-			var tabs    = components[i].querySelectorAll('.tabs__tab'),
-				tabList = components[i].querySelector('.tabs__nav');
-
-			// Add tablist attribute.
-			tabList.setAttribute('role', 'tablist');
-
-			for (var j = 0; j < tabs.length; j++) {
-				var panelID  = tabs[j].getAttribute('href'),
-					tabID    = tabs[j].getAttribute('id');
-					controls = panelID.substring(1, panelID.length),
-					panel    = components[i].querySelector(panelID);
-
-				// Add tab attributes.
-				tabs[j].setAttribute('role', 'tab');
-				tabs[j].setAttribute('aria-controls', controls);
-				tabs[j].setAttribute('aria-selected', 'false');
-				tabs[j].setAttribute('tabindex', '-1');
-
-				// Add panel attributes.
-				panel.setAttribute('role', 'tabpanel');
-				panel.setAttribute('aria-labelledby', tabID);
-				panel.setAttribute('tabindex', '0');
-
-				// If the tab & related panel are the first in the component, update the attributes.
-				if (j === 0) {
-					tabs[j].setAttribute('aria-selected', 'true');
-					tabs[j].parentElement.classList.add('is-active');
-					panel.classList.add('is-active');
-				}
-			}
-		}
-	}
-
 	/**
 	 * Show tab content based on selected tab.
 	 *
@@ -61,12 +16,22 @@
 		// Set up function variables.
 		var	component      = el.parentElement.parentElement.parentElement,
 			tabID          = el.getAttribute('href'),
-			currentTab     = component.querySelector( 'li.is-active a' ),
-			currentContent = component.querySelector( '.tabs__panel.is-active' ),
+			tabs           = component.querySelectorAll('a'),
+			currentTab,
+			currentContent,
 			newContent;
 
 		// Pass tabID to get new tab.
 		newContent = component.querySelector( tabID );
+
+		// Find the current tab & panel.
+		for (var i = 0; i < tabs.length; i++) {
+
+			if (tabs[i].getAttribute('aria-selected') === 'true') {
+				currentTab = tabs[i];
+				currentContent = component.querySelector(currentTab.getAttribute('href'));
+			}
+		}
 
 		// Remove class from previously selected tab & tab content, update ARIA attributes.
 		deactivateTab(currentTab, currentContent);
@@ -84,8 +49,10 @@
 	function deactivateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'false');
-		tab.parentElement.classList.remove('is-active');
-		panel.classList.remove('is-active');
+		tab.classList.remove('text-primary');
+		tab.parentElement.classList.remove('b-h-thin', 'b-mid-light-gray', 'b-t-thin', 'bg-white');
+		tab.classList.add('text-mid-gray');
+		panel.classList.add('none');
 	}
 
 	/**
@@ -97,20 +64,10 @@
 	function activateTab(tab, panel) {
 
 		tab.setAttribute('aria-selected', 'true');
-		tab.parentElement.classList.add('is-active');
-		panel.classList.add('is-active');
-	}
-
-	/**
-	 * Fires events based on event target.
-	 *
-	 * @param {any} event
-	 */
-	function fireEvents(event) {
-
-		if (event.target.tagName.toLowerCase() === 'a') {
-			showTabContent(event.target);
-		}
+		tab.classList.remove('text-mid-gray');
+		tab.parentElement.classList.add('b-h-thin', 'b-mid-light-gray', 'b-t-thin', 'bg-white');
+		tab.classList.add('text-primary');
+		panel.classList.remove('none');
 	}
 
 	/**
@@ -118,7 +75,7 @@
 	 *
 	 * @param {any} event
 	 */
-	function keyboardNav(event) {
+	function handleKeyEvents(event) {
 
 		var key          = event.keyCode,
 			target       = event.target,
@@ -134,7 +91,7 @@
 
 				// Set the new target.
 				if (listItem.previousElementSibling === null) {
-					newTarget = component.querySelectorAll('.tabs__nav a');
+					newTarget = component.querySelectorAll('a');
 					newTarget = newTarget[newTarget.length -1];
 				} else {
 					newTarget = listItem.previousElementSibling;
@@ -151,7 +108,7 @@
 
 				// Set the new target.
 				if (listItem.nextElementSibling === null) {
-					newTarget = component.querySelector('.tabs__nav a');
+					newTarget = component.querySelector('a');
 				} else {
 					newTarget = listItem.nextElementSibling;
 					newTarget = newTarget.querySelector('a');
@@ -166,12 +123,20 @@
 		}
 	}
 
-	// Add event listener to tab component(s).
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', fireEvents);
-		components[i].addEventListener('keyup', keyboardNav);
+	function handleClickEvents(event) {
+
+		var target = event.target.closest('a') || event.target;
+
+		// Bail if we don't have a target.
+		if (!target) {
+			return;
+		}
+
+		if (target.dataset.role === 'tab-toggle') {
+			showTabContent(target);
+		}
 	}
 
-	// Add event listner to window to add accessibilty attributes on load.
-	window.addEventListener('load', addAccessibilityAttrs);
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
 })();
