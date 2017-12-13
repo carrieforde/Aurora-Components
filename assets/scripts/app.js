@@ -5,29 +5,29 @@
  */
 (function () {
 
-	// Get global variables.
-	var components = document.querySelectorAll('.accordion');
-
 	/**
   * Magically add accessibility attributes. 🎩
-  * 
+  *
   */
 	function addAccessibilityAttrs() {
 
-		// Loop through accordion components.
-		for (var i = 0; i < components.length; i++) {
+		var components = document.querySelectorAll('.accordion');
 
-			var headings = components[i].querySelectorAll('.accordion__heading');
+		// Loop through accordions.
+		components.forEach(component => {
+
+			var headings = component.querySelectorAll('.accordion__heading');
 
 			// Add attribute to accordion.
-			components[i].setAttribute('role', 'presentation');
+			component.setAttribute('role', 'presentation');
 
-			for (var j = 0; j < headings.length; j++) {
-				var toggle = headings[j].querySelector('.accordion__toggle'),
-				    headingID = headings[j].getAttribute('id'),
-				    panel = headings[j].nextElementSibling,
+			// Loop through headings.
+			headings.forEach(heading => {
+				var toggle = heading.querySelector('.accordion__toggle'),
+				    headingID = heading.getAttribute('id'),
+				    panel = heading.nextElementSibling,
 				    panelID = panel.getAttribute('id'),
-				    listItem = headings[j].parentElement;
+				    listItem = heading.parentElement;
 
 				// Add attributes to toggles.
 				toggle.setAttribute('aria-expanded', 'false');
@@ -40,8 +40,8 @@
 				if (listItem.classList.contains('is-active')) {
 					toggle.setAttribute('aria-expanded', 'true');
 				}
-			}
-		}
+			});
+		});
 	}
 
 	/**
@@ -50,11 +50,6 @@
   * @param {any} event
   */
 	function togglePanel(event) {
-
-		// Bail if the event target isn't the toggle.
-		if (!event.target.classList.contains('accordion__toggle')) {
-			return;
-		}
 
 		// Prevent link follow.
 		event.preventDefault();
@@ -96,15 +91,21 @@
 	/**
   * Adds navigation through up / down / left / right arrow keys.
   *
-  * @param {any} event
+  * @param  {object}   event  The event object.
+  * @return {boolean}         Returns false if parent isn't an accordion. 
   */
-	function keyboardNav(event) {
+	function handleKeyEvents(event) {
 
 		var key = event.keyCode,
 		    target = event.target,
 		    parent = target.parentElement.parentElement,
-		    accordion = parent.parentElement,
+		    accordion = target.closest('ul'),
 		    newTarget;
+
+		// Return if we're not on an accordion.
+		if (!accordion || !accordion.classList.contains('accordion')) {
+			return false;
+		}
 
 		switch (key) {
 
@@ -144,13 +145,28 @@
 		}
 	}
 
-	// Add event listeners.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', togglePanel);
-		components[i].addEventListener('keyup', keyboardNav);
+	/**
+  * Determines whether to fire accordion events.
+  *
+  * @param {object}  event  The event object.
+  */
+	function handleClickEvents(event) {
+
+		var target = event.target;
+
+		if (target.classList.contains('accordion__toggle')) {
+			togglePanel(event);
+		}
 	}
 
-	window.addEventListener('load', addAccessibilityAttrs);
+	// Add event listeners.
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
+	window.addEventListener('load', function () {
+		setTimeout(() => {
+			addAccessibilityAttrs();
+		}, 500);
+	});
 })();
 
 /**
