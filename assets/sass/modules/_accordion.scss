@@ -26,6 +26,7 @@ $accordion__toggle-active: $color__primary;
 	// .accordion__toggle
 	&__toggle {
 		color: $accordion__toggle;
+		display: block;
 		text-decoration: none;
 
 		.is-active &,
