@@ -1,0 +1,27 @@
+{
+  "accordion": {
+    "heading": "Accordion",
+    "data": [
+      {
+        "id": "k2",
+        "tabName": "K2",
+        "content": "<p>K2 is the first cat I adopted.</p>"
+      },
+      {
+        "id": "whitney",
+        "tabName": "Whitney",
+        "content": "<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>"
+      },
+      {
+        "id": "minnie",
+        "tabName": "Minnie",
+        "content": "<p>Minnie is the third Forde family cat, and the first named after a city.</p>"
+      },
+      {
+        "id": "paul",
+        "tabName": "Paul",
+        "content": "<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>"
+      }
+    ]
+  }
+}

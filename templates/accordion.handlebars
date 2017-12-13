@@ -1,0 +1,22 @@
+{{#with accordion}}
+<section id="accordion" class="module">
+	<header class="module__header">
+		<h2>{{heading}}</h2>
+	</header>
+
+	<div class="module__content">
+		<ul class="accordion">
+			{{#each data}}
+			<li>
+				<h3 id="{{id}}Heading" class="accordion__heading">
+					<a href="#{{id}}AccPanel" class="accordion__toggle">{{tabName}}</a>
+				</h3>
+				<div id="{{id}}AccPanel" class="accordion__content">
+					<p>{{content}}</p>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</section>
+{{/with}}
