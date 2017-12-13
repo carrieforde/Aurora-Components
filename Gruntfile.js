@@ -11,7 +11,6 @@ module.exports = function(grunt) {
 				sourceMap: true,
 				includePaths: [
 					"node_modules/bourbon/app/assets/stylesheets",
-					"node_modules/bourbon-neat/core",
 					"node_modules/sanitize.scss"
 				]
 			},
@@ -34,7 +33,7 @@ module.exports = function(grunt) {
 			}
 		},
 		sasslint: {
-			target: ["assets/sass/*.scss", "assets/sass/**/*.scss", "components/**/*.scss"]
+			target: ["assets/sass/*.scss", "assets/sass/**/*.scss"]
 		},
 		cssmin: {
 			target: {
@@ -70,7 +69,7 @@ module.exports = function(grunt) {
 				sourceMap: true
 			},
 			dist: {
-				src: ["assets/scripts/src/*.js", "components/**/*.js"],
+				src: ["assets/scripts/src/*.js"],
 				dest: "assets/scripts/app.js"
 			}
 		},
@@ -98,7 +97,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: "assets/",
 						src: ["images/*.{png,jpg,gif}"],
-						dest: "images/processed",
+						dest: "dist/images",
 						flatten: true
 					}
 				]
@@ -106,14 +105,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			css: {
-				files: ["assets/sass/**/*.scss", "components/**/*.scss"],
+				files: ["assets/sass/**/*.scss"],
 				tasks: ["styles"],
 				options: {
 					livereload: true
 				}
 			},
 			js: {
-				files: ["assets/scripts/src/*.js", "components/**/*.js"],
+				files: ["assets/scripts/src/*.js"],
 				tasks: ["scripts"],
 				options: {
 					livereload: true
