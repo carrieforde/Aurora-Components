@@ -1,0 +1,20 @@
+{
+  "name": "bov-web-components",
+  "description": "Grab & go UI components for web projects.",
+  "main": "app.js",
+  "authors": [
+    "Carrie Forde"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/carrieforde/bov-web-components",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.11"
+  }
+}
