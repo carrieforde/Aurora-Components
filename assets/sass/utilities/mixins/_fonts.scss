@@ -1,0 +1,21 @@
+// ----------------------------------------------------------------------------
+// FONTS
+// ----------------------------------------------------------------------------
+
+
+/// Set up font classes quickly by looping through a font Sass map.
+///
+/// @author Carrie Forde
+///
+/// @param {map} $fonts [$fonts] - The map of fonts to loop through.
+
+
+@mixin fonts($font-map) {
+
+	@each $name, $font-stack in $font-map {
+
+		#{$name} {
+			font-family: $font-stack;
+		}
+	}
+}

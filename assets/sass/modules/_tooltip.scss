@@ -1,13 +1,13 @@
-//--------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // TOOLTIP
-//--------------------------------------------------------------
+// ----------------------------------------------------------------------------
 .tooltip {
 	@include position(absolute, null null 150% calc(50% - #{rem(150)}));
 
 	background-color: $color__black;
 	color: $color__white;
 	display: block;
-	padding: $gutter__half;
+	padding: $gutter / 2;
 	text-align: center;
 	transition: $transition__visibility;
 	width: rem(300);

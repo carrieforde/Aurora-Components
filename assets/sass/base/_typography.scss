@@ -1,0 +1,56 @@
+// ----------------------------------------------------------------------------
+// TYPOGRAPHY
+// ----------------------------------------------------------------------------
+html {
+	font-size: $root-font-size * 1px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $font__body-color;
+	font: $font__body-weight #{$font__body-size}/#{$font__body-line-height} $font__body; // sass-lint:disable-line space-around-operator
+}
+
+
+// ----------------------------------------------
+// Headings
+// ----------------------------------------------
+#{headings(1, 6)} {
+	color: $font__headings-color;
+	font-family: $font__headings;
+	font-weight: $font__headings-weight;
+	margin: 0 0 0 0.5em;
+}
+
+h1,
+.h1 {
+	font-size: $font__h1;
+}
+
+h2,
+.h2 {
+	font-size: $font__h2;
+}
+
+h3,
+.h3 {
+	font-size: $font__h3;
+}
+
+h4,
+.h4 {
+	font-size: $font__h4;
+}
+
+h5,
+.h5 {
+	font-size: $font__h5;
+}
+
+h6,
+.h6 {
+	font-size: $font__h6;
+}

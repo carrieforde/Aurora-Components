@@ -4,153 +4,48 @@
 // Manifest for the project Sass.
 //--------------------------------------------------------------
 
-// Utilities
+// Functions
+@import 'utilities/functions/color';
+@import 'utilities/functions/px-to-em';
+@import 'utilities/functions/px-to-rem';
+
+// Config
+@import 'config';
+
+// Bourbon
 @import 'bourbon';
-@import 'config/functions/color';
-@import 'config/functions/headings';
-@import 'config/functions/strip-units';
-@import 'config/functions/px-to-em';
-@import 'config/functions/px-to-rem';
-@import 'config/functions/type';
-@import 'config/mixins/center';
-@import 'config/mixins/center-block';
-@import 'config/mixins/colors';
-@import 'config/mixins/full-width';
-@import 'config/mixins/hide-text';
-@import 'config/mixins/list-reset';
-@import 'config/mixins/margin-padding-reset';
-@import 'config/mixins/media';
-@import 'config/mixins/vertical-rhythm';
-@import 'config/mixins/prop-check';
-@import 'config/settings/base-context';
-@import 'config/settings/colors';
-@import 'config/settings/typography';
-@import 'config/variables/colors';
-@import 'config/variables/typography';
-@import 'config/variables/icons';
-@import 'config/variables/breakpoints';
-@import 'config/variables/sizes';
-@import 'config/variables/transitions';
-@import 'config/variables/borders';
+
+// Mixins
+@import 'utilities/mixins/colors';
+@import 'utilities/mixins/fonts';
+@import 'utilities/mixins/media';
+@import 'utilities/mixins/vertical-rhythm';
+
+// Reset
 @import 'sanitize';
 
-// Utilities
-@import 'utilities/colors';
-@import 'utilities/flexbox';
-@import 'utilities/padding';
-
-// Elements
-@import 'elements/buttons';
-@import 'elements/forms';
-@import 'elements/typography';
-@import 'elements/media';
+// Base
+@import 'base/buttons';
+@import 'base/forms';
+@import 'base/media';
+@import 'base/typography';
+@import 'base/utilities';
 
 // Components
-@import 'components/accordion';
-@import 'components/carousel';
-@import 'components/tabs';
-@import 'components/menu';
-@import 'components/modal';
-@import 'components/tooltip';
+@import 'modules/accordion';
+@import 'modules/carousel';
+@import 'modules/tabs';
+@import 'modules/menu';
+@import 'modules/modal';
+@import 'modules/tooltip';
 
 // Layout
-@import 'layout/sidebar';
+// @import 'layout/grid';
+// @import 'layout/header';
+// @import 'layout/footer';
+// @import 'layout/sidebar';
 
 // State
-@import 'state/is-fixed';
-@import 'state/has-tooltip';
-@import 'state/is-hidden';
-
-// General page styles (for now)
-.site-info {
-	font-family: $font__heading;
-	font-size: rem(24);
-	font-weight: 700;
-	margin-bottom: 0;
-	text-decoration: none;
-}
-
-.page {
-	@include center-block;
-
-	max-width: 100%;
-	width: rem(1100);
-
-	@include media($tablet-landscape-up, null) {
-
-		.components & {
-			display: grid;
-			grid-gap: $gutter__double;
-			grid-template-columns: repeat(4, 1fr);
-		}
-	}
-}
-
-.components {
-
-	@include media($tablet-landscape-up, null) {
-		background-color: $color__light-gray;
-
-		.page__header {
-			grid-column-end: 5;
-			grid-column-start: 1;
-		}
-
-		.sidebar {
-			grid-column-end: 2;
-			grid-column-start: 1;
-		}
-
-		.page__content {
-			background-color: $color__white;
-			grid-column-end: 5;
-			grid-column-start: 2;
-			padding: $gutter;
-		}
-	}
-}
-
-.page__content {
-	@include media(null, $tablet-landscape-up) {
-		margin-top: $gutter * 4;
-	}
-}
-
-.site-footer {
-
-	@include media(null, $tablet-landscape-up) {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	p {
-		margin-bottom: 0;
-	}
-}
-
-.module {
-	padding: rem(40) rem(20) rem(60);
-
-	@include media($tablet-portrait-up, null) {
-		padding: rem(60) 0 rem(90);
-	}
-
-	.site-header {
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
-.menu {
-
-	h4 {
-		margin-bottom: 0;
-	}
-}
-
-.component--tabs {
-
-	+ .component--tabs {
-		margin-top: $gutter__double;
-	}
-}
+// @import 'state/is-fixed';
+// @import 'state/has-tooltip';
+// @import 'state/is-hidden';

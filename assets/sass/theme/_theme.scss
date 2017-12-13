@@ -1,0 +1,97 @@
+// ----------------------------------------------------------------------------
+// THEME
+// ----------------------------------------------------------------------------
+
+// General page styles (for now)
+.site-info {
+	font-family: $font__heading;
+	font-size: rem(24);
+	font-weight: 700;
+	margin-bottom: 0;
+	text-decoration: none;
+}
+
+.page {
+	@include center-block;
+
+	max-width: 100%;
+	width: rem(1100);
+
+	@include media($tablet-landscape-up, null) {
+
+		.components & {
+			display: grid;
+			grid-gap: $gutter__double;
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
+.components {
+
+	@include media($tablet-landscape-up, null) {
+		background-color: $color__light-gray;
+
+		.page__header {
+			grid-column-end: 5;
+			grid-column-start: 1;
+		}
+
+		.sidebar {
+			grid-column-end: 2;
+			grid-column-start: 1;
+		}
+
+		.page__content {
+			background-color: $color__white;
+			grid-column-end: 5;
+			grid-column-start: 2;
+			padding: $gutter;
+		}
+	}
+}
+
+.page__content {
+	@include media(null, $tablet-landscape-up) {
+		margin-top: $gutter * 4;
+	}
+}
+
+.site-footer {
+
+	@include media(null, $tablet-landscape-up) {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.module {
+	padding: rem(40) rem(20) rem(60);
+
+	@include media($tablet-portrait-up, null) {
+		padding: rem(60) 0 rem(90);
+	}
+
+	.site-header {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.menu {
+
+	h4 {
+		margin-bottom: 0;
+	}
+}
+
+.component--tabs {
+
+	+ .component--tabs {
+		margin-top: $gutter__double;
+	}
+}

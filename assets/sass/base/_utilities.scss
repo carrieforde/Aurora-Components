@@ -1,0 +1,54 @@
+// ----------------------------------------------------------------------------
+// UTILITIES
+// ----------------------------------------------------------------------------
+
+/// Add utility color classes.
+///
+/// @example - markup Usage
+///  <section class="bg--gray text--primary">...</section>
+@include colors($colors);
+
+/// Add utility font classes.
+///
+/// @example - markup Usage
+///  <header class="poppins">...</header>
+@include fonts($fonts);
+
+/// Extend an element to the edge of the viewport when the parent has a fixed width.
+///
+/// @link https://css-tricks.com/full-width-containers-limited-width-parents/
+///
+/// @example - markup Usage
+///  <section class="full-width">...</section>
+.full-width {
+	@include position(relative, null 50% null 50%);
+
+	margin-left: -50vw;
+	margin-right: -50vw;
+	width: 100vw;
+}
+
+/// Hides text, but doesn't make it disappear. Great for accessibility.
+///
+/// @example - markup Use to hide text when using a logo as background
+///  <h1 class="site-info hide-text">My Great Site</h1>
+.hide-text {
+	@include size(1px);
+
+	border: 0;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+}
+
+/// Remove default margin, padding, and list style from an ordered or unordered list.
+///
+/// @example - markup Usage
+///  <ul class="list-reset">...</ul>
+.list-reset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,117 @@
+// ----------------------------------------------------------------------------
+// CONFIG
+// ----------------------------------------------------------------------------
+$output-bourbon-deprecation-warnings: false;
+$root-font-size: 16;
+
+
+// ----------------------------------------------
+// Colors
+// ----------------------------------------------
+$colors: (
+	primary: #e5346c,
+	secondary: #eac5de,
+	black: #000, // sass-lint:disable-line no-color-keywords
+	mine-shaft: #333,
+	steel: #666,
+	aluminum: #999,
+	iron: #ccc,
+	white-smoke: #eee,
+	white: #fff, // sass-lint:disable-line no-color-keywords
+	ocean-boat-blue: #0075c4,
+	dark-pastel-green: #04be51,
+	lightening-yellow: #ffc417,
+	coquelicot: #ff3505
+);
+
+$color__primary: color(primary);
+$color__secondary: color(secondary);
+$color__default: color(aluminum);
+
+$color__black: color(black); // sass-lint:disable-line no-color-keywords
+$color__dark-gray: color(mine-shaft);
+$color__mid-dark-gray: color(steel);
+$color__mid-gray: $color__default;
+$color__mid-light-gray: color(iron);
+$color__light-gray: color(white-smoke);
+$color__white: color(white); // sass-lint:disable-line no-color-keywords
+
+$color__info: color(ocean-boat-blue);
+$color__success: color(dark-pastel-green);
+$color__warning: color(lightening-yellow);
+$color__danger: color(coquelicot);
+
+
+// ----------------------------------------------
+// Fonts
+// ----------------------------------------------
+$fonts: (
+	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif},
+	serif: #{Georgia, times, serif},
+	monospace: #{Consolas, monaco, monospace}
+);
+
+$font__body: type(sans-serif);
+$font__body-color: $color__dark-gray;
+$font__body-line-height: 1.66;
+$font__body-size: $root-font-size;
+$font__body-weight: 400;
+
+$font__headings: type(serif);
+$font__headings-color: $color__black;
+$font__headings-line-height: $font__body-line-height;
+$font__headings-weight: 700;
+
+$font__h1: 40px;
+$font__h2: 36px;
+$font__h3: 30px;
+$font__h4: 28px;
+$font__h5: 24px;
+$font__h6: 20px;
+
+
+// ----------------------------------------------
+// Borders
+// ----------------------------------------------
+$border__default: 1px solid $color__mid-gray;
+$border__focus: 1px solid $color__primary;
+$border__invalid: 1px solid $color__danger;
+$border__valid: 1px solid $color__success;
+
+$border__radius: 3px;
+
+
+// ----------------------------------------------
+// Breakpoints
+// ----------------------------------------------
+$tablet-portrait-up: 600px;
+$tablet-landscape-up: 900px;
+$desktop-up: 1200px;
+$desktop-xl-up: 1800px;
+
+
+// ----------------------------------------------
+// Sizes
+// ----------------------------------------------
+$gutter: 20px;
+
+$size__site-width: 1100px;
+$size__content-width: 750px;
+
+
+// ----------------------------------------------
+// Transitions
+// ----------------------------------------------
+$timing: 0.3s ease-in-out;
+
+$transition__all: all $timing;
+$transition__background-color: background-color $timing;
+$transition__color: color $timing;
+$transition__height: height $timing;
+$transition__left: left $timing;
+$transition__max-height: max-height $timing;
+$transition__opacity: opacity $timing;
+$transition__transform: transform $timing;
+$transition__visibility: visibility $timing;
+$transition__width: width $timing;
+$transition__z-index: z-index $timing;

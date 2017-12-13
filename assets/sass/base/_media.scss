@@ -1,8 +1,7 @@
 // ----------------------------------------------------------------------------
-// HAS TOOLTIP
+// MEDIA
 // ----------------------------------------------------------------------------
-.has-tooltip {
-	border-bottom: 1px dotted $color__dark-gray;
-	cursor: help;
-	position: relative;
+img {
+	height: auto;
+	max-width: 100%;
 }

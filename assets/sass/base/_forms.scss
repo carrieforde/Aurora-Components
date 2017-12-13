@@ -1,0 +1,48 @@
+// ----------------------------------------------------------------------------
+// FORMS
+// ----------------------------------------------------------------------------
+label {
+	display: block;
+}
+
+#{$all-text-inputs} {
+	border: $border__default;
+	box-sizing: border-box;
+	max-width: 100%;
+	width: 100%;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+
+	&.invalid {
+		border-color: $border__invalid;
+	}
+
+	&.valid {
+		border-color: $border__valid;
+	}
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline-block;
+
+	&:disabled {
+		cursor: not-allowed;
+
+		+ label {
+			cursor: not-allowed;
+		}
+	}
+
+	+ label {
+		display: inline-block;
+		margin-left: rem(5);
+		margin-right: rem(10);
+	}
+}
+
+fieldset {
+	border: $border__default;
+}
