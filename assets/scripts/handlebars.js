@@ -21,6 +21,7 @@
 				data = JSON.parse(xhr.responseText);
 
 				contentTemplate = Handlebars.templates.accordion(data);
+				contentTemplate += Handlebars.templates.carousel(data);
 
 				page.innerHTML += '<main class="page__content">' + contentTemplate + "</main>";
 				Prism.highlightAll();

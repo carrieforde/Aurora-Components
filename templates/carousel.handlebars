@@ -1,0 +1,38 @@
+{{#with carousel}}
+<section id="carousel" class="module">
+	<header class="module__header">
+		<h2>Carousel</h2>
+	</header>
+
+	<div class="module__content">
+		<div class="carousel">
+			<nav class="carousel__dots">
+				{{#each slides}}
+				<a href="#{{id}}" class="is-active">
+					<span class="hide-text">1</span>
+				</a>
+				{{/each}}
+			</nav>
+
+			<nav class="carousel__arrows">
+				<button type="button" class="carousel__button carousel__button--previous">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i>
+					<span class="hide-text">Previous Slide</span>
+				</button>
+				<button type="button" class="carousel__button carousel__button--next">
+					<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					<span class="hide-text">Next Slide</span>
+				</button>
+			</nav>
+
+			<div class="carousel__slides">
+				{{#each slides}}
+				<div class="carousel__slide is-active" id="{{id}}">
+					{{{content}}}
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</section>
+{{/with}}

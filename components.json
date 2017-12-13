@@ -1,7 +1,7 @@
 {
   "accordion": {
     "heading": "Accordion",
-    "data": [
+    "panels": [
       {
         "id": "k2",
         "tabName": "K2",
@@ -28,5 +28,30 @@
       "javascript": "/**\n * Accordion scripts.\n */\n(function() {\n\n\t/**\n\t * Magically add accessibility attributes. 🎩\n\t *\n\t */\n\tfunction addAccessibilityAttrs () {\n\n\t\tvar components = document.querySelectorAll('.accordion');\n\n\t\t// Loop through accordions.\n\t\tcomponents.forEach(component => {\n\n\t\t\tvar headings = component.querySelectorAll('.accordion__heading');\n\n\t\t\t// Add attribute to accordion.\n\t\t\tcomponent.setAttribute('role', 'presentation');\n\n\t\t\t// Loop through headings.\n\t\t\theadings.forEach(heading => {\n\t\t\t\tvar toggle    = heading.querySelector('.accordion__toggle'),\n\t\t\t\t\theadingID = heading.getAttribute('id'),\n\t\t\t\t\tpanel     = heading.nextElementSibling,\n\t\t\t\t\tpanelID   = panel.getAttribute('id'),\n\t\t\t\t\tlistItem  = heading.parentElement;\n\n\t\t\t\t// Add attributes to toggles.\n\t\t\t\ttoggle.setAttribute('aria-expanded', 'false');\n\t\t\t\ttoggle.setAttribute('aria-controls', panelID);\n\n\t\t\t\t// Add attributes to panels.\n\t\t\t\tpanel.setAttribute('aria-labelledby', headingID);\n\n\t\t\t\t// If the item is active, update the aria-expanded attribute.\n\t\t\t\tif (listItem.classList.contains('is-active')) {\n\t\t\t\t\ttoggle.setAttribute('aria-expanded', 'true');\n\t\t\t\t}\n\t\t\t});\n\t\t});\n\t}\n\n\t/**\n\t * Toggle the accordion content panel.\n\t *\n\t * @param {any} event\n\t */\n\tfunction togglePanel (event) {\n\n\t\t// Prevent link follow.\n\t\tevent.preventDefault();\n\n\t\tvar target = event.target,\n\t\t\tparent = target.parentElement.parentElement;\n\n\t\tif (parent.classList.contains('is-active')) {\n\t\t\tdeactivatePanel(target, parent);\n\t\t} else {\n\t\t\tactivatePanel(target, parent);\n\t\t}\n\t}\n\n\t/**\n\t * Deactivates a tab & panel.\n\t *\n\t * @param {string}  tab    The tab element.\n\t * @param {string}  panel  The panel element.\n\t */\n\tfunction deactivatePanel (tab, parent) {\n\n\t\ttab.setAttribute('aria-expanded', 'false');\n\t\tparent.classList.remove('is-active');\n\t}\n\n\t/**\n\t * Activates a tab & panel.\n\t *\n\t * @param {string}  tab    The tab element.\n\t * @param {string}  panel  The panel element.\n\t */\n\tfunction activatePanel (tab, parent) {\n\n\t\ttab.setAttribute('aria-expanded', 'true');\n\t\tparent.classList.add('is-active');\n\t}\n\n\t/**\n\t * Adds navigation through up / down / left / right arrow keys.\n\t *\n\t * @param  {object}   event  The event object.\n\t * @return {boolean}         Returns false if parent isn't an accordion. \n\t */\n\tfunction handleKeyEvents (event) {\n\n\t\tvar key       = event.keyCode,\n\t\t\ttarget    = event.target,\n\t\t\tparent    = target.parentElement.parentElement,\n\t\t\taccordion = target.closest('ul'),\n\t\t\tnewTarget;\n\n\t\t// Return if we're not on an accordion.\n\t\tif (!accordion || !accordion.classList.contains('accordion')) {\n\t\t\treturn false;\n\t\t}\n\n\t\tswitch (key) {\n\n\t\t\t// If up or left key is pressed.\n\t\t\tcase 37:\n\t\t\tcase 38:\n\n\t\t\t\t// Set the new target.\n\t\t\t\tif (parent.previousElementSibling === null) {\n\t\t\t\t\tnewTarget = accordion.querySelectorAll('.accordion__toggle');\n\t\t\t\t\tnewTarget = newTarget[newTarget.length - 1];\n\t\t\t\t} else {\n\t\t\t\t\tnewTarget = parent.previousElementSibling;\n\t\t\t\t\tnewTarget = newTarget.querySelector('.accordion__toggle');\n\t\t\t\t}\n\n\t\t\t\tnewTarget.focus();\n\t\t\t\tbreak;\n\n\t\t\t// If down or right key is pressed.\n\t\t\tcase 39:\n\t\t\tcase 40:\n\n\t\t\t\t// Set the new target.\n\t\t\t\tif (parent.nextElementSibling === null) {\n\t\t\t\t\tnewTarget = accordion.querySelector('.accordion__toggle');\n\t\t\t\t} else {\n\t\t\t\t\tnewTarget = parent.nextElementSibling;\n\t\t\t\t\tnewTarget = newTarget.querySelector('.accordion__toggle');\n\t\t\t\t}\n\n\t\t\t\tnewTarget.focus();\n\t\t\t\tbreak;\n\n\t\t\tdefault:\n\t\t\t\tbreak;\n\t\t}\n\t}\n\n\t/**\n\t * Determines whether to fire accordion events.\n\t *\n\t * @param {object}  event  The event object.\n\t */\n\tfunction handleClickEvents (event) {\n\n\t\tvar target = event.target;\n\n\t\tif (target.classList.contains('accordion__toggle')) {\n\t\t\ttogglePanel(event);\n\t\t}\n\t}\n\n\t// Add event listeners.\n\tdocument.addEventListener('click', handleClickEvents);\n\tdocument.addEventListener('keyup', handleKeyEvents);\n\twindow.addEventListener('load', function() {\n\t\tsetTimeout(() => {\n\t\t\taddAccessibilityAttrs();\n\t\t}, 500);\n\t});\n})();\n",
       "sass": "// ----------------------------------------------------------------------------\n// ACCORDION\n// ----------------------------------------------------------------------------\n$accordion__background: $color__white;\n$accordion__border: $border__default;\n$accordion__toggle: $color__default;\n$accordion__toggle-active: $color__primary;\n\n.accordion {\n\tbackground-color: $accordion__background;\n\tborder: $accordion__border;\n\n\tli {\n\t\tpadding: $gutter;\n\n\t\t+ li {\n\t\t\tborder-top: $accordion__border;\n\t\t}\n\t}\n\n\t// .accordion__heading\n\t&__heading {\n\t\tmargin-bottom: 0;\n\t}\n\n\t// .accordion__toggle\n\t&__toggle {\n\t\tcolor: $accordion__toggle;\n\t\ttext-decoration: none;\n\n\t\t.is-active &,\n\t\t&:hover,\n\t\t&:focus {\n\t\t\tcolor: $accordion__toggle-active;\n\t\t}\n\t}\n\n\t// .accordion__content\n\t&__content {\n\t\tmax-height: 0;\n\t\toverflow: hidden;\n\t\ttransition: $transition__max-height;\n\t\ttransition-duration: 0.5s;\n\n\t\t.is-active & {\n\t\t\tmax-height: 100vh;\n\t\t}\n\t}\n} // .accordion\n"
     }
+  },
+  "carousel": {
+    "heading": "Carousel",
+    "slides": [
+      {
+        "id": "1",
+        "content": "<img src=\"https://unsplash.it/1200/740?image=392\" alt=\"\">"
+      },
+      {
+        "id": "2",
+        "content": "<img src=\"https://unsplash.it/1200/740?image=436\" alt=\"\">"
+      },
+      {
+        "id": "3",
+        "content": "<img src=\"https://unsplash.it/1200/740?image=503\" alt=\"\">"
+      },
+      {
+        "id": "4",
+        "content": "<img src=\"https://unsplash.it/1200/740?image=613\" alt=\"\">"
+      },
+      {
+        "id": "5",
+        "content": "<img src=\"https://unsplash.it/1200/740?image=623\" alt=\"\">"
+      }
+    ]
   }
 }
