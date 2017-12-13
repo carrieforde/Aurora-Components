@@ -6,6 +6,7 @@
 
 // Functions
 @import 'utilities/functions/color';
+@import 'utilities/functions/headings';
 @import 'utilities/functions/px-to-em';
 @import 'utilities/functions/px-to-rem';
 
@@ -40,6 +41,7 @@
 @import 'modules/tooltip';
 
 // Layout
+@import 'layout/page';
 // @import 'layout/grid';
 // @import 'layout/header';
 // @import 'layout/footer';
