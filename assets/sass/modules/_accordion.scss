@@ -1,15 +1,20 @@
 // ----------------------------------------------------------------------------
 // ACCORDION
 // ----------------------------------------------------------------------------
+$accordion__background: $color__white;
+$accordion__border: $border__default;
+$accordion__toggle: $color__default;
+$accordion__toggle-active: $color__primary;
+
 .accordion {
-	background-color: $color__white;
-	border: $border__default;
+	background-color: $accordion__background;
+	border: $accordion__border;
 
 	li {
 		padding: $gutter;
 
 		+ li {
-			border-top: $border__default;
+			border-top: $accordion__border;
 		}
 	}
 
@@ -20,13 +25,13 @@
 
 	// .accordion__toggle
 	&__toggle {
-		color: $color__default;
+		color: $accordion__toggle;
 		text-decoration: none;
 
 		.is-active &,
 		&:hover,
 		&:focus {
-			color: $color__primary;
+			color: $accordion__toggle-active;
 		}
 	}
 
