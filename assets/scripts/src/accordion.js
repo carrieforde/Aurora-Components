@@ -1,16 +1,15 @@
 /**
  * Accordion scripts.
  */
-( function() {
-
-	// Get global variables.
-	var components = document.querySelectorAll('.accordion');
+(function() {
 
 	/**
 	 * Magically add accessibility attributes. 🎩
-	 * 
+	 *
 	 */
 	function addAccessibilityAttrs() {
+
+		var components = document.querySelectorAll('.accordion');
 
 		// Loop through accordion components.
 		for (var i = 0; i < components.length; i++) {
@@ -48,11 +47,6 @@
 	 * @param {any} event
 	 */
 	function togglePanel(event) {
-
-		// Bail if the event target isn't the toggle.
-		if (!event.target.classList.contains('accordion__toggle')) {
-			return;
-		}
 
 		// Prevent link follow.
 		event.preventDefault();
@@ -94,9 +88,9 @@
 	/**
 	 * Adds navigation through up / down / left / right arrow keys.
 	 *
-	 * @param {any} event
+	 * @param {object}  event  The event object.
 	 */
-	function keyboardNav(event) {
+	function handleKeyEvents (event) {
 
 		var key       = event.keyCode,
 			target    = event.target,
@@ -142,11 +136,26 @@
 		}
 	}
 
-	// Add event listeners.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', togglePanel);
-		components[i].addEventListener('keyup', keyboardNav);
+	/**
+	 * Determines whether to fire accordion events.
+	 *
+	 * @param {object}  event  The event object.
+	 */
+	function handleClickEvents (event) {
+
+		var target = event.target;
+
+		if (target.classList.contains('accordion__toggle')) {
+			togglePanel(event);
+		}
 	}
 
-	window.addEventListener('load', addAccessibilityAttrs);
+	// Add event listeners.
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
+	window.addEventListener('load', function() {
+		setTimeout(() => {
+			addAccessibilityAttrs();
+		}, 500);
+	});
 })();
