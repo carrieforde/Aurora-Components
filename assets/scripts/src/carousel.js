@@ -1,13 +1,11 @@
 /**
  * Carousel
  */
-( function() {
-
-	var carousels = document.querySelectorAll('.carousel');
+(function() {
 
 	function changeSlides(el) {
 
-		var carousel     = el.parentElement.parentElement,
+		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
 			currentSlide = carousel.querySelector('.carousel__slide.is-active'),
 			target       = el.getAttribute('href'),
@@ -22,7 +20,7 @@
 
 	function advanceSlides(el) {
 
-		var carousel     = el.parentElement.parentElement,
+		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
 			nextDot      = currentDot.nextElementSibling,
 			currentSlide = carousel.querySelector('.carousel__slide.is-active'),
@@ -42,7 +40,7 @@
 	}
 
 	function reverseSlides(el) {
-		var carousel     = el.parentElement.parentElement,
+		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
 			prevDot      = currentDot.previousElementSibling,
 			currentSlide = carousel.querySelector('.carousel__slide.is-active'),
@@ -63,36 +61,34 @@
 		prevSlide.classList.add('is-active');
 	}
 
-	function fireClickEvents(event) {
+	function handleClickEvents (event) {
 
-		var el = event.target;
+		var target = event.target;
 		
-		if (el.classList.contains('carousel__button--next') || el.classList.contains('fa-chevron-right')) {
+		if (target.classList.contains('carousel__button--next') || target.classList.contains('fa-chevron-right')) {
 
-			if (el.classList.contains('fa-chevron-right')) {
-				el = el.parentElement;
+			if (target.classList.contains('fa-chevron-right')) {
+				target = target.parentElement;
 			}
 
-			advanceSlides(el);
+			advanceSlides(target);
 		}
 
-		if (el.classList.contains('carousel__button--previous') || el.classList.contains('fa-chevron-left')) {
+		if (target.classList.contains('carousel__button--previous') || target.classList.contains('fa-chevron-left')) {
 
-			if (el.classList.contains("fa-chevron-left")) {
-				el = el.parentElement;
+			if (target.classList.contains('fa-chevron-left')) {
+				target = target.parentElement;
 			}
 			
-			reverseSlides(el);
+			reverseSlides(target);
 		}
 
-		if (el.tagName.toLowerCase() === 'a') {
+		if (target.tagName.toLowerCase() === 'a') {
 			event.preventDefault();
 
-			changeSlides(el);
+			changeSlides(target);
 		}
 	}
 
-	for ( var i = 0, len = carousels.length; i < len; i++) {
-		carousels[i].addEventListener('click', fireClickEvents);
-	}
+	document.addEventListener('click', handleClickEvents);
 })();
