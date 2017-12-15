@@ -8,7 +8,7 @@
 		<div class="carousel">
 			<nav class="carousel__dots">
 				{{#each slides}}
-				<a href="#{{id}}" class="is-active">
+				<a href="#{{id}}">
 					<span class="hide-text">1</span>
 				</a>
 				{{/each}}
@@ -27,7 +27,7 @@
 
 			<div class="carousel__slides">
 				{{#each slides}}
-				<div class="carousel__slide is-active" id="{{id}}">
+				<div class="carousel__slide" id="{{id}}">
 					{{{content}}}
 				</div>
 				{{/each}}
