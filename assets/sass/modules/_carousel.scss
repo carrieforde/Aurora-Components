@@ -8,21 +8,17 @@
 
 	// .carousel__slides
 	&__slides {
-		display: flex;
 		overflow-x: auto;
 	}
 
 	// .carousel__slide
 	&__slide {
-		flex-shrink: 1;
 		opacity: 0;
-		overflow: hidden;
 		transition: $transition__opacity;
 
 		&.is-active {
 			flex-shrink: 0;
 			opacity: 1;
-			width: 100%;
 		}
 	}
 
