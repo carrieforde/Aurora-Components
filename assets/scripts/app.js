@@ -174,15 +174,41 @@
  */
 (function () {
 
-	var carousels = document.querySelectorAll('.carousel');
+	'use strict';
 
+	/**
+  * Sets the active slide and dot.
+  * 
+  */
+
+	function setActiveSlide() {
+
+		var carousels = document.querySelectorAll('.carousel');
+
+		carousels.forEach(carousel => {
+			var slide = carousel.querySelector('.carousel__slide'),
+			    dot = carousel.querySelector('.carousel__dots a');
+
+			slide.classList.add('is-active');
+			dot.classList.add('is-active');
+		});
+	}
+
+	/**
+  * Changes slides when carousel dot is clicked.
+  * 
+  * @param  {string}  el  The target dot.
+  */
 	function changeSlides(el) {
 
-		var carousel = el.parentElement.parentElement,
+		var carousel = el.closest('.carousel'),
 		    currentDot = carousel.querySelector('.carousel__dots .is-active'),
 		    currentSlide = carousel.querySelector('.carousel__slide.is-active'),
 		    target = el.getAttribute('href'),
-		    newSlide = carousel.querySelector(target);
+		    newSlide;
+
+		target = target.substring(1, target.length);
+		newSlide = document.getElementById(target);
 
 		// Update classes.
 		currentDot.classList.remove('is-active');
@@ -191,9 +217,14 @@
 		newSlide.classList.add('is-active');
 	}
 
+	/**
+  * Advances slides.
+  * 
+  * @param  {string}  el  The instance of the next arrow button.
+  */
 	function advanceSlides(el) {
 
-		var carousel = el.parentElement.parentElement,
+		var carousel = el.closest('.carousel'),
 		    currentDot = carousel.querySelector('.carousel__dots .is-active'),
 		    nextDot = currentDot.nextElementSibling,
 		    currentSlide = carousel.querySelector('.carousel__slide.is-active'),
@@ -212,8 +243,13 @@
 		nextSlide.classList.add('is-active');
 	}
 
+	/**
+  * Reverses slides.
+  * 
+  * @param  {string}  el  The instance of the previous slide button.
+  */
 	function reverseSlides(el) {
-		var carousel = el.parentElement.parentElement,
+		var carousel = el.closest('.carousel'),
 		    currentDot = carousel.querySelector('.carousel__dots .is-active'),
 		    prevDot = currentDot.previousElementSibling,
 		    currentSlide = carousel.querySelector('.carousel__slide.is-active'),
@@ -234,414 +270,428 @@
 		prevSlide.classList.add('is-active');
 	}
 
-	function fireClickEvents(event) {
-
-		var el = event.target;
-
-		if (el.classList.contains('carousel__button--next') || el.classList.contains('fa-chevron-right')) {
-
-			if (el.classList.contains('fa-chevron-right')) {
-				el = el.parentElement;
-			}
-
-			advanceSlides(el);
-		}
-
-		if (el.classList.contains('carousel__button--previous') || el.classList.contains('fa-chevron-left')) {
-
-			if (el.classList.contains("fa-chevron-left")) {
-				el = el.parentElement;
-			}
-
-			reverseSlides(el);
-		}
-
-		if (el.tagName.toLowerCase() === 'a') {
-			event.preventDefault();
-
-			changeSlides(el);
-		}
-	}
-
-	for (var i = 0, len = carousels.length; i < len; i++) {
-		carousels[i].addEventListener('click', fireClickEvents);
-	}
-})();
-
-/**
- * Fixed Sidebar
- */
-(function () {
-
-	// Script options.
-	var options = {
-		sidebarSelector: '.sidebar',
-		fixPosition: 20
-	},
-	    sidebar = document.querySelector(options.sidebarSelector);
-
 	/**
-  * Fixes the sidebar within the viewport.
-  * 
-  */
-	function fixSidebar() {
-
-		if (sidebar.offsetTop - window.scrollY < options.fixPosition) {
-			sidebar.classList.add('is-fixed');
-		} else {
-			sidebar.classList.remove('is-fixed');
-		}
-	}
-
-	window.addEventListener('scroll', fixSidebar);
-})();
-
-/**
- * Menu JS
- */
-(function () {
-
-	var components = document.querySelectorAll('.menu');
-
-	/**
-  * Adds helper classes on page load.
-  * 
-  */
-	function addClasses() {
-
-		for (var i = 0; i < components.length; i++) {
-
-			var menuItems = components[i].querySelectorAll('li');
-
-			for (var j = 0; j < menuItems.length; j++) {
-
-				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
-					menuItems[j].classList.add('has-children');
-				}
-
-				// If sub-menu will open offscreen, add a class so it doesn't.
-				if (window.innerWidth - menuItems[j].offsetLeft < 175) {
-					menuItems[j].classList.add('reverse-open');
-				}
-			}
-		}
-	}
-
-	/**
-  * Adds toggle buttons for sub-menus.
-  * 
-  */
-	function addHelpers() {
-
-		for (var i = 0; i < components.length; i++) {
-
-			var menuItems = components[i].querySelectorAll('li'),
-			    toggles;
-
-			for (var j = 0; j < menuItems.length; j++) {
-
-				var toggle = document.createElement('button'),
-				    textWrap = document.createElement('span'),
-				    toggleText = document.createTextNode('Toggle');
-
-				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
-					textWrap.appendChild(toggleText);
-					textWrap.classList.add('screen-reader-text');
-					toggle.appendChild(textWrap);
-					toggle.classList.add('button', 'button--plus-minus');
-					menuItems[j].appendChild(toggle);
-				}
-			}
-		}
-	}
-
-	/**
-  * Visibly opens submenus on tabpress.
-  * 
-  * @param {any} event
-  */
-	function tabNavigation(event) {
-
-		var el = event.target,
-		    subMenu = el.nextElementSibling ? el.nextElementSibling : '',
-		    lastItem,
-		    toggled = document.querySelector('.is-toggled');
-
-		// Show submenu once parent has been selected, but close it once we tab away from the last item.
-		if (subMenu) {
-			toggled = el.parentElement;
-			toggled.classList.add('is-toggled');
-
-			lastItem = subMenu.querySelectorAll('li');
-			lastItem = lastItem[lastItem.length - 1].firstElementChild;
-
-			lastItem.onblur = function () {
-				toggled.classList.remove('is-toggled');
-			};
-		}
-
-		// If we Shift + Tab back to the last item of a sub-menu, open the sub-menu.
-		if (!subMenu && el.parentElement.parentElement.classList.contains('menu__sub-menu')) {
-			subMenu = el.parentElement.parentElement;
-			toggled = subMenu.parentElement;
-			toggled.classList.add('is-toggled');
-		}
-
-		// If we Shift + Tab away from the parent with a sub-menu, close the sub-menu.
-		if (!subMenu && toggled) {
-			toggled.classList.remove('is-toggled');
-		}
-
-		// Close a toggled submenu when esc is pressed.
-		if (toggled && event.keyCode === 27) {
-			toggled.classList.remove('is-toggled');
-		}
-
-		// If the submenu is toggled, and we click on the body of the page, let's close the menu.
-		if (toggled) {
-			document.querySelector('body').onclick = function () {
-				toggled.classList.remove('is-toggled');
-			};
-		}
-	}
-
-	/**
-  * Adds functionality to toggle sub-menu on button press.
-  * 
-  * @param {any} event 
-  * @returns 
-  */
-	function toggleSubMenu(event) {
-
-		var el = event.target,
-		    parent = el.parentElement;
-
-		// Bail if we're not looking at a sub-menu toggle.
-		if (!el.classList.contains('button--plus-minus')) {
-			return;
-		}
-
-		// Add or remove class on list item.
-		if (parent.classList.contains('is-toggled')) {
-			parent.classList.remove('is-toggled');
-		} else {
-			parent.classList.add('is-toggled');
-		}
-	}
-
-	// Add event listeners on menus.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('keyup', tabNavigation);
-		components[i].addEventListener('click', toggleSubMenu);
-	}
-
-	// Add event listners on window.
-	window.addEventListener('load', addClasses);
-	window.addEventListener('load', addHelpers);
-})();
-
-/**
- * Modal Scripts
- */
-(function () {
-
-	var components = document.querySelectorAll('.modal'),
-	    container = document.querySelector('.modal-container'),
-	    openedModal;
-
-	/**
-  * Open the modal a modal.
-  * 
-  * @param {string}  instance  The modal to open.
-  */
-	window.openModal = function (instance) {
-
-		var modal = document.querySelector('#' + instance),
-		    wrapper = modal.parentElement,
-		    body = document.querySelector('body');
-
-		openedModal = modal;
-
-		modal.classList.remove('is-hidden');
-		wrapper.classList.remove('is-hidden');
-		body.classList.add('modal-open');
-	};
-
-	/**
-  * Close currently open modal.
-  * 
-  * @param {string}  instance  The modal to close.
-  */
-	function closeModal(instance) {
-
-		var body = document.querySelector('body');
-
-		body.classList.remove('modal-open');
-		instance.classList.add('is-hidden');
-		instance.parentElement.classList.add('is-hidden');
-
-		setTimeout(function () {
-			openedModal = '';
-		}, 200);
-	}
-
-	/**
-  * Handles click events.
+  * Determines which function to fire on a click event.
   * 
   * @param {any} event 
   */
 	function handleClickEvents(event) {
 
-		var el = event.target;
+		var target = event.target;
 
-		if (el.classList.contains('button--close') || el.classList.contains('modal-container')) {
-			closeModal(openedModal);
+		if (target.classList.contains('carousel__button--next') || target.classList.contains('fa-chevron-right')) {
+
+			if (target.classList.contains('fa-chevron-right')) {
+				target = target.parentElement;
+			}
+
+			advanceSlides(target);
+		}
+
+		if (target.classList.contains('carousel__button--previous') || target.classList.contains('fa-chevron-left')) {
+
+			if (target.classList.contains('fa-chevron-left')) {
+				target = target.parentElement;
+			}
+
+			reverseSlides(target);
+		}
+
+		if (target.parentElement.classList.contains('carousel__dots')) {
+			event.preventDefault();
+
+			changeSlides(target);
 		}
 	}
 
-	/**
-  * Closes modal when ESC is presssed.
-  * 
-  * @param {any} event 
-  */
-	function keyClose(event) {
-
-		var key = event.keyCode;
-
-		if (key === 27 && openedModal) {
-			closeModal(openedModal);
-		}
-	}
-
-	// Add event listeners to each instance of a modal.
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', handleClickEvents);
-	}
-
-	container.addEventListener('click', handleClickEvents);
-	document.addEventListener('keyup', keyClose);
+	document.addEventListener('click', handleClickEvents);
+	window.addEventListener('load', function () {
+		setTimeout(() => {
+			setActiveSlide();
+		}, 500);
+	});
 })();
 
-/**
- * Add smooth scrolling for on-page navigation.
- */
-(function () {
+// /**
+//  * Fixed Sidebar
+//  */
+// (function(){
 
-	// Script options.
-	var options = {
-		menuSelector: '.nav-menu .menu',
-		mobileBreakPoint: 900,
-		headerHeight: 20,
-		timeout: 500 // in milleseconds
-	},
-	    menu = document.querySelector(options.menuSelector);
+// 	// Script options.
+// 	var options = {
+// 		sidebarSelector: '.sidebar',
+// 		fixPosition: 20
+// 	},
+// 		sidebar = document.querySelector(options.sidebarSelector);
 
-	/**
-  * Do smooth scrolling.
-  *
-  * {@link  https://css-tricks.com/snippets/jquery/smooth-scrolling/}
-  * {@link  https://css-tricks.com/smooth-scrolling-accessibility/}
-  * @param  {any}  event 
-  */
-	function smoothScroll(event) {
+// 	/**
+// 	 * Fixes the sidebar within the viewport.
+// 	 * 
+// 	 */
+// 	function fixSidebar() {
 
-		// Return if a link isn't clicked.
-		if (event.target.tagName.toLowerCase() !== 'a') {
-			return;
-		}
+// 		if (sidebar.offsetTop - window.scrollY < options.fixPosition) {
+// 			sidebar.classList.add('is-fixed');
+// 		} else {
+// 			sidebar.classList.remove('is-fixed');
+// 		}
+// 	}
 
-		// Prevent follow action.
-		event.preventDefault();
+// 	window.addEventListener('scroll', fixSidebar);
+// })();
 
-		var el = event.target,
-		    hash = el.getAttribute('href'),
-		    url = window.location.pathname,
-		    target = document.querySelector(hash),
-		    offset = target.offsetTop;
 
-		// Check window width, and update offset accordingly.
-		if (window.innerWidth > options.mobileBreakPoint - 1) {
-			offset = offset - options.headerHeight;
-		}
+// /**
+//  * Menu JS
+//  */
+// (function () {
 
-		// Scroll the the desired element.
-		window.scroll({ left: 0, top: offset, behavior: 'smooth' });
+// 	var components = document.querySelectorAll('.menu');
 
-		// Update focus after scolling is complete.
-		setTimeout(function () {
+// 	/**
+// 	 * Adds helper classes on page load.
+// 	 * 
+// 	 */
+// 	function addClasses() {
 
-			// Updates focus to our target element.
-			target.setAttribute('tabindex', '-1');
-			target.focus();
-			window.location.href = url + hash;
-			window.scroll(0, offset); // prevents jumpbacks from applying focus.
-		}, options.timeout);
-	}
+// 		for (var i = 0; i < components.length; i++) {
 
-	menu.addEventListener('click', smoothScroll);
-})();
+// 			var menuItems = components[i].querySelectorAll('li');
+
+// 			for (var j = 0; j < menuItems.length; j++) {
+
+// 				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
+// 					menuItems[j].classList.add('has-children');
+// 				}
+
+// 				// If sub-menu will open offscreen, add a class so it doesn't.
+// 				if ((window.innerWidth - menuItems[j].offsetLeft) < 175) {
+// 					menuItems[j].classList.add('reverse-open');
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	/**
+// 	 * Adds toggle buttons for sub-menus.
+// 	 * 
+// 	 */
+// 	function addHelpers() {
+
+// 		for (var i = 0; i < components.length; i++) {
+
+// 			var menuItems = components[i].querySelectorAll('li'),
+// 				toggles;
+
+// 			for (var j = 0; j < menuItems.length; j++) {
+
+// 				var toggle = document.createElement('button'),
+// 					textWrap = document.createElement('span'),
+// 					toggleText = document.createTextNode('Toggle');
+
+// 				if (menuItems[j].lastElementChild.classList.contains('menu__sub-menu')) {
+// 					textWrap.appendChild(toggleText);
+// 					textWrap.classList.add('screen-reader-text');
+// 					toggle.appendChild(textWrap);
+// 					toggle.classList.add('button', 'button--plus-minus');
+// 					menuItems[j].appendChild(toggle);
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	/**
+// 	 * Visibly opens submenus on tabpress.
+// 	 * 
+// 	 * @param {any} event
+// 	 */
+// 	function tabNavigation(event) {
+
+// 		var el      = event.target,
+// 			subMenu = el.nextElementSibling ? el.nextElementSibling : '',
+// 			lastItem,
+// 			toggled = document.querySelector('.is-toggled');
+
+// 		// Show submenu once parent has been selected, but close it once we tab away from the last item.
+// 		if (subMenu) {
+// 			toggled = el.parentElement;
+// 			toggled.classList.add('is-toggled');
+
+// 			lastItem = subMenu.querySelectorAll('li');
+// 			lastItem = lastItem[lastItem.length - 1].firstElementChild;
+
+// 			lastItem.onblur = function () {
+// 				toggled.classList.remove('is-toggled');
+// 			}
+// 		}
+
+// 		// If we Shift + Tab back to the last item of a sub-menu, open the sub-menu.
+// 		if (!subMenu && el.parentElement.parentElement.classList.contains('menu__sub-menu')) {
+// 			subMenu = el.parentElement.parentElement;
+// 			toggled = subMenu.parentElement;
+// 			toggled.classList.add('is-toggled');
+// 		}
+
+// 		// If we Shift + Tab away from the parent with a sub-menu, close the sub-menu.
+// 		if (!subMenu && toggled) {
+// 			toggled.classList.remove('is-toggled');
+// 		}
+
+// 		// Close a toggled submenu when esc is pressed.
+// 		if (toggled && event.keyCode === 27){
+// 			toggled.classList.remove('is-toggled');
+// 		}
+
+// 		// If the submenu is toggled, and we click on the body of the page, let's close the menu.
+// 		if (toggled) {
+// 			document.querySelector('body').onclick = function () {
+// 				toggled.classList.remove('is-toggled');
+// 			}
+// 		}
+// 	}
+
+// 	/**
+// 	 * Adds functionality to toggle sub-menu on button press.
+// 	 * 
+// 	 * @param {any} event 
+// 	 * @returns 
+// 	 */
+// 	function toggleSubMenu(event) {
+
+// 		var el     = event.target,
+// 			parent = el.parentElement;
+
+// 		// Bail if we're not looking at a sub-menu toggle.
+// 		if (!el.classList.contains('button--plus-minus')) {
+// 			return;
+// 		}
+
+// 		// Add or remove class on list item.
+// 		if (parent.classList.contains('is-toggled')) {
+// 			parent.classList.remove('is-toggled');
+// 		} else {
+// 			parent.classList.add('is-toggled');
+// 		}
+// 	}
+
+// 	// Add event listeners on menus.
+// 	for (var i = 0; i < components.length; i++) {
+// 		components[i].addEventListener('keyup', tabNavigation);
+// 		components[i].addEventListener('click', toggleSubMenu);
+// 	}
+
+// 	// Add event listners on window.
+// 	window.addEventListener('load', addClasses);
+// 	window.addEventListener('load', addHelpers);
+// })();
+
+
+// /**
+//  * Modal Scripts
+//  */
+// (function() {
+
+// 	var components = document.querySelectorAll('.modal'),
+// 		container = document.querySelector('.modal-container'),
+// 		openedModal;
+
+// 	/**
+// 	 * Open the modal a modal.
+// 	 * 
+// 	 * @param {string}  instance  The modal to open.
+// 	 */
+// 	window.openModal = function(instance) {
+
+// 		var modal    = document.querySelector('#' + instance),
+// 			wrapper  = modal.parentElement,
+// 			body     = document.querySelector('body');
+
+// 		openedModal = modal;
+
+// 		modal.classList.remove('is-hidden');
+// 		wrapper.classList.remove('is-hidden');
+// 		body.classList.add('modal-open');
+// 	};
+
+// 	/**
+// 	 * Close currently open modal.
+// 	 * 
+// 	 * @param {string}  instance  The modal to close.
+// 	 */
+// 	function closeModal(instance) {
+
+// 		var body = document.querySelector('body');
+
+// 		body.classList.remove('modal-open');
+// 		instance.classList.add('is-hidden');
+// 		instance.parentElement.classList.add('is-hidden');
+
+// 		setTimeout(function() {
+// 			openedModal = '';
+// 		}, 200);
+// 	}
+
+// 	/**
+// 	 * Handles click events.
+// 	 * 
+// 	 * @param {any} event 
+// 	 */
+// 	function handleClickEvents(event) {
+
+// 		var el = event.target;
+
+// 		if ( el.classList.contains('button--close') || el.classList.contains('modal-container')) {
+// 			closeModal(openedModal);
+// 		}
+// 	}
+
+// 	/**
+// 	 * Closes modal when ESC is presssed.
+// 	 * 
+// 	 * @param {any} event 
+// 	 */
+// 	function keyClose(event) {
+
+// 		var key = event.keyCode;
+
+// 		if (key === 27 && openedModal) {
+// 			closeModal(openedModal);
+// 		}
+// 	}
+
+// 	// Add event listeners to each instance of a modal.
+// 	for (var i = 0; i < components.length; i++) {
+// 		components[i].addEventListener('click', handleClickEvents);
+// 	}
+
+// 	container.addEventListener('click', handleClickEvents);
+// 	document.addEventListener('keyup', keyClose);
+// })();
+
+
+// /**
+//  * Add smooth scrolling for on-page navigation.
+//  */
+// (function() {
+
+// 	// Script options.
+// 	var options = {
+// 		menuSelector: '.nav-menu .menu',
+// 		mobileBreakPoint : 900,
+// 		headerHeight: 20,
+// 		timeout: 500 // in milleseconds
+// 	},
+// 		menu = document.querySelector( options.menuSelector );
+
+// 	/**
+// 	 * Do smooth scrolling.
+// 	 *
+// 	 * {@link  https://css-tricks.com/snippets/jquery/smooth-scrolling/}
+// 	 * {@link  https://css-tricks.com/smooth-scrolling-accessibility/}
+// 	 * @param  {any}  event 
+// 	 */
+// 	function smoothScroll( event ) {
+
+// 		// Return if a link isn't clicked.
+// 		if (event.target.tagName.toLowerCase() !== 'a') {
+// 			return;
+// 		}
+
+// 		// Prevent follow action.
+// 		event.preventDefault();
+
+// 		var el     = event.target,
+// 			hash   = el.getAttribute('href'),
+// 			url    = window.location.pathname,
+// 			target = document.querySelector(hash),
+// 			offset = target.offsetTop;
+
+// 		// Check window width, and update offset accordingly.
+// 		if (window.innerWidth > options.mobileBreakPoint - 1) {
+// 			offset = offset - options.headerHeight;
+// 		}
+
+// 		// Scroll the the desired element.
+// 		window.scroll({left: 0, top: offset, behavior: 'smooth'});
+
+// 		// Update focus after scolling is complete.
+// 		setTimeout(function () {
+
+// 			// Updates focus to our target element.
+// 			target.setAttribute('tabindex', '-1');
+// 			target.focus();
+// 			window.location.href = url + hash;
+// 			window.scroll(0, offset); // prevents jumpbacks from applying focus.
+// 		}, options.timeout);
+// 	}
+
+// 	menu.addEventListener('click', smoothScroll);
+// })();
+
 
 /**
  * Tabs Scripts
  */
 (function () {
 
-	// Set up global variables.
-	var components = document.querySelectorAll('.tabs');
+	'use strict';
 
 	/**
   * Magically add accessiblity attributes. 🎩
   *
   */
+
 	function addAccessibilityAttrs() {
 
-		// Loop through tab components.
-		for (var i = 0; i < components.length; i++) {
+		var components = document.querySelectorAll('.tabs');
 
-			var tabs = components[i].querySelectorAll('.tabs__tab'),
-			    tabList = components[i].querySelector('.tabs__nav');
+		components.forEach(component => {
+			var tabs = component.querySelectorAll('.tabs__tab'),
+			    tabList = component.querySelector('.tabs__nav'),
+			    activeTab,
+			    activePanel;
 
-			// Add tablist attribute.
 			tabList.setAttribute('role', 'tablist');
 
-			for (var j = 0; j < tabs.length; j++) {
-				var panelID = tabs[j].getAttribute('href'),
-				    tabID = tabs[j].getAttribute('id');
-				controls = panelID.substring(1, panelID.length), panel = components[i].querySelector(panelID);
+			tabs.forEach(tab => {
+				var panelID = tab.getAttribute('href'),
+				    tabID = tab.getAttribute('id'),
+				    controls = panelID.substring(1, panelID.length),
+				    panel = component.querySelector(panelID);
 
 				// Add tab attributes.
-				tabs[j].setAttribute('role', 'tab');
-				tabs[j].setAttribute('aria-controls', controls);
-				tabs[j].setAttribute('aria-selected', 'false');
-				tabs[j].setAttribute('tabindex', '-1');
+				tab.setAttribute('role', 'tab');
+				tab.setAttribute('aria-controls', controls);
+				tab.setAttribute('aria-selected', 'false');
+				tab.setAttribute('tabindex', '-1');
 
 				// Add panel attributes.
 				panel.setAttribute('role', 'tabpanel');
 				panel.setAttribute('aria-labelledby', tabID);
 				panel.setAttribute('tabindex', '0');
+			});
 
-				// If the tab & related panel are the first in the component, update the attributes.
-				if (j === 0) {
-					tabs[j].setAttribute('aria-selected', 'true');
-					tabs[j].parentElement.classList.add('is-active');
-					panel.classList.add('is-active');
-				}
-			}
-		}
+			// Set active tab on load.
+			activeTab = component.querySelector('.tabs__tab');
+			activePanel = activeTab.getAttribute('href');
+			activePanel = activePanel.substring(1, activePanel.length);
+			activePanel = document.getElementById(activePanel);
+
+			activeTab.setAttribute('aria-selected', 'true');
+			activeTab.parentElement.classList.add('is-active');
+			activePanel.classList.add('is-active');
+		});
 	}
 
 	/**
   * Show tab content based on selected tab.
   *
-  * @param  {any}  event
+  * @param  {string}  el  The target element.
   */
 	function showTabContent(el) {
 
-		// Prevent default action of following link.
-		event.preventDefault();
-
 		// Set up function variables.
-		var component = el.parentElement.parentElement.parentElement,
+		var component = el.closest('.tabs'),
 		    tabID = el.getAttribute('href'),
 		    currentTab = component.querySelector('li.is-active a'),
 		    currentContent = component.querySelector('.tabs__panel.is-active'),
@@ -684,14 +734,17 @@
 	}
 
 	/**
-  * Fires events based on event target.
+  * Handle tab click events.
   *
-  * @param {any} event
+  * @param {object}  event  The event object.
   */
-	function fireEvents(event) {
+	function handleClickEvents(event) {
 
-		if (event.target.tagName.toLowerCase() === 'a') {
-			showTabContent(event.target);
+		var target = event.target;
+
+		if (target.classList.contains('tabs__tab')) {
+			event.preventDefault();
+			showTabContent(target);
 		}
 	}
 
@@ -700,12 +753,12 @@
   *
   * @param {any} event
   */
-	function keyboardNav(event) {
+	function handleKeyEvents(event) {
 
 		var key = event.keyCode,
 		    target = event.target,
 		    listItem = target.parentElement,
-		    component = listItem.parentElement.parentElement,
+		    component = listItem.closest('.tabs'),
 		    newTarget;
 
 		switch (key) {
@@ -750,13 +803,13 @@
 	}
 
 	// Add event listener to tab component(s).
-	for (var i = 0; i < components.length; i++) {
-		components[i].addEventListener('click', fireEvents);
-		components[i].addEventListener('keyup', keyboardNav);
-	}
-
-	// Add event listner to window to add accessibilty attributes on load.
-	window.addEventListener('load', addAccessibilityAttrs);
+	document.addEventListener('click', handleClickEvents);
+	document.addEventListener('keyup', handleKeyEvents);
+	window.addEventListener('load', function () {
+		setTimeout(() => {
+			addAccessibilityAttrs();
+		}, 500);
+	});
 })();
 
 /**
