@@ -22,6 +22,7 @@
 
 				contentTemplate = Handlebars.templates.accordion(data);
 				contentTemplate += Handlebars.templates.carousel(data);
+				contentTemplate += Handlebars.templates.tabs(data);
 
 				page.innerHTML += '<main class="page__content">' + contentTemplate + "</main>";
 				Prism.highlightAll();
