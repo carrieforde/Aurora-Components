@@ -3,13 +3,40 @@
  */
 (function() {
 
-	function changeSlides(el) {
+	'use strict';
+
+	/**
+	 * Sets the active slide and dot.
+	 * 
+	 */
+	function setActiveSlide () {
+
+		var carousels = document.querySelectorAll('.carousel');
+
+		carousels.forEach(carousel => {
+			var slide = carousel.querySelector('.carousel__slide'),
+				dot = carousel.querySelector('.carousel__dots a');
+
+			slide.classList.add('is-active');
+			dot.classList.add('is-active');
+		});
+	}
+
+	/**
+	 * Changes slides when carousel dot is clicked.
+	 * 
+	 * @param  {string}  el  The target dot.
+	 */
+	function changeSlides (el) {
 
 		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
 			currentSlide = carousel.querySelector('.carousel__slide.is-active'),
 			target       = el.getAttribute('href'),
-			newSlide     = carousel.querySelector(target);
+			newSlide;
+
+		target = target.substring(1, target.length);
+		newSlide = document.getElementById(target);
 
 		// Update classes.
 		currentDot.classList.remove('is-active');
@@ -18,7 +45,12 @@
 		newSlide.classList.add('is-active');
 	}
 
-	function advanceSlides(el) {
+	/**
+	 * Advances slides.
+	 * 
+	 * @param  {string}  el  The instance of the next arrow button.
+	 */
+	function advanceSlides (el) {
 
 		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
@@ -39,7 +71,12 @@
 		nextSlide.classList.add('is-active');
 	}
 
-	function reverseSlides(el) {
+	/**
+	 * Reverses slides.
+	 * 
+	 * @param  {string}  el  The instance of the previous slide button.
+	 */
+	function reverseSlides (el) {
 		var carousel     = el.closest('.carousel'),
 			currentDot   = carousel.querySelector('.carousel__dots .is-active'),
 			prevDot      = currentDot.previousElementSibling,
@@ -61,6 +98,11 @@
 		prevSlide.classList.add('is-active');
 	}
 
+	/**
+	 * Determines which function to fire on a click event.
+	 * 
+	 * @param {any} event 
+	 */
 	function handleClickEvents (event) {
 
 		var target = event.target;
@@ -83,7 +125,7 @@
 			reverseSlides(target);
 		}
 
-		if (target.tagName.toLowerCase() === 'a') {
+		if (target.parentElement.classList.contains('carousel__dots')) {
 			event.preventDefault();
 
 			changeSlides(target);
@@ -91,4 +133,9 @@
 	}
 
 	document.addEventListener('click', handleClickEvents);
+	window.addEventListener('load', function() {
+		setTimeout(() => {
+			setActiveSlide();
+		}, 500);
+	})
 })();
