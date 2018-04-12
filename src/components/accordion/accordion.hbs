@@ -1,0 +1,25 @@
+{{#with preload.accordion}}
+<section class="component component--accordion">
+    <header class="component__header">
+        <h2 class="component__title">{{title}}</h2>
+    </header>
+
+    <div class="component__content">
+        <ul class="accordion list-reset" role="presentation">
+            {{#each content.data}}
+            <li class="accordion__item">
+                <h3 id="{{camelCase title}}" class="accordion__title">
+                    {{title}}
+                    <button class="toggle toggle--plus-minus screen-reader-text" aria-controls="{{camelCase title}}Content" aria-expanded="false">
+                        <span class="screen-reader-text">Toggle</span>
+                    </button>
+                </h3>
+                <div id="{{camelCase title}}Content" class="accordion__content">
+                    {{content}}
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+{{/with}}
