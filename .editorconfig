@@ -14,6 +14,6 @@ indent_style = tab
 indent_size = 4
 
 # 2-space indentation
-[*.{css,json,yml,md,js,scss}]
+[*.{css,json,yml,md,js,scss, hbs}]
 indent_style = space
 indent_size = 2
