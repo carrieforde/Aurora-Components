@@ -12,10 +12,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.json']
+    extensions: ['.js', '.hbs', '.jsx', '.scss', '.json']
   },
   module: {
     rules: [
+      {
+        test: /\.hbs/,
+        loader: 'handlebars-template-loader'
+      },
       {
         test: /\.s?css$/,
         use: ExtractTextPlugin.extract({
