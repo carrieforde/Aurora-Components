@@ -8,7 +8,9 @@
 
   {{#each code}}
   <div id="{{camelCase @key}}-tab" class="tabs__panel" role="tabpanel" aria-labelledby="{{camelCase @key}}" hidden="" tabindex="0">
-    {{this}}
+    <pre class="language-{{language}}">
+      <code>{{code}}</code>
+    </pre>
   </div>
   {{/each}}
 </div>
