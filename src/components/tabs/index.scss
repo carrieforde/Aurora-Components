@@ -1,0 +1,50 @@
+// ============================================================================
+// TABS
+// ============================================================================
+
+$tabs-background-color: $white;
+$tabs-border-color: $gray-chateau;
+$tabs-active-tab-color: $color-accent;
+
+.tabs {
+
+  &__navigation {
+    border: 1px solid $tabs-border-color;
+    border-bottom: none;
+
+    @include mq-min($tablet-portrait) {
+      border: none;
+      display: flex;
+    }
+  }
+
+  &__button {
+    background-color: $white;
+    display: block;
+    padding: rem(10);
+    width: 100%;
+
+    &--active {
+
+      @include mq-min($tablet-portrait) {
+        border: 1px solid $tabs-border-color;
+        border-bottom: 0;
+        margin-bottom: -1px;
+        z-index: 1;
+      }
+    }
+
+    + .tabs__button {
+
+      @include mq-max($tablet-portrait) {
+        border-top: 1px solid $tabs-border-color;
+      }
+    }
+  }
+
+  &__panel {
+    border: 1px solid $tabs-border-color;
+    padding: rem(20);
+    position: relative;
+  }
+}

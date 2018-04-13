@@ -1,0 +1,23 @@
+{{#with preload.tabs}}
+<section class="component component--accordion">
+  <header class="component__header">
+    <h2 class="component__title">{{title}}</h2>
+  </header>
+
+  <div class="component__content">
+    <div class="tabs">
+      <div class="tabs__navigation" role="tablist" aria-label="{{label}}">
+        {{#each content.data}}
+          <button id="{{camelCase title}}" class="tabs__button" role="tab" aria-selected="false" aria-controls="{{camelCase title}}-tab" tabindex="-1">{{title}}</button>
+        {{/each}}
+      </div>
+
+      {{#each content.data}}
+        <div id="{{camelCase title}}-tab" class="tabs__panel" role="tabpanel" aria-labelledby="{{camelCase title}}" hidden="" tabindex="0">
+          {{content}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/with}}
