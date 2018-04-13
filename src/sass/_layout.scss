@@ -2,3 +2,9 @@
 .page {
   padding: $gutter;
 }
+
+.site-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

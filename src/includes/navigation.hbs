@@ -1,0 +1,9 @@
+<nav class="site-navigation">
+  <ul class="menu">
+    {{#each navigation}}
+      <li class="menu__item">
+        <a href="#{{lowerCase this}}">{{this}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</nav>
