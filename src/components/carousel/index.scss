@@ -1,0 +1,36 @@
+// ============================================================================
+// CAROUSEL
+// ============================================================================
+
+.component {
+
+  &--carousel {
+    .component__content {
+      overflow: hidden;
+    }
+  }
+}
+
+.smooth {
+  transition: transform calc(var(--f, 1) * 0.5s) ease-in-out;
+}
+
+.carousel {
+  --n: 1;
+
+  align-items: center;
+  display: flex;
+  height: 50vw;
+  max-height: 100vh;
+  overflow-y: hidden;
+  transform: translate(calc(var(--i, 0) / var(--n) * -100% + var(--tx, 0px)));
+  // width: 100%;
+  width: calc(var(--n) * 100%);
+
+  // --n needs to cascade down here.
+  .carousel__slide {
+    // width: 100%;
+    pointer-events: none;
+    width: calc(100% / var(--n));
+  }
+}

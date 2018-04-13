@@ -53,5 +53,32 @@
         }
       ]
     }
+  },
+  "carousel": {
+    "title": "Carousel",
+    "content": {
+      "data": [
+        {
+          "image_url": "https://picsum.photos/2000/3000?image=1081",
+          "image_alt": "A building."
+        },
+        {
+          "image_url": "https://picsum.photos/2000/3000?image=1060",
+          "image_alt": "Pour over coffee being made."
+        },
+        {
+          "image_url": "https://picsum.photos/2000/3000?image=1039",
+          "image_alt": "A waterfall."
+        },
+        {
+          "image_url": "https://picsum.photos/2000/3000?image=1020",
+          "image_alt": "A bear in the wilderness."
+        },
+        {
+          "image_url": "https://picsum.photos/2000/3000?image=974",
+          "image_alt": "The Milky Way."
+        }
+      ]
+    }
   }
 }

@@ -1,0 +1,15 @@
+{{#with preload.carousel}}
+<section class="component component--{{camelCase title}}">
+  <header class="component__header">
+    <h2 class="component__title">{{title}}</h2>
+  </header>
+
+  <div class="component__content">
+    <div class="carousel">
+      {{#each content.data}}
+        <img class="carousel__slide" src="{{image_url}}" alt="{{image_alt}}">
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/with}}
