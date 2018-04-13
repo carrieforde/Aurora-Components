@@ -1,0 +1,14 @@
+<h3>{{title}} Code</h3>
+<div id="code" class="tabs">
+  <div class="tabs__navigation" role="tablist" aria-label="Code for creating the {{title}}.">
+    {{#each code}}
+    <button id="{{camelCase @key}}" class="tabs__button" role="tab" aria-selected="false" aria-controls="{{camelCase @key}}-tab" tabindex="-1">{{capitalize @key}}</button>
+    {{/each}}
+  </div>
+
+  {{#each code}}
+  <div id="{{camelCase @key}}-tab" class="tabs__panel" role="tabpanel" aria-labelledby="{{camelCase @key}}" hidden="" tabindex="0">
+    {{this}}
+  </div>
+  {{/each}}
+</div>

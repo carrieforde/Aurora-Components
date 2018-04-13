@@ -1,6 +1,7 @@
 class Tabs {
-  constructor() {
-    this.items = Array.from(document.querySelectorAll('.tabs__button'));
+  constructor(selector) {
+    this.instance = document.querySelector(selector);
+    this.items = Array.from(this.instance.querySelectorAll('.tabs__button'));
     this.firstItem = this.items[0];
     this.lastItem = this.items[this.items.length - 1];
     this.keyCodes = Object.freeze({
@@ -29,8 +30,8 @@ class Tabs {
     panel.removeAttribute('hidden');
     panel.classList.add('tabs__panel--active');
 
-    document.addEventListener('click', this.handleClickEvents.bind(this));
-    document.addEventListener('keyup', this.handleKeyupEvents.bind(this));
+    this.instance.addEventListener('click', this.handleClickEvents.bind(this));
+    this.instance.addEventListener('keyup', this.handleKeyupEvents.bind(this));
   }
 
   /**

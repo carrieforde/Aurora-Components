@@ -15,6 +15,18 @@ class Utilities {
 
     return string.join('').replace(/([^a-z\d])/gi, '');
   }
+
+  capitalize(string) {
+    string = string.split(' ');
+
+    for (let i = 0; i < string.length; i++) {
+      const subStr = string[i].substring(1, string[i].length);
+
+      string[i] = string[i][0].toUpperCase().concat(subStr.toLowerCase());
+    }
+
+    return string.join(' ');
+  }
 }
 
 export default Utilities;
