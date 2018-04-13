@@ -16,13 +16,16 @@ const app = document.getElementById('app');
 
 app.innerHTML = `
   ${header({ siteData })}
-  <main class="page__content">${welcome()}</main>
+  <main class="page__content"></main>
 `;
 
+document.addEventListener('DOMContentLoaded', getTemplate);
 window.addEventListener('hashchange', getTemplate);
 
 function getTemplate(event) {
-  const templateName = event.newURL.split('#')[1],
+  const templateName = event.newURL
+      ? event.newURL.split('#')[1]
+      : window.location.href.split('#')[1],
     pageContent = document.querySelector('.page__content');
 
   switch (templateName) {
@@ -34,6 +37,7 @@ function getTemplate(event) {
     case 'accordion':
       pageContent.innerHTML = accordion({ preload });
       new Accordion();
+      new Tabs('#code');
       break;
 
     case 'carousel':
@@ -43,7 +47,8 @@ function getTemplate(event) {
 
     case 'tabs':
       pageContent.innerHTML = tabs({ preload });
-      new Tabs();
+      new Tabs('.tabs');
+      // new Tabs('#code');
       break;
 
     default:
