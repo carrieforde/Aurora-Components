@@ -1,9 +1,10 @@
-const path = require('path'),
+const webpack = require('webpack'),
+  path = require('path'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HTMLWebpackPlugin = require('html-webpack-plugin'),
   StyleLintPlugin = require('stylelint-webpack-plugin');
 
-module.exports = {
+const config = {
   context: __dirname,
   entry: './src/app.js',
   devtool: 'source-map',
@@ -28,6 +29,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                minimize: process.env.NODE_ENV === 'production' ? true : false,
                 sourceMap: true
               }
             },
@@ -95,3 +97,10 @@ module.exports = {
     new ExtractTextPlugin('main.css')
   ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.devtool = false;
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = config;
