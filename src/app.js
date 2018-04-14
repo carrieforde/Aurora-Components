@@ -10,6 +10,8 @@ import Tabs from './components/tabs/index';
 import tabs from './components/tabs/tabs';
 import Carousel from './components/carousel/index';
 import carousel from './components/carousel/carousel';
+import './vendor/prism.js';
+import './vendor/prism.css';
 import './sass/main';
 
 const app = document.getElementById('app');
@@ -20,7 +22,19 @@ app.innerHTML = `
 `;
 
 document.addEventListener('DOMContentLoaded', getTemplate);
+document.addEventListener('DOMContentLoaded', highlightCode);
 window.addEventListener('hashchange', getTemplate);
+
+function highlightCode() {
+  const code = document.getElementById('code');
+
+  if (!code) {
+    return false;
+  }
+
+  Prism.highlightAllUnder(code);
+  return true;
+}
 
 function getTemplate(event) {
   const templateName = event.newURL
@@ -43,16 +57,19 @@ function getTemplate(event) {
     case 'carousel':
       pageContent.innerHTML = carousel({ preload });
       new Carousel();
+      new Tabs('#code');
       break;
 
     case 'tabs':
       pageContent.innerHTML = tabs({ preload });
       new Tabs('.tabs');
-      // new Tabs('#code');
+      new Tabs('#code');
       break;
 
     default:
       `<h2>Sorry, ${templateName} can't be found!</h2>`;
       break;
   }
+
+  highlightCode();
 }

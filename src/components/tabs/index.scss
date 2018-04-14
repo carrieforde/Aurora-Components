@@ -5,6 +5,7 @@
 $tabs-background-color: $white;
 $tabs-border-color: $gray-chateau;
 $tabs-active-tab-color: $color-accent;
+$tabs-button-font: $base-font-family;
 
 .tabs {
 
@@ -21,6 +22,7 @@ $tabs-active-tab-color: $color-accent;
   &__button {
     background-color: $white;
     display: block;
+    font-family: $tabs-button-font;
     padding: rem(10);
     width: 100%;
 
