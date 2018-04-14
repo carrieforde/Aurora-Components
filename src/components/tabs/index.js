@@ -31,7 +31,10 @@ class Tabs {
     panel.classList.add('tabs__panel--active');
 
     this.instance.addEventListener('click', this.handleClickEvents.bind(this));
-    this.instance.addEventListener('keyup', this.handleKeyupEvents.bind(this));
+    this.instance.addEventListener(
+      'keydown',
+      this.handleKeydownEvents.bind(this)
+    );
   }
 
   /**
@@ -105,7 +108,7 @@ class Tabs {
    * @returns {boolean} Whether a subsequent action was carried out.
    * @memberof Tabs
    */
-  handleKeyupEvents(event) {
+  handleKeydownEvents(event) {
     const key = event.keyCode,
       target = event.target;
 
@@ -135,12 +138,14 @@ class Tabs {
         return true;
 
       case this.keyCodes.HOME:
+        event.preventDefault();
         newTarget = this.firstItem;
         newTarget.focus();
         this.showTabContent(newTarget);
         return true;
 
       case this.keyCodes.END:
+        event.preventDefault();
         newTarget = this.lastItem;
         newTarget.focus();
         this.showTabContent(newTarget);
