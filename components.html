@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Bov Web Components</title>
 	<link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans:400,400i,700,700i" rel="stylesheet">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	 crossorigin="anonymous">
 	<link href="style.css" rel="stylesheet">
 </head>
+
 <body class="components">
 	<header class="site-header flex--m align-items-center justify-content-between padding">
-		<p class="site-info"><a href="index.html">Bov Web Components</a></p>
+		<p class="site-info">
+			<a href="index.html">Bov Web Components</a>
+		</p>
 		<nav class="main-navigation">
 			<ul class="menu">
-				<li><a href="documentation.html">Documentation</a></li>
-				<li><a href="components.html">Components</a></li>
+				<li>
+					<a href="documentation.html">Documentation</a>
+				</li>
+				<li>
+					<a href="components.html">Components</a>
+				</li>
 			</ul>
 		</nav>
 	</header>
@@ -31,22 +40,44 @@
 				<nav class="sidebar-nav">
 					<ul class="menu flex-column">
 						<li>
-							<a href="#content"><h4>Content</h4></a>
+							<a href="#content">
+								<h4>Content</h4>
+							</a>
 							<ul class="menu__sub-menu">
-								<li><a href="#typography">Typography</a></li>
-								<li><a href="#form-elements">Form Elements</a></li>
+								<li>
+									<a href="#typography">Typography</a>
+								</li>
+								<li>
+									<a href="#form-elements">Form Elements</a>
+								</li>
 							</ul>
 						</li>
 						<li>
-							<a href="#components"><h4>Components</h4></a>
+							<a href="#components">
+								<h4>Components</h4>
+							</a>
 							<ul class="menu__sub-menu">
-								<li><a href="#accordion">Accordion</a></li>
-								<li><a href="#buttons">Buttons</a></li>
-								<li><a href="#carousel">Carousel</a></li>
-								<li><a href="#menu">Menu</a></li>
-								<li><a href="#tabs">Tabs</a></li>
-								<li><a href="#modal">Modal</a></li>
-								<li><a href="#tooltip">Tooltip</a></li>
+								<li>
+									<a href="#accordion">Accordion</a>
+								</li>
+								<li>
+									<a href="#buttons">Buttons</a>
+								</li>
+								<li>
+									<a href="#carousel">Carousel</a>
+								</li>
+								<li>
+									<a href="#menu">Menu</a>
+								</li>
+								<li>
+									<a href="#tabs">Tabs</a>
+								</li>
+								<li>
+									<a href="#modal">Modal</a>
+								</li>
+								<li>
+									<a href="#tooltip">Tooltip</a>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -64,7 +95,7 @@
 				<div class="module__content">
 					<div class="text-element">
 						<h2>Headings</h2>
-					
+
 						<h1>Heading 1</h1>
 						<h2>Heading 2</h2>
 						<h3>Heading 3</h3>
@@ -72,109 +103,112 @@
 						<h5>Heading 5</h5>
 						<h6>Heading 6</h6>
 					</div>
-					
+
 					<div class="text-element">
 						<h2>Horizontal Rule</h2>
-					
+
 						<hr />
 					</div>
-					
+
 					<div class="text-element">
 						<h2>Inline Elements</h2>
-					
+
 						<p>
 							<a href="#">This is a text link</a>
 						</p>
-					
+
 						<p>
 							<strong>Strong is used to indicate strong importance</strong>
 						</p>
-					
+
 						<p>
 							<em>This text has added emphasis</em>
 						</p>
-					
+
 						<p>The
 							<b>b element</b> is stylistically different from normal text, without any special importance
 						</p>
-					
+
 						<p>The
 							<i>i element</i> is text that is set off from the normal text
 						</p>
-					
+
 						<p>The
 							<u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation
 						</p>
-					
+
 						<p>
 							<del>This text is deleted</del> and
 							<ins>this text is inserted</ins>
 						</p>
-					
+
 						<p>
 							<s>This text as a strikethrough</s>
 						</p>
-					
+
 						<p>Superscript
 							<sup>®</sup>
 						</p>
-					
+
 						<p>Subscript for things like H
 							<sub>2</sub>O
 						</p>
-					
+
 						<p>
 							<small>This small text is small for fine print, etc</small>
 						</p>
-					
+
 						<p>Abbreviation:
 							<abbr title="HyperText Markup Language">HTML</abbr>
 						</p>
-					
+
 						<p>Keyboard input:
 							<kbd>Cmd</kbd>
 						</p>
-					
+
 						<p>
 							<q cite="">This text is a short inline quotation</q>
 						</p>
-					
+
 						<p>
 							<cite>This is a citation</cite>
 						</p>
-					
+
 						<p>The
 							<dfn>dfn element</dfn> indicates a definition.
 						</p>
-					
+
 						<p>The
 							<mark>mark element</mark> indicates a highlight
 						</p>
-					
+
 						<p>
 							<code>This is what inline code looks like</code>
 						</p>
-					
+
 						<p>
 							<samp>This is sample output from a computer program</samp>
 						</p>
-					
+
 						<p>The
 							<var>variable element</var> such as
 							<var>x</var> =
 							<var>y</var>
 						</p>
-					
+
 						<p>
 							<address>1410 Dore Ave, San Mateo, CA 94401</address>
 						</p>
 					</div>
-					
+
 					<div class="text-element">
 						<h2>Paragraph</h2>
-						<p>A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+						<p>A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse
+							in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required
+							by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer
+							prose.</p>
 					</div>
-					
+
 					<div class="text-element">
 						<h2>Preformatted Text</h2>
 						<pre>P R E F O R M A T T E D T E X T
@@ -185,7 +219,7 @@ P Q R S T U V W X Y Z [ \ ] ^ _
 ` a b c d e f g h i j k l m n o
 p q r s t u v w x y z { | } ~</pre>
 					</div>
-					
+
 					<div class="text-element">
 						<h2>Blockquote</h2>
 						<blockquote>
@@ -270,51 +304,6 @@ p q r s t u v w x y z { | } ~</pre>
 			</section>
 
 			<h2 id="components">Components</h2>
-			<section id="accordion" class="module">
-				<header class="module__header">
-					<h2>Accordion</h2>
-				</header>
-
-				<div class="module__content">
-					<ul class="accordion">
-						<li class="is-active">
-							<h3 id="k2Heading" class="accordion__heading">
-								<a href="#k2AccPanel" class="accordion__toggle">K2</a>
-							</h3>
-							<div id="k2AccPanel" class="accordion__content">
-								<p>K2 is the first cat I adopted.</p>
-							</div>
-						</li>
-				
-						<li>
-							<h3 id="whitneyHeading" class="accordion__heading">
-								<a href="whitneyAccPanel" class="accordion__toggle">Whitney</a>
-							</h3>
-							<div id="whitneyAccPanel" class="accordion__content">
-								<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
-							</div>
-						</li>
-				
-						<li>
-							<h3 id="minnieHeading" class="accordion__heading">
-								<a href="minnieAccPanel" class="accordion__toggle">Minnie</a>
-							</h3>
-							<div id="minnieAccPanel" class="accordion__content">
-								<p>Minnie is the third Forde family cat, and the first named after a city.</p>
-							</div>
-						</li>
-				
-						<li>
-							<h3 id="paulHeading" class="accordion__heading">
-								<a href="paulAccPanel" class="accordion__toggle">Paul</a>
-							</h3>
-							<div id="paulAccPanel" class="accordion__content">
-								<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</section>
 
 			<section id="buttons" class="module">
 				<header class="module__header">
@@ -324,18 +313,18 @@ p q r s t u v w x y z { | } ~</pre>
 				<div class="module__content">
 					<h3>A Basic Button</h3>
 					<div class="button">Buy Now</div>
-					
+
 					<h3>A Button Element with the Button Class</h3>
 					<button class="button">Send Mail</button>
-					
+
 					<h3>An Anchor with a Button Class</h3>
 					<a href="#" class="button">Search</a>
-					
+
 					<h3>Buttons of different sizes</h3>
 					<div class="button button--sm">A Small Button</div>
 					<div class="button button--md">A Medium Button</div>
 					<div class="button button--lg">A Large Button</div>
-					
+
 					<h3>Buttons of different types</h3>
 					<button class="button">Default</button>
 					<button class="button button--primary">Primary</button>
@@ -354,11 +343,21 @@ p q r s t u v w x y z { | } ~</pre>
 				<div class="module__content">
 					<div class="carousel">
 						<nav class="carousel__dots">
-							<a href="#item-1" class="is-active"><span class="screen-reader-text">1</span></a>
-							<a href="#item-2"><span class="screen-reader-text">2</span></a>
-							<a href="#item-3"><span class="screen-reader-text">3</span></a>
-							<a href="#item-4"><span class="screen-reader-text">4</span></a>
-							<a href="#item-5"><span class="screen-reader-text">5</span></a>
+							<a href="#item-1" class="is-active">
+								<span class="screen-reader-text">1</span>
+							</a>
+							<a href="#item-2">
+								<span class="screen-reader-text">2</span>
+							</a>
+							<a href="#item-3">
+								<span class="screen-reader-text">3</span>
+							</a>
+							<a href="#item-4">
+								<span class="screen-reader-text">4</span>
+							</a>
+							<a href="#item-5">
+								<span class="screen-reader-text">5</span>
+							</a>
 						</nav>
 
 						<nav class="carousel__arrows">
@@ -434,7 +433,10 @@ p q r s t u v w x y z { | } ~</pre>
 							<h2>About</h2>
 						</header>
 						<div class="section__content">
-							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel. Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt. Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua
+								an vel. Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor,
+								atomorum theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos
+								deserunt. Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
 						</div>
 					</section>
 					<section id="projects" class="section">
@@ -442,7 +444,10 @@ p q r s t u v w x y z { | } ~</pre>
 							<h2>Projects</h2>
 						</header>
 						<div class="section__content">
-							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel. Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt. Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua
+								an vel. Ex audiam prompta mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor,
+								atomorum theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos
+								deserunt. Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
 						</div>
 					</section>
 					<section id="skills" class="section">
@@ -450,22 +455,23 @@ p q r s t u v w x y z { | } ~</pre>
 							<h2>Skills</h2>
 						</header>
 						<div class="section__content">
-							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel.</p>
-					
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua
+								an vel.</p>
+
 							<h3 id="front-end">Front-End Skills</h3>
 							<ul>
 								<li>HTML</li>
 								<li>CSS</li>
 								<li>JavaScript</li>
 							</ul>
-					
+
 							<h3 id="back-end">Back-End Skills</h3>
 							<ul>
 								<li>PHP</li>
 								<li>Node</li>
 								<li>React</li>
 							</ul>
-					
+
 							<h3 id="other">Other Skills</h3>
 							<ul>
 								<li>Writing</li>
@@ -479,114 +485,16 @@ p q r s t u v w x y z { | } ~</pre>
 							<h2>Contact</h2>
 						</header>
 						<div class="section__content">
-							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua an vel. Ex audiam <a href="#">prompta</a> mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt. Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
+							<p>Lorem ipsum dolor sit amet, has nusquam civibus definiebas in, pri simul audiam lucilius ut, zril iuvaret voluptua
+								an vel. Ex audiam
+								<a href="#">prompta</a> mel, et sanctus legendos tacimates eam, nec ad nibh accusam delectus. Cu has utinam tempor, atomorum
+								theophrastus no duo. Mei nemore perfecto et, mei latine aperiam ut. Wisi sententiae his et, ad ius legendos deserunt.
+								Te usu assueverit scriptorem. In mel qualisque voluptatibus, simul laboramus cu est.</p>
 						</div>
 					</section>
 				</div>
 			</section>
 
-			<section id="tabs" class="module">
-				<header class="module__header">
-					<h2>Tabs</h2>
-				</header>
-
-				<div class="module__content">
-					<section class="component component--tabs">
-						<header class="component__header">
-							<h2 class="component__title">Horizontal Tabs</h2>
-						</header>
-					
-						<div class="component__content">
-							<div class="tabs">
-								<ul class="menu tabs__nav" aria-label="Cat facts">
-									<li class="is-active">
-										<a href="#k2Panel" id="k2Tab" class="tabs__tab">K2</a>
-									</li>
-								
-									<li>
-										<a href="#whitneyPanel" id="whitneyTab" class="tabs__tab">Whitney</a>
-									</li>
-								
-									<li>
-										<a href="#minniePanel" id="minnieTab" class="tabs__tab">Minnie</a>
-									</li>
-								
-									<li>
-										<a href="#paulPanel" id="paulTab" class="tabs__tab">Paul</a>
-									</li>
-								</ul>
-					
-								<div id="k2Panel" class="tabs__panel is-active">
-									<h2>K2</h2>
-									<p>K2 is the first cat I adopted.</p>
-								</div>
-					
-								<div id="whitneyPanel" class="tabs__panel">
-									<h2>Whitney</h2>
-									<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
-								</div>
-					
-								<div id="minniePanel" class="tabs__panel">
-									<h2>Minnie</h2>
-									<p>Minnie is the third Forde family cat, and the first named after a city.</p>
-								</div>
-					
-								<div id="paulPanel" class="tabs__panel">
-									<h2>Paul</h2>
-									<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
-								</div>
-							</div>
-						</div>
-					</section>
-					
-					<section class="component component--tabs">
-						<header class="component__header">
-							<h2>Vertical Tabs</h2>
-						</header>
-						<div class="component__content">
-							<div class="tabs tabs--vertical flex--m">
-								<ul class="menu flex-column tabs__nav" role="tablist" aria-label="Cat facts">
-									<li class="is-active">
-										<a href="#k2Panel2" id="k2Tab2" class="tabs__tab">K2</a>
-									</li>
-							
-									<li>
-										<a href="#whitneyPanel2" id="whitneyTab2" class="tabs__tab">Whitney</a>
-									</li>
-							
-									<li>
-										<a href="#minniePanel2" id="minnieTab2" class="tabs__tab">Minnie</a>
-									</li>
-							
-									<li>
-										<a href="#paulPanel2" id="paulTab2" class="tabs__tab">Paul</a>
-									</li>
-								</ul>
-							
-								<div id="k2Panel2" class="tabs__panel is-active">
-									<h2>K2</h2>
-									<p>K2 is the first cat I adopted.</p>
-								</div>
-							
-								<div id="whitneyPanel2" class="tabs__panel" role="tabpanel" aria-labelledby="whitneyTab" tabindex="0">
-									<h2>Whitney</h2>
-									<p>Whitney is the second cat I adopted, and is K2's biological sister.</p>
-								</div>
-							
-								<div id="minniePanel2" class="tabs__panel">
-									<h2>Minnie</h2>
-									<p>Minnie is the third Forde family cat, and the first named after a city.</p>
-								</div>
-							
-								<div id="paulPanel2" class="tabs__panel">
-									<h2>Paul</h2>
-									<p>Paul is the most recent addition to the Forde family, and he loves cuddles.</p>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-			</section>
 			<section id="modal" class="module">
 				<header class="module__header">
 					<h2>Modal</h2>
@@ -601,20 +509,29 @@ p q r s t u v w x y z { | } ~</pre>
 					<h2>Tooltip</h2>
 				</header>
 				<div class="module__content">
-					<p>This <span class="has-tooltip" data-tooltip="Tooltips allow you to provide more information to the user.">text</span> has a nifty tooltip!</p>
+					<p>This
+						<span class="has-tooltip" data-tooltip="Tooltips allow you to provide more information to the user.">text</span> has a nifty tooltip!</p>
 				</div>
 			</section>
 		</div>
 	</main>
 
 	<footer class="site-footer flex--m align-items-center justify-content-between padding background--dark-gray color--white">
-		<p class="copyright"><small>Copyright &copy; 2017 <a href="https://carrieforde.com" class="color--white">Carrie Forde</a></small></p>
-		<a href="https://github.com/carrieforde/bov-web-components" class="color--white"><i class="fa fa-github" aria-hidden="true"></i><span class="screen-reader-text">Github</span></a>
+		<p class="copyright">
+			<small>Copyright &copy; 2017
+				<a href="https://carrieforde.com" class="color--white">Carrie Forde</a>
+			</small>
+		</p>
+		<a href="https://github.com/carrieforde/bov-web-components" class="color--white">
+			<i class="fa fa-github" aria-hidden="true"></i>
+			<span class="screen-reader-text">Github</span>
+		</a>
 	</footer>
 
 	<!-- Modal content -->
 	<section class="modal-container is-hidden">
-		<div id="modal-1" class="modal is-hidden" role="dialog" aria-labelledby="modal-1_label" aria-describedby="modal-1_content" aria-modal="true">
+		<div id="modal-1" class="modal is-hidden" role="dialog" aria-labelledby="modal-1_label" aria-describedby="modal-1_content"
+		 aria-modal="true">
 			<div class="modal-content">
 				<header class="modal-content__header">
 					<h2 id="modal-1_label">Hello! This is a modal</h2>
@@ -626,11 +543,14 @@ p q r s t u v w x y z { | } ~</pre>
 				</header>
 				<div id="modal-1_content" class="modal-content__content">
 					<img src="https://picsum.photos/200/300" alt="">
-					<p>Lorem ipsum dolor sit amet, mei salutandi vituperata ad. Utroque fierent et vel. Tollit latine aliquam his ea, cum idque simul melius at. Ius te aliquid omittam eloquentiam, graeci ocurreret vel ut. Id nam soluta tempor, illud maiestatis ea sit, ex mel nostrum forensibus. In agam ipsum deseruisse has, no nec accusata gloriatur.</p>
+					<p>Lorem ipsum dolor sit amet, mei salutandi vituperata ad. Utroque fierent et vel. Tollit latine aliquam his ea, cum idque
+						simul melius at. Ius te aliquid omittam eloquentiam, graeci ocurreret vel ut. Id nam soluta tempor, illud maiestatis
+						ea sit, ex mel nostrum forensibus. In agam ipsum deseruisse has, no nec accusata gloriatur.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<script src="assets/scripts/app.js"></script>
 </body>
+
 </html>
