@@ -19,6 +19,8 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
+import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 
 const app = document.getElementById('app');
 
