@@ -27,6 +27,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "feather-icons": "^4.7.0",
     "file-loader": "^1.1.6",
     "handlebars-template-loader": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",

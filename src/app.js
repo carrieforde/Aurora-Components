@@ -4,6 +4,7 @@ import siteData from '../site-data';
 import './helpers';
 import welcome from './includes/welcome';
 import header from './includes/header';
+import footer from './includes/footer';
 import Accordion from './components/accordion/index';
 import accordion from './components/accordion/accordion';
 import Tabs from './components/tabs/index';
@@ -12,6 +13,7 @@ import Carousel from './components/carousel/index';
 import carousel from './components/carousel/carousel';
 import './vendor/prism.js';
 import './vendor/prism.css';
+import feather from 'feather-icons';
 import './sass/main';
 
 const app = document.getElementById('app');
@@ -19,7 +21,10 @@ const app = document.getElementById('app');
 app.innerHTML = `
   ${header({ siteData })}
   <main class="page__content"></main>
+  ${footer({ siteData })}
 `;
+
+feather.replace();
 
 document.addEventListener('DOMContentLoaded', getTemplate);
 document.addEventListener('DOMContentLoaded', highlightCode);
