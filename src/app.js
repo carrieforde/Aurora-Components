@@ -11,10 +11,14 @@ import Tabs from './components/tabs/index';
 import tabs from './components/tabs/tabs';
 import Carousel from './components/carousel/index';
 import carousel from './components/carousel/carousel';
-import './vendor/prism.js';
-import './vendor/prism.css';
 import feather from 'feather-icons';
 import './sass/main';
+import 'prismjs';
+import 'prismjs/components/prism-scss';
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+import 'prismjs/themes/prism.css';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-handlebars';
 
 const app = document.getElementById('app');
 
