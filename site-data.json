@@ -4,5 +4,15 @@
     "Accordion",
     "Carousel",
     "Tabs"
+  ],
+  "social_links": [
+    {
+      "site": "Github",
+      "link": "https://github.com/carrieforde/Aurora-Components"
+    },
+    {
+      "site": "Twitter",
+      "link": "https://twitter.com/CarrieForde"
+    }
   ]
 }

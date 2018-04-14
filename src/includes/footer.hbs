@@ -1,0 +1,19 @@
+{{#with siteData}}
+<footer class="site-footer">
+  <div class="copyright">
+    Made with <i data-feather="heart"></i> by <a href="https://carrieforde.com">Carrie Forde</a> &bullet; Copyright &copy; 2018
+  </div>
+  <nav class="social-media">
+    <ul class="menu menu--social">
+      {{#each social_links}}
+        <li class="menu__item">
+          <a href="{{link}}">
+            <span class="screen-reader-text">{{site}}</span>
+            <i class="icon icon-{{lowerCase site}}" data-feather="{{lowerCase site}}"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+</footer>
+{{/with}}

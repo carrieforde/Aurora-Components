@@ -8,3 +8,40 @@
   display: flex;
   justify-content: space-between;
 }
+
+.site-footer {
+  padding-top: rem(40);
+  text-align: center;
+
+  @include mq-min($tablet-portrait) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  svg {
+    width: rem(15);
+  }
+}
+
+.menu--social {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  @include mq-min($tablet-portrait) {
+    justify-content: flex-end;
+  }
+
+  .menu__item {
+
+    + .menu__item {
+      margin-left: rem(15);
+    }
+  }
+
+  svg {
+    width: rem(20);
+  }
+}
