@@ -2,18 +2,11 @@ root = true
 
 [*]
 end_of_line = lf
+indent_style = space
+indent_size = 2
 insert_final_newline = true
 
 # Set default charset
-[*.{css,html,js,json,scss}]
+[*.{css,html,js,json,scss,hbs,handlebars}]
 charset = utf-8
 
-# 4-space indentation
-[*.{html}]
-indent_style = tab
-indent_size = 4
-
-# 2-space indentation
-[*.{css,json,yml,md,js,scss, hbs}]
-indent_style = space
-indent_size = 2
