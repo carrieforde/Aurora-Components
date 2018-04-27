@@ -1,0 +1,32 @@
+// ============================================================================
+// POST
+// ============================================================================
+.post {
+  max-width: 100%;
+  overflow: hidden;
+  width: rem(775);
+
+  &__meta {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__thumbnail {
+
+    @include mq-min($tablet-portrait) {
+      float: left;
+      margin-right: rem(30);
+      width: rem(250);
+    }
+  }
+}
+
+.link {
+
+  &--arrow {
+    @include decorative-link($color-primary, $color-accent);
+
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

@@ -176,5 +176,27 @@
     "meta": {
       "label": "Menu example"
     }
+  },
+  "post": {
+    "title": "Post",
+    "content": {
+      "title": "The best coffee in the Bay Area",
+      "content": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+      "image": "https://picsum.photos/500/575?image=431",
+      "meta": {
+        "date": "January 12, 2018",
+        "category": "Food & Drink"
+      }
+    },
+    "code": {
+      "templated": {
+        "language": "handlebars",
+        "code": "<article class=\"post\">\n  <header class=\"post__header\">\n    <p class=\"post__meta\">\n      <span class=\"meta__date\">{{meta.date}}</span> &verbar;\n      <span class=\"meta__category\">{{meta.category}}</span>\n    </p>\n\n    {{#if image}}\n      <img src=\"{{image}}\" alt=\"\" class=\"post__thumbnail\">\n    {{/if}}\n    <h2 class=\"post__title\">{{title}}</h2>\n  </header>\n\n  <div class=\"post__content\">\n    <p>{{content}}</p>\n  </div>\n\n  <footer class=\"post__footer\">\n    <a href=\"\" class=\"link--arrow\">Read More</a>\n  </footer>\n</article>"
+      },
+      "styles": {
+        "language": "scss",
+        "code": "// ============================================================================\n// POST\n// ============================================================================\n.post {\n  max-width: 100%;\n  overflow: hidden;\n  width: rem(775);\n\n  &__meta {\n    font-weight: 700;\n    text-transform: uppercase;\n  }\n\n  &__thumbnail {\n\n    @include mq-min($tablet-portrait) {\n      float: left;\n      margin-right: rem(30);\n      width: rem(250);\n    }\n  }\n}\n\n.link {\n\n  &--arrow {\n    @include decorative-link($color-primary, $color-accent);\n\n    font-weight: 700;\n    text-decoration: none;\n  }\n}\n"
+      }
+    }
   }
 }

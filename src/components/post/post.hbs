@@ -1,0 +1,37 @@
+{{#with preload.post}}
+<section class="component component--{{camelCase title}}">
+  <header class="component__header">
+    <h2 class="component__title">{{title}}</h2>
+  </header>
+
+  <div class="component__content">
+    {{#with content}}
+    <article class="post">
+      <header class="post__header">
+        <p class="post__meta">
+          <span class="meta__date">{{meta.date}}</span> &verbar;
+          <span class="meta__category">{{meta.category}}</span>
+        </p>
+
+        {{#if image}}
+          <img src="{{image}}" alt="" class="post__thumbnail">
+        {{/if}}
+        <h2 class="post__title">{{title}}</h2>
+      </header>
+      
+      <div class="post__content">
+        <p>{{content}}</p>
+      </div>
+
+      <footer class="post__footer">
+        <a href="" class="link--arrow">Read More</a>
+      </footer>
+    </article>
+    {{/with}}
+  </div>
+
+  <footer class="component__footer">
+    {{> code this}}
+  </footer>
+</section>
+{{/with}}

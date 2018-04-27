@@ -13,6 +13,7 @@ import Carousel from './components/carousel/index';
 import carousel from './components/carousel/carousel';
 import menu from './components/menu/menu';
 import Menu from './components/menu/index';
+import post from './components/post/post';
 import feather from 'feather-icons';
 import './sass/main';
 import 'prismjs';
@@ -82,6 +83,11 @@ function getTemplate(event) {
     case 'menu':
       pageContent.innerHTML = menu({ preload });
       new Menu('#menu');
+      break;
+
+    case 'post':
+      pageContent.innerHTML = post({ preload });
+      new Tabs('#code');
       break;
 
     default:
