@@ -11,6 +11,8 @@ import Tabs from './components/tabs/index';
 import tabs from './components/tabs/tabs';
 import Carousel from './components/carousel/index';
 import carousel from './components/carousel/carousel';
+import menu from './components/menu/menu';
+import Menu from './components/menu/index';
 import feather from 'feather-icons';
 import './sass/main';
 import 'prismjs';
@@ -75,6 +77,11 @@ function getTemplate(event) {
       pageContent.innerHTML = tabs({ preload });
       new Tabs('.tabs');
       new Tabs('#code');
+      break;
+
+    case 'menu':
+      pageContent.innerHTML = menu({ preload });
+      new Menu('#menu');
       break;
 
     default:

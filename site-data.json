@@ -3,7 +3,8 @@
   "navigation": [
     "Accordion",
     "Carousel",
-    "Tabs"
+    "Tabs",
+    "Menu"
   ],
   "social_links": [
     {

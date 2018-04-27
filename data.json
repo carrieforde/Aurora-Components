@@ -122,5 +122,59 @@
         "code": "\/**\r\n * Carousel\r\n *\r\n * {@link} https:\/\/css-tricks.com\/simple-swipe-with-vanilla-javascript\/\r\n * @class Carousel\r\n *\/\r\nclass Carousel {\r\n  constructor() {\r\n    this.instance = document.querySelector('.carousel');\r\n    this.imageCount = this.instance.children.length;\r\n    this.xCoord = null;\r\n    this.i = 0;\r\n    this.locked = false;\r\n    this.windowWidth;\r\n\r\n    this.size();\r\n\r\n    this.instance.style.setProperty('--n', this.imageCount);\r\n\r\n    this.instance.addEventListener('mousedown', this.lock.bind(this));\r\n    this.instance.addEventListener('touchstart', this.lock.bind(this));\r\n\r\n    this.instance.addEventListener('mouseup', this.move.bind(this));\r\n    this.instance.addEventListener('touchend', this.move.bind(this));\r\n\r\n    this.instance.addEventListener('mousemove', this.drag.bind(this));\r\n    this.instance.addEventListener('touchmove', this.drag.bind(this));\r\n\r\n    this.instance.addEventListener('touchmove', event =>\r\n      event.preventDefault()\r\n    );\r\n\r\n    window.addEventListener('resize', this.size);\r\n  }\r\n\r\n  \/**\r\n   * Updates the xCoord and toggles the smooth class.\r\n   *\r\n   * @param {object} event The event object.\r\n   * @memberof Carousel\r\n   *\/\r\n  lock(event) {\r\n    this.xCoord = this.unify(event).clientX;\r\n\r\n    this.instance.classList.toggle('smooth', !(this.locked = true));\r\n  }\r\n\r\n  \/**\r\n   * Updates CSS variables to advance the carousel slide.\r\n   *\r\n   * @param {object} event The event object.\r\n   * @memberof Carousel\r\n   *\/\r\n  move(event) {\r\n    if (this.locked) {\r\n      let dx = this.unify(event).clientX - this.xCoord,\r\n        s = Math.sign(dx),\r\n        f = +(s * dx \/ this.windowWidth).toFixed(2);\r\n\r\n      if (\r\n        (this.i > 0 || s < 0) &&\r\n        (this.i < this.imageCount - 1 || s > 0) &&\r\n        f > 0.2\r\n      ) {\r\n        this.instance.style.setProperty('--i', (this.i -= s));\r\n        f = 1 - f;\r\n      }\r\n      this.instance.style.setProperty('--tx', '0px');\r\n      this.instance.style.setProperty('--f', f);\r\n      this.instance.classList.toggle('smooth', !(this.locked = false));\r\n      this.xCoord = null;\r\n    }\r\n  }\r\n\r\n  \/**\r\n   * Unifies the touch and mouse events\r\n   *\r\n   * @param {object} event The event object.\r\n   * @returns\r\n   * @memberof Carousel\r\n   *\/\r\n  unify(event) {\r\n    return event.changedTouches ? event.changedTouches[0] : event;\r\n  }\r\n\r\n  \/**\r\n   * Prevents drag from activating browser forward \/ back.\r\n   *\r\n   * @param {object} event The event object.\r\n   * @memberof Carousel\r\n   *\/\r\n  drag(event) {\r\n    event.preventDefault();\r\n\r\n    if (this.locked) {\r\n      this.instance.style.setProperty(\r\n        '--tx',\r\n        `${Math.round(this.unify(event).clientX - this.xCoord)}px`\r\n      );\r\n    }\r\n  }\r\n\r\n  \/**\r\n   * Updates the window width.\r\n   *\r\n   * @memberof Carousel\r\n   *\/\r\n  size() {\r\n    this.windowWidth = window.innerWidth;\r\n  }\r\n}\r\n\r\nexport default Carousel;\r\n"
       }
     }
+  },
+  "menu": {
+    "title": "Menu",
+    "content": {
+      "data": [
+        {
+          "link": "#lorem",
+          "label": "Lorem",
+          "children": [
+            {
+              "link": "#dolor",
+              "label": "Dolor"
+            },
+            {
+              "link": "#sit",
+              "label": "Sit"
+            },
+            {
+              "link": "#amet",
+              "label": "Amet"
+            }
+          ]
+        },
+        {
+          "link": "#ipsum",
+          "label": "Ipsum"
+        },
+        {
+          "link": "#dolor",
+          "label": "Dolor"
+        },
+        {
+          "link": "#sit",
+          "label": "Sit",
+          "children": [
+            {
+              "link": "#lorem",
+              "label": "Lorem"
+            },
+            {
+              "link": "#ipsum",
+              "label": "Ipsum"
+            }
+          ]
+        },
+        {
+          "link": "#amet",
+          "label": "Amet"
+        }
+      ]
+    },
+    "meta": {
+      "label": "Menu example"
+    }
   }
 }

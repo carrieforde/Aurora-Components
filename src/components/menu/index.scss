@@ -1,0 +1,60 @@
+// ============================================================================
+// MENU
+// ============================================================================
+.menu {
+  @include list-reset;
+
+  display: flex;
+
+  a {
+    display: inline-block;
+    padding: rem(5) rem(10);
+  }
+
+  &__item {
+    position: relative;
+
+    + .menu__item {
+      margin-left: $gutter;
+    }
+
+    &--has-children {
+
+      &:hover,
+      &:focus-within {
+
+        .sub-menu {
+          height: 100%;
+          max-height: 1000vh;
+          overflow: visible;
+        }
+      }
+
+      > a {
+        align-items: center;
+        display: flex;
+
+        &:after {
+          background: url(../icons/chevron-down.svg) no-repeat;
+          content: '';
+          display: inline-block;
+          height: rem(20);
+          margin-left: $gutter / 2;
+          width: rem(20);
+        }
+      }
+    }
+  }
+}
+
+.sub-menu { // stylelint-disable-line no-descending-specificity
+  height: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  transition: all 0.3s ease-in-out;
+}
+

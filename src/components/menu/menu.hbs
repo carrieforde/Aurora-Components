@@ -1,0 +1,32 @@
+{{#with preload.menu}}
+<section class="component component--{{camelCase title}}">
+  <header class="component__header">
+    <h2 class="component__title">{{title}}</h2>
+  </header>
+
+  <div class="component__content">
+    <nav class="navigation-menu">
+      <ul id="{{lowerCase title}}" class="menu" role="menubar" aria-label="{{meta.label}}">
+        {{#each content.data}}
+          <li class="menu__item" role="none">
+            <a href="{{link}}" role="menuitem" tabindex="0" {{#if children}}aria-haspopup="true" aria-expanded="false"{{/if}}>{{label}}</a>
+            {{#if children}}
+              <ul class="sub-menu" aria-label="{{label}}">
+                {{#each children}}
+                  <li class="sub-menu__item" role="none">
+                    <a href="{{link}}" role="menu-item" tabindex="-1">{{label}}</a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+  </div>
+
+  <footer class="component__footer">
+    {{> code this}}
+  </footer>
+</section>
+{{/with}}
