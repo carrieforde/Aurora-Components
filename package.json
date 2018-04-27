@@ -33,9 +33,7 @@
     "html-webpack-plugin": "^2.30.1",
     "img-loader": "^2.0.0",
     "jsdoc": "^3.5.5",
-    "kss": "^3.0.0-beta.18",
     "node-sass": "^4.7.2",
-    "onchange": "^3.3.0",
     "postcss-loader": "^2.0.10",
     "prettier": "^1.9.2",
     "prismjs": "^1.14.0",
@@ -60,8 +58,6 @@
     "eslint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,scss}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
-    "kss": "kss --config kss-config.json",
-    "kss:watch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",
     "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
     "stylelint": "stylelint \"src/**/*.{css,scss}\"",
     "stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix"
